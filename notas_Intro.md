@@ -1,5 +1,5 @@
 ***
-# Notas de Intrducción al curso
+# Introducción al curso
 ## Parcial 1 - Sistemas Distribuidos
 * **Curso:** Sistemas Distribuidos.
 * **Objetivos del Curso:**
