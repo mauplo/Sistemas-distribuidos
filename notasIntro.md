@@ -24,10 +24,10 @@
 
 ## Introducción a Sistemas Distribuidos
 * **¿Qué es un Sistema Distribuido (SD)?**
-    * Es un sistema en el cual los componentes de hardware o software, localizados en computadoras unidas mediante red, se comunican y coordinan sus acciones únicamente mediante el paso de mensajes.
+    * Es un sistema en el cual los componentes de *hardware o software*, localizados en computadoras unidas *mediante red, se comunican y coordinan* sus acciones únicamente mediante el paso de *mensajes*.
 * **Características Principales:**
     * Concurrencia de los componentes.
-    * No existe un reloj global.
+    * *No existe un reloj global*.
     * Fallos independientes de los componentes.
 * **Ejemplos de Sistemas Distribuidos:**
     * Internet, redes corporativas, redes de teléfonos móviles, y redes domésticas/universitarias.
@@ -38,9 +38,9 @@
     * Centros de datos globales.
     * Juegos online multijugador, usando arquitecturas que asignan usuarios a servidores "cercanos" o investigando arquitecturas Punto-a-Punto.
 * **Tendencias:**
-    * Redes omnipresentes (computación ubicua), con tecnologías como WiFi, WiMAX, Bluetooth y redes telefónicas nG.
-    * Movilidad de usuarios y creciente demanda multimedia.
-    * Visión de los SDs como un servicio básico.
+    * Redes *omnipresentes* (computación *ubicua*), con tecnologías como WiFi, WiMAX, Bluetooth y redes telefónicas nG.
+    * *Movilidad* de usuarios y creciente demanda de servicios *multimedia*.
+    * Visión de los SDs como un *servicio básico*.
     * Blockchain (bitcoin, ethereum, dodge, etc.).
     * *Diagrama 2 (Redes de internet moderna):* Muestra computadoras conectadas a un ISP protegido por firewall, y otras conexiones con servidores y redes.
 
