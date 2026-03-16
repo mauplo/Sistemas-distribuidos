@@ -1,1 +1,1 @@
-Todos los códigos excepto los que dicen la palabra "Laboratorio" son directamente de Octavio
+Todos los códigos excepto los que incluyenla palabra "Laboratorio" son directamente de Octavio
