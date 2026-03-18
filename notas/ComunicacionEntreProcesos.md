@@ -1,4 +1,4 @@
-# Notas de Curso: Introducción a Sistemas Distribuidos
+# Comunicación entre Procesos
 
 ## Comunicación entre Procesos
 La comunicación entre procesos abarca las aplicaciones, los servicios, la invocación remota y la comunicación indirecta. Se basa en primitivas subyacentes de comunicación como Sockets, paso de mensajes, empaquetado y representación de datos, utilizando protocolos como UDP y TCP.
