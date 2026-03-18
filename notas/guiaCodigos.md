@@ -641,24 +641,3 @@ public class Main {
 
 ---
 
-## 6. Proyecto Alpha
-
-### Descripción General
-El Proyecto Alpha es un juego distribuido donde múltiples jugadores interactúan con un servidor central para registrar golpes y competir por puntos. Utiliza TCP para la comunicación y JMS para la coordinación de eventos.
-
-### Componentes Principales
-1. **ServidorMonstruos**: Coordina el juego y publica eventos.
-2. **JugadorMonstruo**: Representa a un jugador que interactúa con el servidor.
-3. **Escuchadores**: Manejan conexiones TCP para logins y golpes.
-4. **Estresador**: Realiza pruebas de carga al servidor.
-
-### Ejemplo: Escuchador de Golpes
-```java
-public class EscuchadorGolpes extends Thread {
-    @Override
-    public void run() {
-        // Lógica para aceptar conexiones y procesar golpes.
-    }
-}
-```
-
