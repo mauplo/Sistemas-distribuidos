@@ -381,7 +381,7 @@ public class MulticastSender {
             DatagramPacket packet = new DatagramPacket(message.getBytes(), message.length(), group, 6789);
             socket.send(packet);
             System.out.println("Mensaje enviado: " + message);
-            socket.close();
+            socket.close(); //socket.leaveGroup{group, netIf} y luego en finally el close
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -640,4 +640,302 @@ public class Main {
 - `join`: Espera a que un hilo termine antes de continuar.
 
 ---
+## 6. Proyecto Alpha
+
+### Descripción General
+El Proyecto Alpha es un juego distribuido donde múltiples jugadores interactúan con un servidor central para registrar golpes y competir por puntos. Utiliza TCP para la comunicación y JMS para la coordinación de eventos.
+
+### Componentes Principales
+1. **ServidorMonstruos**: Coordina el juego y publica eventos.
+2. **JugadorMonstruo**: Representa a un jugador que interactúa con el servidor.
+3. **Escuchadores**: Manejan conexiones TCP para logins y golpes.
+4. **Estresador**: Realiza pruebas de carga al servidor.
+
+### Ejemplo: ServidorMonstruos
+```java
+import java.io.*;
+import java.net.*;
+import java.util.concurrent.*;
+
+/**
+ * Clase principal que implementa el servidor del juego.
+ * Escucha conexiones de múltiples jugadores y delega el manejo a hilos.
+ */
+public class ServidorMonstruos {
+    private static final int PORT = 12345; // Puerto donde el servidor escucha conexiones
+
+    public static void main(String[] args) {
+        ExecutorService pool = Executors.newFixedThreadPool(10); // Pool de hilos para manejar clientes
+        try (ServerSocket serverSocket = new ServerSocket(PORT)) {
+            System.out.println("ServidorMonstruos escuchando en el puerto " + PORT);
+            while (true) {
+                Socket clientSocket = serverSocket.accept(); // Acepta nuevas conexiones
+                pool.execute(new ClientHandler(clientSocket)); // Maneja cada cliente en un hilo separado
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+/**
+ * Clase que maneja la comunicación con un cliente.
+ */
+class ClientHandler implements Runnable {
+    private Socket clientSocket;
+
+    public ClientHandler(Socket clientSocket) {
+        this.clientSocket = clientSocket;
+    }
+
+    @Override
+    public void run() {
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)) {
+            String input;
+            while ((input = in.readLine()) != null) { // Lee mensajes del cliente
+                System.out.println("Recibido: " + input);
+                out.println("Procesado: " + input); // Responde al cliente
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+**Resumen de funciones:**
+- `main`: Inicia el servidor y maneja múltiples clientes concurrentemente.
+- `ClientHandler`: Procesa mensajes de un cliente específico.
+
+### Ejemplo: JugadorMonstruo
+```java
+import java.io.*;
+import java.net.*;
+
+/**
+ * Clase que representa a un jugador en el juego.
+ * Se conecta al servidor y envía mensajes.
+ */
+public class JugadorMonstruo {
+    private static final String HOST = "localhost"; // Dirección del servidor
+    private static final int PORT = 12345; // Puerto del servidor
+
+    /**
+     * Método principal que inicia la conexión con el servidor.
+     * Envía un mensaje y recibe la respuesta.
+     */
+    public static void main(String[] args) {
+        try (Socket socket = new Socket(HOST, PORT); // Crea un socket para conectarse al servidor
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream())); // Lee datos del servidor
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) { // Envía datos al servidor
+
+            out.println("Golpe al monstruo"); // Envía un mensaje al servidor
+            String response = in.readLine(); // Lee la respuesta del servidor
+            System.out.println("Respuesta del servidor: " + response); // Imprime la respuesta recibida
+
+        } catch (IOException e) {
+            e.printStackTrace(); // Maneja errores de entrada/salida
+        }
+    }
+}
+```
+**Resumen de funciones:**
+- `main`: Punto de entrada del cliente interactivo. Inicia el cliente en el hilo de UI de Swing.
+- `start`: Coordina la inicialización completa del cliente, incluyendo login, conexión y construcción de la interfaz.
+- `askPlayerName`: Solicita el nombre del jugador mediante un cuadro de diálogo.
+- `showScaledMessageDialog`: Muestra mensajes de error o aviso con una interfaz escalada.
+- `doLogin`: Realiza el login TCP enviando el nombre del jugador al servidor.
+- `buildUI`: Construye la ventana principal y el tablero de juego 3x3.
+- `connectHitChannel`: Abre un socket persistente para enviar golpes al servidor.
+- `startTopicConsumer`: Se suscribe al tópico JMS para recibir eventos del juego.
+- `sendHit`: Envía un golpe al servidor utilizando el canal TCP persistente.
+- `closeHitChannel`: Cierra los streams y el socket del canal de golpes para liberar recursos.
+- `handleTopicMessage`: Interpreta mensajes del tópico JMS y actualiza la interfaz del cliente.
+- `showMonster`: Muestra un monstruo en una casilla específica y activa un temporizador.
+- `showWinner`: Muestra al ganador de la ronda y prepara la interfaz para el siguiente juego.
+- `clearBoard`: Limpia el tablero y resetea el estado visual.
+- `GameMessageListener`: Clase interna que escucha mensajes JMS y los delega al hilo de Swing para su procesamiento.
+
+---
+
+## 7. JMS Queues: The Potato Game
+
+### Descripción General
+The Potato Game es un ejemplo de sistema distribuido basado en colas JMS. En este juego, los jugadores pasan un "potato" (objeto) entre ellos a través de colas de mensajes. El objetivo es evitar que el "potato" se "caiga" (es decir, que su tiempo restante llegue a cero) mientras se pasa entre los jugadores.
+
+### Componentes Principales
+1. **Deployer**: Clase principal que inicializa y arranca los jugadores.
+2. **Player**: Representa a un jugador que envía y recibe "potatoes" a través de colas JMS.
+3. **Potato**: Clase que modela el objeto "potato" con un tiempo restante antes de "caer".
+
+### Ejemplo: Deployer
+```java
+package mx.itam.packages.jmsqueuesthepotatogame;
+
+/**
+ * Clase principal que inicializa y arranca los jugadores.
+ */
+public class Deployer {
+
+    public static void main(String[] args) {
+        // Crea dos jugadores con colas de entrada y salida.
+        Player player1 = new Player("queue1", "queue2", "potatoA");
+        Player player2 = new Player("queue2", "queue1", "potatoB");
+
+        // Inicia los jugadores en hilos separados.
+        player1.start();
+        player2.start();
+    }
+}
+```
+**Resumen de funciones:**
+- `main`: Inicializa dos jugadores con colas de entrada y salida y los arranca en hilos separados.
+
+### Ejemplo: Player
+```java
+package mx.itam.packages.jmsqueuesthepotatogame;
+
+/**
+ * Clase que representa a un jugador en el juego.
+ * Envía y recibe "potatoes" a través de colas JMS.
+ */
+public class Player extends Thread {
+
+    private String inputQueue;
+    private String outputQueue;
+    private String potatoId;
+
+    public Player(String inputQueue, String outputQueue, String potatoId) {
+        this.inputQueue = inputQueue;
+        this.outputQueue = outputQueue;
+        this.potatoId = potatoId;
+    }
+
+    @Override
+    public void run() {
+        // Configura las conexiones JMS y las colas.
+        // Envía y recibe "potatoes" hasta que uno "caiga".
+    }
+}
+```
+**Resumen de funciones:**
+- `Player(String inputQueue, String outputQueue, String potatoId)`: Constructor que inicializa las colas de entrada y salida y el ID del "potato".
+- `run`: Configura las conexiones JMS, envía y recibe "potatoes" hasta que uno "caiga".
+
+### Ejemplo: Potato
+```java
+package mx.itam.packages.jmsqueuesthepotatogame;
+
+/**
+ * Clase que modela el objeto "potato".
+ */
+public class Potato implements Serializable {
+
+    private String id;
+    private int remainingTime;
+
+    public Potato(String id, int remainingTime) {
+        this.id = id;
+        this.remainingTime = remainingTime;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void decreaseRemainingTime() {
+        remainingTime--;
+    }
+
+    public boolean isDropped() {
+        return remainingTime == 0;
+    }
+}
+```
+**Resumen de funciones:**
+- `Potato(String id, int remainingTime)`: Constructor que inicializa el ID y el tiempo restante del "potato".
+- `getId`: Devuelve el ID del "potato".
+- `decreaseRemainingTime`: Disminuye el tiempo restante del "potato".
+- `isDropped`: Devuelve `true` si el tiempo restante es cero.
+
+---
+
+## 8. JMS Topics: Financial System
+
+### Descripción General
+El sistema financiero basado en JMS Topics es un ejemplo de sistema distribuido donde los "Floor Brokers" reciben noticias financieras categorizadas en diferentes tópicos. Estas noticias son generadas por un "Information Provider" y distribuidas a través de tópicos JMS. Los brokers reaccionan a las noticias dependiendo de su severidad.
+
+### Componentes Principales
+1. **Deployer**: Clase principal que inicializa y arranca los brokers.
+2. **FloorBroker**: Representa a un broker que escucha noticias de un tópico específico.
+3. **InformationProvider**: Genera y publica noticias financieras en diferentes tópicos.
+
+### Ejemplo: Deployer
+```java
+package mx.itam.packages.jmstopicsfinancialsystem;
+
+/**
+ * Clase principal que inicializa y arranca los brokers.
+ */
+public class Deployer {
+
+    public static void main(String[] args) {
+        int floorBrokers = 5; // Número de brokers a inicializar
+        for (int i = 0; i < floorBrokers; i++) {
+            new FloorBroker().start(); // Inicia cada broker en un hilo separado
+        }
+    }
+}
+```
+**Resumen de funciones:**
+- `main`: Inicializa múltiples brokers y los arranca en hilos separados.
+
+### Ejemplo: FloorBroker
+```java
+package mx.itam.packages.jmstopicsfinancialsystem;
+
+/**
+ * Clase que representa a un broker financiero.
+ * Escucha noticias de un tópico específico y reacciona según su severidad.
+ */
+public class FloorBroker extends Thread {
+
+    @Override
+    public void run() {
+        // Configura la conexión JMS y escucha noticias del tópico asignado.
+        // Reacciona a las noticias dependiendo de su severidad.
+    }
+}
+```
+**Resumen de funciones:**
+- `run`: Configura la conexión JMS, escucha noticias del tópico asignado y reacciona a las noticias dependiendo de su severidad.
+
+### Ejemplo: InformationProvider
+```java
+package mx.itam.packages.jmstopicsfinancialsystem;
+
+/**
+ * Clase que genera y publica noticias financieras en diferentes tópicos.
+ */
+public class InformationProvider {
+
+    public void produceNews() {
+        // Genera noticias financieras y las publica en tópicos JMS.
+        // Notifica el final de la sesión financiera.
+    }
+
+    public static void main(String[] args) {
+        new InformationProvider().produceNews(); // Inicia la generación de noticias
+    }
+}
+```
+**Resumen de funciones:**
+- `produceNews`: Genera noticias financieras, las publica en tópicos JMS y notifica el final de la sesión financiera.
+- `main`: Punto de entrada para iniciar la generación de noticias.
+
+---
+
+
+
+
 
