@@ -181,4 +181,80 @@ Un cliente puede llamar directamente a un método en una aplicación de un servi
 
 Se define la interfaz de un servicio y se implementa la interfaz/servicio. 
 
-Instalación (Python)
+Instalación (Python):
+```
+python -m pip install --upgrade pip 
+python -m pip install grpcio 
+python -m pip install grpcio-tools 
+python -m pip install mypy-protobuf
+```
+
+###Protocol Buffers (Protobuf)
+Es un mecanismo open source para serialización de objetos multi-plataforma. 
+* Es más pequeño, rápido y simple que XML y JSON. 
+* No es legible por humanos (i.e., binario). 
+* Genera empaquetadores para: Java, Python, Objective-C, C++, C#, Kotlin, Dart, Go, Ruby y PHP. 
+
+Ejemplo de sintaxis proto3 (`holamundo.proto`):
+```
+syntax = "proto3"; 
+package ejemplos;
+message Person { 
+    optional string name = 1; 
+    optional int32 id = 2; 
+    enum PhoneType { 
+        MOBILE = 0; 
+        WORK = 1;
+    }
+    message PhoneNumber {
+        optional string number = 1; 
+        optional PhoneType type = 2; 
+    }
+    repeated PhoneNumber phones = 3; 
+} 
+message AddressBook {
+    repeated Person people = 1; 
+}
+```
+**Compilación de Protos**:
+```
+python -m grpc_tools.protoc -I. \
+    --python_out=. \ 
+    --pyi_out=. \
+    --grpc_python_out=. \ 
+    ./holamundo.proto
+```
+
+**Prácticas de Laboratorio gRPC**
+1. Práctica CREDENCIALES 
+Objetivo: Generar un servicio llamado Autenticador con un método autenticar. El package debe llamarse autenticador. 
+Request (AuthenticationRequest): Debe recibir Nombre (string), Lugar de nacimiento (string), Año de nacimiento (int32) y Contraseña (string). 
+Reply (AuthenticationReply): Debe regresar un Mensaje y un Status (false o true). 
+El Cliente: Debe solicitar la autenticación e imprimir la respuesta. 
+
+2. Práctica VENDEDORES 
+El Servidor (Almacenamiento): Almacena en diccionarios: Vendedores, Tiendas, Productos y Asignaciones (de un vendedor a una tienda). Utiliza contadores para crear IDs (folio_vendedores, folio_productos, folio_tiendas, folio_asignaciones). 
+
+El Cliente realiza: 
+El registro de dos vendedores e imprime listado de vendedores. 
+El registro de dos tiendas e imprime listado de tiendas. 
+Dos asignaciones de vendedores a tiendas e imprime listado de asignaciones. 
+Agrega dos productos e imprime listado de productos. 
+El Servidor debe tener los siguientes RPC: 
+
+Registrar vendedor (RegistroVendedor) → Status 
+Registrar tienda (RegistroTienda) → Status 
+Asignar a tienda (RegistroAsignacion) → Status 
+Listado de tiendas → stream RegistroTienda 
+Listado de vendedores → stream RegistroVendedor 
+Listado de asignaciones → ListadoAsignaciones 
+Agrega productos (stream Producto) → Status 
+Listado de productos → stream Producto 
+Mensajes / Estructuras de Datos: 
+Status: éxito (true o false). 
+
+Producto: id (numérico), cantidad, Descripción. 
+RegistroVendedor: id (numérico), nombre, edad, salario. 
+RegistroTienda: id (numérico), descripción, alcaldía. 
+RegistroAsignacion: id asignación, id tienda, id vendedor. 
+ListadoAsignaciones: repeated RegistroAsignacion.
