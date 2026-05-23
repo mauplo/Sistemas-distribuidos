@@ -3905,3 +3905,1308 @@ Intermediario entre Datos e Interfaz
 Página 21
 
 Descripción visual: Un dibujo de un árbol caricaturizado, muy feliz, abrazando un billete verde, con gafas de sol rosas y el texto "AFTER PAYCHECK" (Después del día de pago). Una interfaz sencilla mostrando un menú desplegable "Explorador de Estudiantes" seleccionando a "Gutierrez Jose", y los datos impresos debajo en formato lista (Identificador: 1, Nombre: Jose, Promedio: 8.9, etc.). También hay un ícono de un cursor (flecha de ratón) haciendo clic, generando destellos.
+
+## Página 1
+
+* 
+**Django** 
+
+
+* 
+**App Layer** 
+
+
+* 
+**User Interface (HTTP Output)** 
+
+
+* 
+**Controller** 
+
+
+* 
+**View** 
+
+
+* 
+**MVC** (Modelo-Vista-Controlador)  * **Model** 
+
+
+* 
+**Database Layer** 
+
+
+* 
+**MySQL: Database** 
+
+
+* 
+**SQLite** 
+
+
+
+---
+
+## Página 2: Sitio webs en Django
+
+* Un sitio web en Django está conformado por una o múltiples apps: 
+
+
+* Ingreso y registro de usuarios 
+
+
+* Encuesta 
+
+
+* Contacto 
+
+
+* Carrito 
+
+
+* Etc. 
+
+
+
+---
+
+## Página 3: Apps en Django
+
+* Cada App tiene: 
+
+
+* Modelo (datos) 
+
+
+* Páginas web (vista) 
+
+
+
+
+* M - Model 
+
+
+* V - View 
+
+
+* Controller 
+
+
+* Cuando se crea una App, Django crea: `models.py` 
+
+
+* Almacena información de la App. 
+
+
+
+
+* 
+`views.py` 
+
+
+* Funciones de Python que crean lo que usuario ve. 
+
+
+
+
+* 
+`urls.py` 
+
+
+
+---
+
+## Página 4: Views
+
+* 
+**Views**  * Las funciones listadas en `views.py` tienen como entrada un objeto `HttpRequest` y como salida un objeto `HttpResponse`. 
+
+
+
+---
+
+## Página 5: HttpRequest
+
+* 
+**HttpRequest** 
+
+
+* 
+`HttpRequest.method` 
+
+
+* 
+`HttpRequest.content_type` 
+
+
+* 
+`HttpRequest.content_params` 
+
+
+* 
+`HttpRequest.cookies` 
+
+
+* 
+`HttpRequest.META` 
+
+
+* 
+`HttpRequest.session` 
+
+
+
+---
+
+## Página 6: HttpResponse
+
+* 
+**HttpResponse** 
+
+
+* Es responsabilidad del programador crearla. 
+
+
+* 
+`HttpResponse.content` 
+
+
+* 
+`HttpResponse.status_code` 
+
+
+* 
+`HttpResponse.set_cookie()` 
+
+
+* Subclase `JsonResponse` 
+
+
+
+---
+
+## Página 7: Instalación de Django
+
+* 
+**Instalación de Django** 
+
+
+* Comando para actualizar pip: `python -m pip install --upgrade pip` 
+
+
+* Comando para instalar Django: `python -m pip install Django` 
+
+
+* Anaconda package manager 
+
+
+* Verificar la instalación y versión: 
+
+
+* Comando: `python -m django --version` 
+
+
+* Salida esperada (ejemplo): `3.9` 
+
+
+
+---
+
+## Página 8: Comandos de Consola de Django
+
+* 
+**Comandos de Consola de Django**  * `django-admin startproject mywebsite` 
+
+
+* Comandos con `python manage.py`: 
+
+
+* 
+`shell` 
+
+
+* 
+`runserver` 
+
+
+* 
+`startapp nombreapp` 
+
+
+* 
+`createsuperuser` 
+
+
+* 
+`migrate` 
+
+
+* 
+`makemigrations nombreapp` 
+
+
+* 
+`sqlmigrate nombreapp 0001` 
+
+
+
+
+
+---
+
+## Página 9: Creación de un proyecto
+
+* 
+**Creación de un proyecto** 
+
+
+* Comando: `django-admin startproject mywebsite` 
+
+
+* Estructura de archivos generada:
+* 
+`MYWEBSITE` 
+
+
+* 
+`mywebsite` 
+
+
+* 
+`__init__.py` 
+
+
+* 
+`asgi.py` 
+
+
+* 
+`settings.py` 
+
+
+* 
+`urls.py` 
+
+
+* 
+`wsgi.py` 
+
+
+
+
+* 
+`manage.py` 
+
+
+
+
+
+
+* 
+*Anotación:* `manage.py` permite interactuar con el proyecto Django. 
+
+
+
+---
+
+## Página 10: Creación de un proyecto (Continuación)
+
+* 
+**Creación de un proyecto** 
+
+
+* Comando: `django-admin startproject mywebsite` 
+
+
+* Estructura con explicaciones adicionales:
+* 
+`MYWEBSITE` 
+
+
+* 
+`mywebsite` 
+
+
+* 
+`__init__.py` 
+
+
+* 
+`asgi.py` -> **Asynchronous Server Gateway Interface** 
+
+
+* 
+`settings.py` 
+
+
+* 
+`urls.py` 
+
+
+* 
+`wsgi.py` -> **Web Server Gateway Interface** 
+
+
+
+
+* 
+`manage.py` 
+
+
+
+
+
+
+
+---
+
+## Página 11: Configuración del proyecto
+
+* 
+**Creación de un proyecto** 
+
+
+* 
+`django-admin startproject mywebsite` 
+
+
+* 
+*Anotación:* El archivo `settings.py` se encarga de la Configuración del proyecto. 
+
+
+
+---
+
+## Página 12: Índice de servicios
+
+* 
+**Creación de un proyecto** 
+
+
+* 
+`django-admin startproject mywebsite` 
+
+
+* 
+*Anotación:* El archivo `urls.py` funciona como el Índice de servicios/páginas ofrecidas. 
+
+
+
+---
+
+## Página 13: Arranca el Servidor Web
+
+* 
+**Arranca el Servidor Web** 
+
+
+* Directorio: `…\directory\mywebsite` 
+
+
+* Comando: `python manage.py runserver` 
+
+
+* URL local: `http://127.0.0.1:8000/` 
+
+
+
+---
+
+## Página 14: Crea una App
+
+* 
+**Crea una App** 
+
+
+* Comando: `python manage.py startapp myfirstapp` 
+
+
+* *(Esta acción genera la estructura interna de la app, como la carpeta migrations, admin.py, apps.py, models.py, tests.py y views.py dentro de myfirstapp).*
+
+---
+
+## Página 15: Escribir una Vista
+
+* 
+**Escribir una Vista** 
+
+
+* Archivo objetivo: `myfirstapp/views.py` 
+
+
+
+```python
+[cite_start]from django.shortcuts import render # [cite: 99]
+[cite_start]from django.http import HttpResponse # [cite: 99]
+
+# Create your views here. [cite_start]# [cite: 99]
+
+[cite_start]def index(request): # [cite: 100]
+    [cite_start]return HttpResponse("Hola a todos desde myfirstapp") # [cite: 100]
+
+```
+
+---
+
+## Página 16: Vincula la Vista a una URL
+
+* 
+**Vincula la Vista a una URL** 
+
+
+* Archivo a crear: `myfirstapp/urls.py` 
+
+
+
+```python
+[cite_start]from django.urls import path # [cite: 101]
+[cite_start]from . import views # [cite: 101, 102]
+
+[cite_start]urlpatterns = [ # [cite: 102]
+    [cite_start]path("", views.index, name="index"), # [cite: 102]
+[cite_start]] # [cite: 102]
+
+```
+
+---
+
+## Página 17: Vincular URLs al Sitio Web
+
+* 
+**Vincular URLs de la App con las del Sitio Web** 
+
+
+* Archivo a modificar: `mywebsite/urls.py` 
+
+
+
+```python
+[cite_start]from django.contrib import admin # [cite: 106]
+[cite_start]from django.urls import include, path # [cite: 106]
+
+[cite_start]urlpatterns = [ # [cite: 106]
+    [cite_start]path("myfirstapp/", include("myfirstapp.urls")), # [cite: 106]
+    [cite_start]path("admin/", admin.site.urls), # [cite: 106]
+[cite_start]] # [cite: 106]
+
+```
+
+---
+
+## Página 18: Aplicaciones instaladas por defecto
+
+* 
+**Aplicaciones instaladas por defecto** (se gestionan en `…\directory\mywebsite\settings.py`) 
+
+
+* Crea las tablas de la BD de las aplicaciones: 
+
+
+* Comando: `python manage.py migrate` 
+
+
+
+
+* Vuelve a ejecutar el servidor web: 
+
+
+* Comando: `python manage.py runserver` 
+
+
+
+
+
+---
+
+## Página 19: Crea Modelos: Dominio
+
+* 
+**Crea Modelos: Dominio**  * Ejemplos de entidades en el dominio: Estudiante, Carrera. 
+
+
+
+---
+
+## Página 20: Crea Modelos (Código)
+
+* 
+**Crea Modelos** en el archivo `…/myfirstapp/models.py` 
+
+
+
+```python
+[cite_start]from django.db import models # [cite: 110]
+
+[cite_start]class Estudiante(models.Model): # [cite: 110]
+    [cite_start]nombre = models.CharField(max_length=200) # [cite: 110]
+    [cite_start]apellidos = models.CharField(max_length=200) # [cite: 110]
+    [cite_start]edad = models.IntegerField(default=0) # [cite: 110]
+    [cite_start]promedio = models.FloatField(default=9.99) # [cite: 110]
+    [cite_start]foraneo = models.BooleanField(default=False) # [cite: 110]
+
+[cite_start]class Carrera(models.Model): # [cite: 110]
+    [cite_start]LICENCIATURA = 1 # [cite: 110]
+    [cite_start]INGENIERIA = 2 # [cite: 110]
+    
+    [cite_start]OPCIONES_TIPO = ( # [cite: 110]
+        (LICENCIATURA, "Licenciatura")[cite_start], # [cite: 110]
+        (INGENIERIA, "Ingenieria")[cite_start], # [cite: 110]
+    [cite_start]) # [cite: 110]
+    
+    [cite_start]estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE) # [cite: 110]
+    [cite_start]tipo = models.IntegerField(choices=OPCIONES_TIPO, null=True, blank=True) # [cite: 110]
+    [cite_start]nombre = models.CharField(max_length=200) # [cite: 110]
+
+```
+
+## Página 1: "Instala" tu aplicación
+
+* Archivo a modificar: `...\directory\mywebsite\settings.py`
+
+```python
+INSTALLED_APPS = [
+    "myfirstapp.apps.MyfirstappConfig",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+]
+
+```
+
+---
+
+## Página 2
+
+* Crea las tablas de tu aplicación recientemente "instalada"
+* Para la simulación (preparar los archivos):
+`python manage.py makemigrations myfirstapp`
+* Échale un ojo a: `myfirstapp/migrations/0001_initial.py`
+* Posteriormente ejecuta:
+`python manage.py sqlmigrate myfirstapp 0001`
+* Finalmente, crea las tablas:
+`python manage.py migrate`
+
+---
+
+## Página 3: Interactúa con el Shell de Django
+
+* Iniciar el shell:
+`python manage.py shell`
+* Importa los modelos:
+`from myfirstapp.models import Estudiante, Carrera`
+`Estudiante.objects.all()`
+* **Error común al crear Objetos**
+`estudiante = Estudiante ("José", "Gutiérrez", 49, 8.9, True)`
+`estudiante.id`
+
+---
+
+## Página 4: Interactúa con el Shell de Django
+
+* **Forma correcta:**
+`>> estudiante = Estudiante (nombre="José", apellidos="Gutiérrez", edad = 49, promedio = 8.9, foraneo=True)`
+`estudiante.id`
+`estudiante.save()`
+`estudiante.id`
+* Añade otro estudiante:
+`>> Estudiante.objects.all()`
+
+---
+
+## Página 5: Mostrando los Objetos "Correctamente"
+
+* Archivo a modificar: `.../myfirstapp/models.py`
+
+```python
+from django.db import models
+
+class Estudiante (models.Model):
+    def __str__(self):
+        return self.nombre + " " + self.apellidos
+    def aspira_a_beca(self):
+        return self.promedio >= 9
+
+class Carrera (models.Model):
+    def __str__(self):
+        return str(self.tipo) + " " + self.nombre
+
+```
+
+---
+
+## Página 6: Interactúa con el Shell de Django
+
+```python
+from myfirstapp.models import Estudiante, Carrera
+>> Estudiante.objects.all()
+
+estudiante = Estudiante.objects.get(id=1) 
+# (o también se puede usar pk)
+estudiante = Estudiante.objects.get(pk=1)
+
+estudiante.carrera_set.all()
+
+estudiante.carrera_set.create(tipo=1, nombre="Matematicas")
+> estudiante.carrera_set.create(tipo=2, nombre="Computacion")
+
+estudiante.carrera_set.all()
+
+```
+
+---
+
+## Página 7: Interactúa con el Shell de Django
+
+```python
+>> carrera = estudiante.carrera_set.create(tipo=1, nombre="Actuaria")
+carrera.estudiante
+estudiante.carrera_set.count()
+
+c = estudiante.carrera_set.get(id=1)
+c.delete()
+
+```
+
+* Agrega dos Carreras al estudiante 2
+
+---
+
+## Página 8: Filtros
+
+```python
+from django.db.models import Q
+
+Estudiante.objects.filter(nombre="Jose")
+Estudiante.objects.filter(nombre__contains="o")
+Estudiante.objects.filter(nombre__icontains="o")
+Estudiante.objects.filter(nombre__startswith="o")
+Estudiante.objects.filter(nombre__istartswith="o")
+Estudiante.objects.filter(nombre__endswith="o")
+Estudiante.objects.filter(nombre__iendswith="o")
+
+Estudiante.objects.filter(Q(nombre="Jose") & Q(apellidos="Gutierre"))
+Estudiante.objects.filter(Q(nombre="Jose") | Q(apellidos="Gutierre"))
+Estudiante.objects.filter(Q(nombre="Jose") & ~Q(apellidos="Gutierre"))
+
+```
+
+---
+
+## Página 9: Crea un Super usuario
+
+* Comando: `python manage.py createsuperuser`
+* *Ejemplo de datos ingresados:*
+* admin
+* admin@admin.com
+* 123456
+
+
+* Acceso: `http://127.0.0.1:8000/admin`
+
+---
+
+## Página 10: Añade tu App a la Interfaz Admin
+
+* Archivo a modificar: `.../myfirstapp/admin.py`
+
+```python
+from django.contrib import admin
+from .models import Estudiante, Carrera
+
+admin.site.register(Estudiante)
+admin.site.register(Carrera)
+
+```
+
+---
+
+## Página 11: Entra al sitio de Administración
+
+* Acceso: `http://127.0.0.1:8000/admin`
+* Agrega un nuevo Estudiante
+* *(Imagen referencial: Pantalla de "Site administration" de Django con las secciones de AUTHENTICATION AND AUTHORIZATION (Groups, Users) y MYFIRSTAPP (Carreras, Estudiantes))*
+
+---
+
+## Página 12: Creando más vistas y paso de parámetros
+
+* Archivo a modificar: `myfirstapp/views.py`
+
+```python
+# ...
+def detalles(request, estudiante_id):
+    return HttpResponse("Detalles del estudiante %s." % estudiante_id)
+
+def carreras(request, estudiante_id):
+    return HttpResponse("Carreras del estudiante %s." % estudiante_id)
+
+def agrega_carrera(request, estudiante_id):
+    return HttpResponse("Agregando una carrera a %s." % estudiante_id)
+
+```
+
+---
+
+## Página 13: Convertidores
+
+* `int`
+* `str`
+* `slug`: ascii con `_` `-`
+
+---
+
+## Página 14: Vinculando las vistas a URLs
+
+* Archivo a modificar: `myfirstapp/urls.py`
+
+```python
+# ...
+urlpatterns = [
+    # ...
+    # ejemplo: /myfirstapp/5/detalles/
+    path("<int:estudiante_id>/detalles/", views.detalles, name="detalles"),
+    # ejemplo: /myfirstapp/5/carreras/
+    path("<int:estudiante_id>/carreras/", views.carreras, name="carreras"),
+    # ejemplo: /myfirstapp/5/agrega_carrera/
+    path("<int:estudiante_id>/agrega_carrera/", views.agrega_carrera, name="agrega_carrera"),
+]
+
+```
+
+---
+
+## Página 15: El lenguaje de template de Django
+
+* Documentación: `https://docs.djangoproject.com/en/4.0/ref/templates/language/`
+
+```html
+{% if athlete_list %}
+    Number of athletes: {{ athlete_list|length }}
+{% elif athlete_in_locker_room_list %}
+    Athletes should be out of the locker room soon!
+{% else %}
+    No athletes.
+{% endif %}
+
+```
+
+---
+
+## Página 16: Creando de las Templates
+
+* Archivo a crear: `myfirstapp/templates/myfirstapp/index.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Index page</title>
+</head>
+<body>
+    <p>Listado de estudiantes</p>
+    {% if estudiantes %}
+    <ul>
+        {% for estudiante in estudiantes %}
+        <li><a href="/myfirstapp/{{ estudiante.id }}/detalles">
+            {{estudiante.nombre}} 
+            {{estudiante.apellidos}} 
+        </a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+        <p>No hay estudiantes registrados.</p>
+    {% endif %}
+</body>
+</html>
+
+```
+
+---
+
+## Página 17: Revisitando la vista index 1
+
+* Archivo a modificar: `myfirstapp/views.py`
+
+```python
+# ...
+from django.template import loader
+# ...
+def index(request):
+    estudiantes = Estudiante.objects.order_by("nombre")
+    template = loader.get_template("myfirstapp/index.html")
+    context = {
+        "estudiantes": estudiantes,
+    }
+    return HttpResponse(template.render(context, request))
+# ...
+
+```
+
+---
+
+## Página 18: Revisitando la vista index 2
+
+* Archivo a modificar: `myfirstapp/views.py`
+
+```python
+# ...
+from django.shortcuts import render
+# ...
+def index(request):
+    estudiantes = Estudiante.objects.order_by("nombre")
+    context = {
+        "estudiantes": estudiantes,
+    }
+    return render(request, "myfirstapp/index.html", context)
+# ...
+
+```
+
+---
+
+## Página 19: Creando template para detalles
+
+* Archivo a crear: `templates/myfirstapp/detalles.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Detalles</title>
+</head>
+<body>
+    <p> Información del Estudiante </p>
+    {% if estudiante %}
+        <p>{{ estudiante.id }} </p>
+        <p>{{ estudiante.nombre }} </p>
+        <p>{{ estudiante.apellidos }} </p>
+        <p>{{ estudiante.promedio }} </p>
+        {% if estudiante.foraneo %}
+            <p>Foráneo</p>
+        {% else %}
+            <p>Local </p>
+        {% endif %} 
+    {% endif %} 
+</body>
+</html>
+
+```
+
+---
+
+## Página 20: Actualizando la vista Detalles
+
+* Archivo a modificar: `myfirstapp/views.py`
+
+```python
+# ...
+def detalles(request, estudiante_id):
+    estudiante = Estudiante.objects.get(pk=estudiante_id)
+    return render(request, "myfirstapp/detalles.html", {"estudiante": estudiante})
+# ...
+
+```
+
+---
+
+## Página 21: Excepciones HTTP
+
+* Archivo a modificar: `myfirstapp/views.py`
+
+```python
+# ...
+from django.http import Http404
+# ...
+def detalles(request, estudiante_id):
+    try:
+        estudiante = Estudiante.objects.get(pk=estudiante_id)
+    except Estudiante.DoesNotExist:
+        raise Http404()
+    return render(request, "myfirstapp/detalles.html", {"estudiante": estudiante})
+# ...
+
+```
+
+---
+
+## Página 22: Simplificando la excepción HTTP
+
+* Archivo a modificar: `myfirstapp/views.py`
+
+```python
+# ...
+from django.shortcuts import get_object_or_404
+# ...
+def detalles(request, estudiante_id):
+    estudiante = get_object_or_404(Estudiante, pk=estudiante_id)
+    return render(request, "myfirstapp/detalles.html", {"estudiante": estudiante})
+# ...
+
+```
+
+---
+
+## Página 23: Mostrando las Carreras en el Template detalles.html [1/3]
+
+* Archivo a modificar: `template/myfirstapp/detalles.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Página de detalles</title>
+</head>
+<body>
+    <p> Información del Estudiante </p>
+    <ul>
+    {% for carrera in estudiante.carrera_set.all %}
+        <li> {{ carrera.tipo }} {{ carrera.nombre }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %} 
+</body>
+</html>
+
+```
+
+---
+
+## Página 24: Mostrando las Carreras en el Template detalles.html [2/3]
+
+* Archivo a modificar: `myfirstapp/models.py`
+
+```python
+class Carrera (models.Model):
+    LICENCIATURA = 1
+    INGENIERIA = 2
+    OPCIONES_TIPO = ( 
+        (LICENCIATURA, "Licenciatura"),
+        (INGENIERIA, "Ingenieria") 
+    )
+    estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
+    tipo = models.IntegerField(choices=OPCIONES_TIPO, null=True, blank=True) 
+    nombre = models.CharField(max_length=100)
+    # ...
+    def get_tipo(self):
+        return Carrera.OPCIONES_TIPO[self.tipo-1][1]
+
+```
+
+---
+
+## Página 25: Mostrando las Carreras en el Template detalles.html [3/3]
+
+* Archivo a modificar: `template/detalles.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Página de detalles</title>
+</head>
+<body>
+    <p> Información del Estudiante </p>
+    <ul>
+    {% for carrera in estudiante.carrera_set.all %}
+        <li> {{ carrera.get_tipo }} {{ carrera.nombre }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %} 
+</body>
+</html>
+
+```
+
+## Página 1: Agregando un Namespace a la App
+
+* **Archivo:** `myfirstapp/urls.py`
+
+```python
+from django.urls import path
+from . import views
+
+app_name = "myfirstapp"
+
+urlpatterns = [
+    path("", views.index, name="index"),
+]
+
+```
+
+---
+
+## Página 2: Quitando URL cableadas en Templates
+
+* **Archivo:** `myfirstapp/templates/myfirstapp/index.html`
+* *Antes (Cableado):*
+`<li><a href="/myfirstapp/{{estudiante.id}}/detalles"> {{estudiante.nombre}} {{estudiante.apellidos}} </a></li>`
+* *Después (Usando namespace):*
+`<li><a href="{% url 'myfirstapp:detalles' estudiante.id %}"> {{estudiante.nombre}} {{estudiante.apellidos}} </a></li>`
+
+---
+
+## Página 3: Agrega un Estudiante - POST [1/2]
+
+* **Archivo:** `myfirstapp/templates/myfirstapp/index.html`
+
+```html
+<form action="agrega_estudiante_forma" method="POST">
+    {% csrf_token %}
+    <label> Nombre: <input type="text" name="nombre"> </label> <br>
+    <label> Apellidos: <input type="text" name="apellidos"> </label> <br>
+    <label> Edad: <input type="text" name="edad"> </label> <br>
+    <label> Promedio: <input type="text" name="promedio"> </label> <br>
+    <label> <input type="checkbox" value="True" name="foraneo"> Foráneo </label> <br>
+    <input type="submit" value="Agregar">
+</form>
+
+```
+
+---
+
+## Página 4: Agrega un Estudiante - POST [2/2]
+
+* **Archivo:** `myfirstapp/views.py`
+
+```python
+def agrega_estudiante_forma(request):
+    nombre = request.POST["nombre"]
+    apellidos = request.POST["apellidos"]
+    edad = int(request.POST["edad"])
+    promedio = float(request.POST["promedio"])
+    foraneo = "foraneo" in request.POST
+    
+    nuevo_estudiante = Estudiante(nombre=nombre, apellidos=apellidos, 
+                                  edad=edad, promedio=promedio, foraneo=foraneo)
+    nuevo_estudiante.save()
+    
+    return HttpResponseRedirect(reverse("myfirstapp:index"))
+
+```
+
+---
+
+## Página 5: Redirección
+
+* **Archivo:** `myfirstapp/views.py`
+
+```python
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+# Requiere importar HttpResponseRedirect y reverse
+# Es vital para evitar el reenvío del formulario (Form Resubmission)
+
+```
+
+---
+
+## Página 6: Generic Views - Listado
+
+* **Archivo:** `myfirstapp/views.py`
+
+```python
+from django.views import generic
+
+class IndexView(generic.ListView):
+    template_name = "myfirstapp/index.html"
+    context_object_name = "estudiantes"
+    
+    def get_queryset(self):
+        return Estudiante.objects.order_by("nombre")
+
+```
+
+---
+
+## Página 7: Generic Views - Detalle
+
+* **Archivo:** `myfirstapp/views.py`
+
+```python
+class DetallesView(generic.DetailView):
+    model = Estudiante
+    template_name = "myfirstapp/detalles.html"
+
+```
+
+---
+
+## Página 8: Actualizando urls.py (Generic Views)
+
+* **Archivo:** `myfirstapp/urls.py`
+
+```python
+urlpatterns = [
+    path("", views.IndexView.as_view(), name="index"),
+    path("<int:pk>/detalles/", views.DetallesView.as_view(), name="detalles"),
+]
+
+```
+
+---
+
+## Página 9: Introducción a AJAX
+
+* **AJAX (Asynchronous JavaScript and XML)**
+* Permite actualizar partes de una página sin recargarla por completo.
+* Mejora la experiencia de usuario (UX).
+
+---
+
+## Página 10: JavaScript - Fetch API
+
+* Moderno, reemplaza a `XMLHttpRequest`.
+* Sintaxis basada en Promesas (`async/await`).
+
+---
+
+## Página 11: Ejemplo Fetch (GET)
+
+```javascript
+fetch('/myfirstapp/algunos_datos')
+    .then(response => response.json())
+    .then(data => console.log(data));
+
+```
+
+---
+
+## Página 12: Ejemplo Fetch (POST)
+
+```javascript
+fetch('/myfirstapp/guardar', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken')
+    },
+    body: JSON.stringify({ nombre: 'Juan' })
+});
+
+```
+
+---
+
+## Página 13: Manejo de cookies CSRF
+
+* Django requiere un token para peticiones POST.
+* Debes obtenerlo del DOM o de las cookies para incluirlo en el header.
+
+---
+
+## Página 14: XMLHttpRequest - Estructura básica
+
+* *Nota:* Aunque es antiguo, importante para sistemas legados.
+* `let ajaxRequest = new XMLHttpRequest();`
+* `ajaxRequest.onreadystatechange = function() { ... }`
+
+---
+
+## Página 15: Ciclo de vida de estado (ReadyState)
+
+* 0: sin inicializar
+* 1: conexión establecida
+* 2: solicitud recibida
+* 3: procesando
+* 4: respuesta lista
+
+---
+
+## Página 16: Estados HTTP en AJAX
+
+* 200: OK
+* 404: Not Found
+* 500: Error de servidor
+
+---
+
+## Página 17: Diferencias en respuestas
+
+* `responseText`: Recibe el contenido en texto plano.
+* `responseXML`: Recibe el contenido parseado como XML.
+
+---
+
+## Página 18: XMLHttpRequest - Petición GET
+
+```javascript
+ajaxRequest.open("GET", "page1.jsp?name=Octavio&age=49", true);
+ajaxRequest.send();
+
+```
+
+---
+
+## Página 19: XMLHttpRequest - Petición POST
+
+```javascript
+ajaxRequest.open("POST", "page1.jsp", true);
+ajaxRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+ajaxRequest.send("name=Octavio&age=49");
+
+```
+
+---
+
+## Página 20: Asincronía en JS
+
+* Uso de `async function`.
+* `await` permite escribir código asíncrono que parece síncrono.
+
+---
+
+## Página 21: Ejemplo de implementación asíncrona [1/2]
+
+* Captura de elementos:
+
+```javascript
+let name = "name=" + document.getElementById("nombre").value;
+let age = "age=" + document.getElementById("edad").value;
+
+```
+
+---
+
+## Página 22: Ejemplo de implementación asíncrona [2/2]
+
+* Envío:
+
+```javascript
+let response = await fetch("/myfirstapp/asincrono", {
+    method: "POST",
+    body: params
+});
+
+```
+
+---
+
+## Página 23: Definición de un Web Service
+
+* Conjunto de protocolos y estándares que sirven para intercambiar datos entre aplicaciones.
+* Tipos: SOAP, REST.
+
+---
+
+## Página 24: REST (Representational State Transfer)
+
+* Basado en recursos (URLs).
+* Uso de verbos HTTP (GET, POST, PUT, DELETE).
+* Formatos comunes: JSON, XML.
+
+---
+
+## Página 25: Integración final
+
+* La importancia de conectar el Front-end (Templates + JS) con el Back-end (Django Views + Modelos).
+* Resumen: MVC es fundamental para escalar.
+
+---
