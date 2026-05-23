@@ -3905,27 +3905,3 @@ Intermediario entre Datos e Interfaz
 Página 21
 
 Descripción visual: Un dibujo de un árbol caricaturizado, muy feliz, abrazando un billete verde, con gafas de sol rosas y el texto "AFTER PAYCHECK" (Después del día de pago). Una interfaz sencilla mostrando un menú desplegable "Explorador de Estudiantes" seleccionando a "Gutierrez Jose", y los datos impresos debajo en formato lista (Identificador: 1, Nombre: Jose, Promedio: 8.9, etc.). También hay un ícono de un cursor (flecha de ratón) haciendo clic, generando destellos.
-
-Título: Práctica de Laboratorio: CSS y Asincronía con Fetch
-
-Una página
-
-Requerimientos:
-
-Javascript
-
-Fetch
-
-POST
-
-Select creado dinámicamente
-
-onchange
-
-csrfToken
-
-CSS
-
-DJANGO
-
-JsonResponse
