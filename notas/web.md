@@ -1665,316 +1665,82 @@ Cuando se crea una App, Django crea:
 ## Página 129: Views
 * Las funciones listadas en `views.py` tienen como entrada un objeto `HttpRequest` y como salida un objeto `HttpResponse`. 
 
-## Página 5: HttpRequest
+## Página 130: HttpRequest
+* `HttpRequest.method` 
+* `HttpRequest.content_type` 
+* `HttpRequest.content_params` 
+* `HttpRequest.cookies` 
+* `HttpRequest.META`
+* `HttpRequest.session` 
+
+## Página 131: HttpResponse
+Es responsabilidad del programador crearla. 
+* `HttpResponse.content` 
+* `HttpResponse.status_code` 
+* `HttpResponse.set_cookie()` 
+Subclase `JsonResponse` 
+
+## Página 132: Instalación de Django
 
 * 
-**HttpRequest** 
-
-
-* 
-`HttpRequest.method` 
-
-
-* 
-`HttpRequest.content_type` 
-
-
-* 
-`HttpRequest.content_params` 
-
-
-* 
-`HttpRequest.cookies` 
-
-
-* 
-`HttpRequest.META` 
-
-
-* 
-`HttpRequest.session` 
-
-
-
----
-
-## Página 6: HttpResponse
-
-* 
-**HttpResponse** 
-
-
-* Es responsabilidad del programador crearla. 
-
-
-* 
-`HttpResponse.content` 
-
-
-* 
-`HttpResponse.status_code` 
-
-
-* 
-`HttpResponse.set_cookie()` 
-
-
-* Subclase `JsonResponse` 
-
-
-
----
-
-## Página 7: Instalación de Django
-
-* 
-**Instalación de Django** 
-
-
-* Comando para actualizar pip: `python -m pip install --upgrade pip` 
-
-
-* Comando para instalar Django: `python -m pip install Django` 
-
-
+**Instalación de Django**
+```
+python -m pip install --upgrade pip
+python -m pip install Django
+```
 * Anaconda package manager 
+* Verificar la instalación y versión: `python -m django --version` 
 
-
-* Verificar la instalación y versión: 
-
-
-* Comando: `python -m django --version` 
-
-
-* Salida esperada (ejemplo): `3.9` 
-
-
-
----
-
-## Página 8: Comandos de Consola de Django
-
-* 
-**Comandos de Consola de Django**  * `django-admin startproject mywebsite` 
-
-
-* Comandos con `python manage.py`: 
-
-
-* 
-`shell` 
-
-
-* 
-`runserver` 
-
-
-* 
-`startapp nombreapp` 
-
-
-* 
-`createsuperuser` 
-
-
-* 
-`migrate` 
-
-
-* 
-`makemigrations nombreapp` 
-
-
-* 
-`sqlmigrate nombreapp 0001` 
-
-
-
-
-
----
-
-## Página 9: Creación de un proyecto
-
-* 
-**Creación de un proyecto** 
-
-
-* Comando: `django-admin startproject mywebsite` 
-
-
-* Estructura de archivos generada:
-* 
-`MYWEBSITE` 
-
-
-* 
-`mywebsite` 
-
-
-* 
-`__init__.py` 
-
-
-* 
-`asgi.py` 
-
-
-* 
-`settings.py` 
-
-
-* 
-`urls.py` 
-
-
-* 
-`wsgi.py` 
-
-
-
-
-* 
-`manage.py` 
-
-
-
-
-
-
-* 
-*Anotación:* `manage.py` permite interactuar con el proyecto Django. 
-
-
-
----
-
-## Página 10: Creación de un proyecto (Continuación)
-
-* 
-**Creación de un proyecto** 
-
-
-* Comando: `django-admin startproject mywebsite` 
-
-
-* Estructura con explicaciones adicionales:
-* 
-`MYWEBSITE` 
-
-
-* 
-`mywebsite` 
-
-
-* 
-`__init__.py` 
-
-
-* 
-`asgi.py` -> **Asynchronous Server Gateway Interface** 
-
-
-* 
-`settings.py` 
-
-
-* 
-`urls.py` 
-
-
-* 
-`wsgi.py` -> **Web Server Gateway Interface** 
-
-
-
-
-* 
-`manage.py` 
-
-
-
-
-
-
-
----
-
-## Página 11: Configuración del proyecto
-
-* 
-**Creación de un proyecto** 
-
-
-* 
+## Página 133: Comandos de Consola de Django
 `django-admin startproject mywebsite` 
 
+`python manage.py`: 
+* `shell` 
+* `runserver` 
+* `startapp nombreapp` 
+* `createsuperuser` 
+* `migrate` 
+* `makemigrations nombreapp` 
+* `sqlmigrate nombreapp 0001` 
 
-* 
-*Anotación:* El archivo `settings.py` se encarga de la Configuración del proyecto. 
-
-
-
----
-
-## Página 12: Índice de servicios
-
-* 
-**Creación de un proyecto** 
-
-
-* 
+## Página 134: Creación de un proyecto
 `django-admin startproject mywebsite` 
+* Estructura de archivos generada: 
+`MYWEBSITE` 
+`mywebsite` 
+* `__init__.py` 
+* `asgi.py` 
+* `settings.py` 
+* `urls.py` 
+* `wsgi.py` 
 
+EN MYWEBSITE: 
+`manage.py` 
 
-* 
-*Anotación:* El archivo `urls.py` funciona como el Índice de servicios/páginas ofrecidas. 
+*Anotación:`manage.py` permite interactuar con el proyecto Django.* 
 
+## Página 135: (Continuación)
+* `asgi.py` -> **Asynchronous Server Gateway Interface** 
+* `wsgi.py` -> **Web Server Gateway Interface** 
 
+## Página 136: (Continuación)
+* `settings.py`: Configuración del proyecto. 
 
----
+## Página 137: (Continuación)
+* `urls.py`: Índice de servicios/páginas ofrecidas. 
 
-## Página 13: Arranca el Servidor Web
-
-* 
-**Arranca el Servidor Web** 
-
-
+## Página 138: Arranca el Servidor Web
 * Directorio: `…\directory\mywebsite` 
-
-
 * Comando: `python manage.py runserver` 
-
-
 * URL local: `http://127.0.0.1:8000/` 
+*Descripción visual: una nave con la descripción: The install worked succesfully! Congratulations!*
 
-
-
----
-
-## Página 14: Crea una App
-
-* 
-**Crea una App** 
-
-
+## Página 139: Crea una App
 * Comando: `python manage.py startapp myfirstapp` 
+*(Esta acción genera la estructura interna de la app, como la carpeta migrations, admin.py, apps.py, models.py, tests.py y views.py dentro de myfirstapp).*
 
-
-* *(Esta acción genera la estructura interna de la app, como la carpeta migrations, admin.py, apps.py, models.py, tests.py y views.py dentro de myfirstapp).*
-
----
-
-## Página 15: Escribir una Vista
-
-* 
-**Escribir una Vista** 
-
-
-* Archivo objetivo: `myfirstapp/views.py` 
-
-
-
+## Página 140: Escribir una Vista
+* Archivo: `myfirstapp/views.py` 
 ```python
 [cite_start]from django.shortcuts import render # [cite: 99]
 [cite_start]from django.http import HttpResponse # [cite: 99]
