@@ -1639,90 +1639,31 @@ Esta sección es el "cerebro" de la aplicación y se divide en tres partes que s
 3. Nivel de Base de Datos (Database Layer)
 * **MySQL / SQLite:** Es el almacenamiento persistente donde reside toda la información. El **Modelo** consulta o guarda datos aquí para que la aplicación pueda funcionar.
 
-
-**En resumen:** Cuando el usuario interactúa con la **Interfaz**, el **Controlador** coordina la acción, el **Modelo** obtiene la información necesaria de la **Base de Datos** y la **Vista** finalmente le muestra el resultado al usuario.
-
-¿Te gustaría que te explicara cómo interactúa el modelo con la base de datos usando algún lenguaje en particular, como SQL?
-
----
-
-## Página 2: Sitio webs en Django
-
-* Un sitio web en Django está conformado por una o múltiples apps: 
-
-
+## Página 127: Sitio webs en Django
+Un sitio web en Django está conformado por una o *múltiples apps*: 
 * Ingreso y registro de usuarios 
-
-
 * Encuesta 
-
-
 * Contacto 
-
-
 * Carrito 
-
-
 * Etc. 
 
-
-
----
-
-## Página 3: Apps en Django
-
-* Cada App tiene: 
-
-
+## Página 128: Apps en Django
+Cada App tiene: 
 * Modelo (datos) 
-
-
 * Páginas web (vista) 
 
-
-
-
+Donde:
 * M - Model 
-
-
 * V - View 
+* C - Controller 
 
+Cuando se crea una App, Django crea: 
+*`models.py`: Almacena información de la App. 
+* `views.py`: Funciones de Python que crean lo que usuario ve.
+* `urls.py` 
 
-* Controller 
-
-
-* Cuando se crea una App, Django crea: `models.py` 
-
-
-* Almacena información de la App. 
-
-
-
-
-* 
-`views.py` 
-
-
-* Funciones de Python que crean lo que usuario ve. 
-
-
-
-
-* 
-`urls.py` 
-
-
-
----
-
-## Página 4: Views
-
-* 
-**Views**  * Las funciones listadas en `views.py` tienen como entrada un objeto `HttpRequest` y como salida un objeto `HttpResponse`. 
-
-
-
----
+## Página 129: Views
+* Las funciones listadas en `views.py` tienen como entrada un objeto `HttpRequest` y como salida un objeto `HttpResponse`. 
 
 ## Página 5: HttpRequest
 
