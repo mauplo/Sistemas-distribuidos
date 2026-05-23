@@ -1742,131 +1742,73 @@ EN MYWEBSITE:
 ## Página 140: Escribir una Vista
 * Archivo: `myfirstapp/views.py` 
 ```python
-[cite_start]from django.shortcuts import render # [cite: 99]
-[cite_start]from django.http import HttpResponse # [cite: 99]
+from django.shortcuts import render 
+from django.http import HttpResponse 
 
-# Create your views here. [cite_start]# [cite: 99]
-
-[cite_start]def index(request): # [cite: 100]
-    [cite_start]return HttpResponse("Hola a todos desde myfirstapp") # [cite: 100]
+# Create your views here.
+def index(request):
+    return HttpResponse("Hola a todos desde myfirstapp")
 
 ```
-
----
-
-## Página 16: Vincula la Vista a una URL
-
-* 
-**Vincula la Vista a una URL** 
-
-
+## Página 141: Vincula la Vista a una URL
 * Archivo a crear: `myfirstapp/urls.py` 
-
-
-
 ```python
-[cite_start]from django.urls import path # [cite: 101]
-[cite_start]from . import views # [cite: 101, 102]
+from django.urls import path 
+from . import views 
 
-[cite_start]urlpatterns = [ # [cite: 102]
-    [cite_start]path("", views.index, name="index"), # [cite: 102]
-[cite_start]] # [cite: 102]
+urlpatterns = 
+    path("", views.index, name="index"), 
+] 
 
 ```
 
----
-
-## Página 17: Vincular URLs al Sitio Web
-
-* 
-**Vincular URLs de la App con las del Sitio Web** 
-
-
+## Página 142: Vincular URLs al Sitio Web
 * Archivo a modificar: `mywebsite/urls.py` 
-
-
-
 ```python
-[cite_start]from django.contrib import admin # [cite: 106]
-[cite_start]from django.urls import include, path # [cite: 106]
+from django.contrib import admin 
+from django.urls import include, path 
 
-[cite_start]urlpatterns = [ # [cite: 106]
-    [cite_start]path("myfirstapp/", include("myfirstapp.urls")), # [cite: 106]
-    [cite_start]path("admin/", admin.site.urls), # [cite: 106]
-[cite_start]] # [cite: 106]
+urlpatterns = [ 
+    path("myfirstapp/", include("myfirstapp.urls")),
+    path("admin/", admin.site.urls),
+] 
 
 ```
 
----
+## Página 143: Aplicaciones instaladas por defecto
+se gestionan en `…\directory\mywebsite\settings.py`
+* Crea las tablas de la BD de las aplicaciones: `python manage.py migrate` 
+* Vuelve a ejecutar el servidor web: `python manage.py runserver`
 
-## Página 18: Aplicaciones instaladas por defecto
+## Página 144: Crea Modelos: Dominio
+Ejemplos de entidades en el dominio: Estudiante, Carrera. 
 
-* 
-**Aplicaciones instaladas por defecto** (se gestionan en `…\directory\mywebsite\settings.py`) 
-
-
-* Crea las tablas de la BD de las aplicaciones: 
-
-
-* Comando: `python manage.py migrate` 
-
-
-
-
-* Vuelve a ejecutar el servidor web: 
-
-
-* Comando: `python manage.py runserver` 
-
-
-
-
-
----
-
-## Página 19: Crea Modelos: Dominio
-
-* 
-**Crea Modelos: Dominio**  * Ejemplos de entidades en el dominio: Estudiante, Carrera. 
-
-
-
----
-
-## Página 20: Crea Modelos (Código)
-
-* 
-**Crea Modelos** en el archivo `…/myfirstapp/models.py` 
-
-
-
+## Página 145: Crea Modelos (Código)
+en el archivo `…/myfirstapp/models.py` 
 ```python
-[cite_start]from django.db import models # [cite: 110]
+from django.db import models 
+class Estudiante(models.Model): 
+    nombre = models.CharField(max_length=200) 
+    apellidos = models.CharField(max_length=200)
+    edad = models.IntegerField(default=0) 
+    promedio = models.FloatField(default=9.99) 
+    foraneo = models.BooleanField(default=False) 
 
-[cite_start]class Estudiante(models.Model): # [cite: 110]
-    [cite_start]nombre = models.CharField(max_length=200) # [cite: 110]
-    [cite_start]apellidos = models.CharField(max_length=200) # [cite: 110]
-    [cite_start]edad = models.IntegerField(default=0) # [cite: 110]
-    [cite_start]promedio = models.FloatField(default=9.99) # [cite: 110]
-    [cite_start]foraneo = models.BooleanField(default=False) # [cite: 110]
-
-[cite_start]class Carrera(models.Model): # [cite: 110]
-    [cite_start]LICENCIATURA = 1 # [cite: 110]
-    [cite_start]INGENIERIA = 2 # [cite: 110]
+class Carrera(models.Model):
+    LICENCIATURA = 1 
+    INGENIERIA = 2 
     
-    [cite_start]OPCIONES_TIPO = ( # [cite: 110]
-        (LICENCIATURA, "Licenciatura")[cite_start], # [cite: 110]
-        (INGENIERIA, "Ingenieria")[cite_start], # [cite: 110]
-    [cite_start]) # [cite: 110]
+    OPCIONES_TIPO = (
+        (LICENCIATURA, "Licenciatura")[cite_start], 
+        (INGENIERIA, "Ingenieria")[cite_start], 
+    ) 
     
-    [cite_start]estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE) # [cite: 110]
-    [cite_start]tipo = models.IntegerField(choices=OPCIONES_TIPO, null=True, blank=True) # [cite: 110]
-    [cite_start]nombre = models.CharField(max_length=200) # [cite: 110]
+    estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
+    tipo = models.IntegerField(choices=OPCIONES_TIPO, null=True, blank=True)
+    nombre = models.CharField(max_length=200)
 
 ```
-
-## Página 1: "Instala" tu aplicación
-
+## Página 146: "Instala" tu aplicación
 * Archivo a modificar: `...\directory\mywebsite\settings.py`
 
 ```python
@@ -1881,12 +1823,7 @@ INSTALLED_APPS = [
 ]
 
 ```
-
----
-
-## Página 2
-
-* Crea las tablas de tu aplicación recientemente "instalada"
+## Página 147: Crea las tablas de tu aplicación recientemente "instalada"
 * Para la simulación (preparar los archivos):
 `python manage.py makemigrations myfirstapp`
 * Échale un ojo a: `myfirstapp/migrations/0001_initial.py`
@@ -1895,35 +1832,34 @@ INSTALLED_APPS = [
 * Finalmente, crea las tablas:
 `python manage.py migrate`
 
----
-
-## Página 3: Interactúa con el Shell de Django
-
-* Iniciar el shell:
-`python manage.py shell`
+## Página 148: Interactúa con el Shell de Django
+* Iniciar el shell: `python manage.py shell`
 * Importa los modelos:
+
 `from myfirstapp.models import Estudiante, Carrera`
+
 `Estudiante.objects.all()`
+
 * **Error común al crear Objetos**
 `estudiante = Estudiante ("José", "Gutiérrez", 49, 8.9, True)`
 `estudiante.id`
 
----
+## Página 149: Interactúa con el Shell de Django
 
-## Página 4: Interactúa con el Shell de Django
-
-* **Forma correcta:**
+**Forma correcta:**
 `>> estudiante = Estudiante (nombre="José", apellidos="Gutiérrez", edad = 49, promedio = 8.9, foraneo=True)`
+
 `estudiante.id`
+
 `estudiante.save()`
+
 `estudiante.id`
+
 * Añade otro estudiante:
 `>> Estudiante.objects.all()`
 
----
 
-## Página 5: Mostrando los Objetos "Correctamente"
-
+## Página 150: Mostrando los Objetos "Correctamente"
 * Archivo a modificar: `.../myfirstapp/models.py`
 
 ```python
@@ -1940,8 +1876,6 @@ class Carrera (models.Model):
         return str(self.tipo) + " " + self.nombre
 
 ```
-
----
 
 ## Página 6: Interactúa con el Shell de Django
 
