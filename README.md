@@ -8,4 +8,7 @@ Código de algunos ejercicios resueltos en clase.
 Código básico tipo "hola mundo" para las diferentes tecnologías.
 ## proyecto alpha
 Proyecto que implementa las tecnologías de una forma más avanzada, muy útil para entender la interacción entre ellas.
-
+## TurboMessage
+proyecto final de tecnologías web django.
+## SD_Prep_Final
+codigo respresentativo de un examen final pasado.
