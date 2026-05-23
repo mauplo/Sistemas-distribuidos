@@ -2241,6 +2241,7 @@ urlpatterns = [
 
 ## Página 174: Agrega un Estudiante - POST [2/2]
 * **Archivo:** `myfirstapp/views.py`
+```
 def agrega_estudiante_forma(request):
   nombre = request.POST.get("nombre")
   apellidos = request.POST.get("apellidos")
@@ -2257,62 +2258,56 @@ def agrega_estudiante_forma(request):
 
 ```
 
-## Página 5: Redirección
+## Página 175: Completar...
+
+Agrega una Carrera 
+* MÉTODO: create()
+* ENTRADA: estudiante_id, tipo, nombre
+Agrega un Estudiante
+* MÉTODOS: Estudiante() save()
+* ENTRADA: nombre, apellidos, edad, foraneo, promedio
+Borra un Estudiante
+* MÉTODO: delete()
+* ENTRADA: estudiante_id
+Edita el promedio de un Estudiante
+* MÉTODOS: get() y save()
+* ENTRADA: estudiante_id, promedio
+
+## Página 176: Agrega una Carrera
 
 * **Archivo:** `myfirstapp/views.py`
 
 ```python
-from django.http import HttpResponseRedirect
-from django.urls import reverse
-
-# Requiere importar HttpResponseRedirect y reverse
-# Es vital para evitar el reenvío del formulario (Form Resubmission)
+def agrega_carrera(request, estudiante_id, tipo, nombre):
+estudiante = Estudiante.objects.get(pk=estudiante_id)
+estudiante.carrera_set.create(tipo = int(tipo), nombre=nombre)
+return HttpResponse("Carrera agregada al estudiante %s" % estudiante_id)
 
 ```
 
----
-
-## Página 6: Generic Views - Listado
+## Página 177: Agrega un Estudiante
 
 * **Archivo:** `myfirstapp/views.py`
 
 ```python
-from django.views import generic
-
-class IndexView(generic.ListView):
-    template_name = "myfirstapp/index.html"
-    context_object_name = "estudiantes"
-    
-    def get_queryset(self):
-        return Estudiante.objects.order_by("nombre")
+def agrega_estudiante(request, nombre, apellidos, edad, foraneo, promedio):
+  foraneo = foraneo.lower() == "true"
+  estudiante = Estudiante( nombre=nombre,apellidos=apellidos,edad=int(edad),foraneo=foraneo,promedio=float(promedio))
+  estudiante.save()
+  return HttpResponse("Estudiante %s agregado exitósamente" %
+estudiante.id)
 
 ```
 
----
-
-## Página 7: Generic Views - Detalle
-
-* **Archivo:** `myfirstapp/views.py`
-
-```python
-class DetallesView(generic.DetailView):
-    model = Estudiante
-    template_name = "myfirstapp/detalles.html"
-
-```
-
----
-
-## Página 8: Actualizando urls.py (Generic Views)
+## Página 178: Borra un Estudiante
 
 * **Archivo:** `myfirstapp/urls.py`
 
 ```python
-urlpatterns = [
-    path("", views.IndexView.as_view(), name="index"),
-    path("<int:pk>/detalles/", views.DetallesView.as_view(), name="detalles"),
-]
-
+def borra_estudiante(request, estudiante_id):
+  estudiante = Estudiante.objects.get(pk=estudiante_id)
+  estudiante.delete()
+  return HttpResponse("Estudiante %s borrado exitósamente" % estudiante_id)
 ```
 
 ---
