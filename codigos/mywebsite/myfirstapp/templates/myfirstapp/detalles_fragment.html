@@ -1,0 +1,27 @@
+{% if estudiante %}
+    <div class="detalles">
+        <h3>Detalles del Estudiante</h3>
+        <p>ID: {{ estudiante.id }}</p>
+        <p>Nombre: {{ estudiante.nombre }}</p>
+        <p>Apellidos: {{ estudiante.apellidos }}</p>
+        <p>Promedio: {{ estudiante.promedio }}</p>
+        {% if estudiante.foraneo %}
+            <p>Foráneo</p>
+        {% else %}
+            <p>Local</p>
+        {% endif %}
+        {% if estudiante.aspira_a_beca %}
+            <p>Solicita BECA</p>
+        {% endif %}
+        <h4>Carreras</h4>
+        <ul>
+        {% for carrera in estudiante.carrera_set.all %}
+            <li>{{ carrera.get_tipo }} {{ carrera.nombre }}</li>
+        {% empty %}
+            <li>No hay carreras</li>
+        {% endfor %}
+        </ul>
+    </div>
+{% else %}
+    <p>No se encontró el estudiante.</p>
+{% endif %}

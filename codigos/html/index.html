@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<input type="button" value="Iniciar" onclick="timeoutid = setTimeout(di_hola, 3000, 'a todos')"><br>
+<input type="button" value="Cancelar" onclick="clearTimeout(timeoutid)"><br>
+<div onmouseover="eventMouseOver(this)" onmouseout="eventMouseOut(this)">Mouse Over Me</div><br>
+
+<input type="text" id="anyId3" onchange="upperCase('anyId3');">
+<h1 id ="anyId1" onclick="increaseText('anyId1')">Click on this text!</h1>
+<h1 id ="anyId2" onclick="increaseText('anyId2')">Click on this text!</h1>
+<body>
+    <p>Please input a number between 5 and 10:</p>
+    <input id="demo" type="text">
+    <button type="button" onclick="myFunction()">Test Input</button>
+    <p id="mess"></p>
+
+    <h1 id="titulo" name="titulo">Hola Mundo</h1><br>
+    <hr> 
+    <!--  horizontal line -->
+    <script src="scripts/code.js"></script>
+    <span id="contenedor1"> Texto Cualquiera</span><br>
+    <div id="contenedor2"> </div><br>
+    <input type="button" value="Cambiar" onclick="cambiar('contenedor1')"><br>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+        </tr>
+        <tr>
+            <td>Mau</td>
+            <td>23</td>
+        </tr>
+    </table><br>
+    <a href="https://www.google.com" target="_blank">Vinculo</a>
+    <form action="otra.html" method="get">
+        <!--  copiado -->
+        <label for="nombre">Ingresa tu nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+        <p>Selecciona un tipo</p>
+        <input type="radio" id="tipo" name="tipo" value="tipo"> 
+        <label for="tipo"> Tipo 1 </label>
+        <label for="tipo">Selecciona un tipo</label>
+        <select id="tipo" name="tipo" >
+        <option value="opcion1" selected>Opcion 2</option>
+        </select>
+        <input type="checkbox" id="opcion" name="opcion" checked><br>
+        <label for="opcion">Esta una opción </label>
+        <label for="texto_largo">Escribe algo:</label> 
+        <textarea name="texto_largo" id = "texto_largo" rows="10" cols="30">
+        Este es un mensaje largo
+        </textarea><br>
+        <input type="submit"> OK > </input>
+        <img id="myimage" onclick="changeImage('myimage')" src="images/down.png">
+    </form>
+
+</body>
+</html>

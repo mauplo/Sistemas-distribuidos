@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Detalles del Estudiante: </h2>
+    {%  if estudiante %}
+        <p> {{ estudiante.id }} </p>
+        <p> {{ estudiante.nombre }}</p>
+        <p> {{ estudiante.apellidos }}</p>
+        <p> {{ estudiante.promedio }}</p>
+        {% if estudiante.foraneo %}
+            <p> Foraneo </p>
+        {% else %}
+            <p> Local </p>
+        {%  endif %} 
+        {% if estudiante.aspira_a_beca %}
+            <p> Solicita BECA </p>
+        {%  endif %} 
+        <ul>
+        {% for carrera in estudiante.carrera_set.all %}
+            <li> {{carrera.get_tipo}} {{carrera.nombre}}</li>
+        {%  endfor %} 
+        </ul>
+        
+    {%  endif %} 
+
+</body>
+</html>

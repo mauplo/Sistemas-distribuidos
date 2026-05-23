@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" type= "text/css" href="{% static 'myfirstapp/style.css' %}">
+</head>
+<body>
+    {% if estudiantes %}
+    <label for="estudiante-select">Selecciona un estudiante:</label>
+    <select id="estudiante-select">
+        <option value="">-- Elige --</option>
+        {% for estudiante in estudiantes %}
+            <option value="{{ estudiante.id }}">{{ estudiante.apellidos }} {{ estudiante.nombre }}</option>
+        {% endfor %}
+    </select>
+
+    <div id="detalles-container">
+        <!-- Aquí se cargan los detalles vía AJAX -->
+    </div>
+
+    {% else  %}
+        <h2> No hay estudiantes </h2>
+    {% endif %}
+
+    <form action="agrega_estudiante_forma" method="POST">
+        {%csrf_token%}
+        <label> Nombre: <input type="text" name = "nombre" id = "nombre"> </label> <br>
+        <label> Apellidos: <input type="text" name = "apellidos"> </label><br>
+        <label> Edad: <input type="text" name = "edad"> </label><br>
+        <label> Promedio: <input type="text" name = "promedio"> </label><br>
+        <label> <input type="checkbox" value="True" name="foraneo"> Foráneo </label><br>
+        <input type="submit" value="Agregar">
+    </form>
+    {% load static %}
+    <script src="{% static 'myfirstapp/myjavascript.js' %}"></script>
+    
+</body>
+</html>

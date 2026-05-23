@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Formulario de datos personales</h1>
+    <form id="personalForm" action="auto.html" name="cliente" method="get">
+        <div>
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required>
+        </div>
+
+        <div>
+            <label for="apellidos">Apellidos:</label><br>
+            <input type="text" id="apellidos" name="apellidos" required>
+        </div>
+
+        <div>
+            <p>Género:</p>
+            <label><input type="radio" name="genero" value="masculino" required> Masculino</label>
+            <label><input type="radio" name="genero" value="femenino"> Femenino</label>
+            <label><input type="radio" name="genero" value="otro"> Otro</label>
+        </div>
+
+        <div>
+            <label for="edad">Edad:</label><br>
+            <input type="number" id="edad" name="edad" min="0" max="120" required>
+        </div>
+
+        <div>
+            <label for="estado">Estado:</label><br>
+            <select id="estado" name="estado" required>
+                <option value="" disabled selected>-- Selecciona un estado --</option>
+                <option value="estado1">Aguascalientes</option>
+                <option value="estado2">Baja California</option>
+                <option value="estado3">Baja California Sur</option>
+                <option value="estado4">Chiapas</option>
+                <option value="estado5">Chihuahua</option>
+                <option value="estado6">Ciudad de México</option>
+                <option value="estado7">Coahuila</option>
+                <option value="estado8">Colima</option>
+                <option value="estado9">Durango</option>
+                <option value="estado10">Estado de México</option>
+                <option value="estado11">Guanajuato</option>
+                <option value="estado12">Guerrero</option>
+                <option value="estado13">Hidalgo</option>
+                <option value="estado14">Jalisco</option>
+                <option value="estado15">Michoacán</option>
+                <option value="estado16">Morelos</option>
+                <option value="estado17">Nayarit</option>
+                <option value="estado18">Nuevo León</option>
+                <option value="estado19">Oaxaca</option>
+                <option value="estado20">Puebla</option>
+                <option value="estado21">Querétaro</option>
+                <option value="estado22">Quintana Roo</option>
+                <option value="estado23">San Luis Potosí</option>
+                <option value="estado24">Sinaloa</option>
+                <option value="estado25">Sonora</option>
+                <option value="estado26">Tabasco</option>
+                <option value="estado27">Tamaulipas</option>
+                <option value="estado28">Tlaxcala</option>
+                <option value="estado29">Veracruz</option>
+                <option value="estado30">Yucatán</option>
+                <option value="estado31">Zacatecas</option>
+            </select>
+        </div>
+
+        <div style="margin-top:1em;">
+            <button type="submit">Enviar</button>
+        </div>
+    </form>
+
+    <script src="form.js" defer></script>
+</body>     
+</html>
