@@ -1355,13 +1355,55 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 ```
 
 ## Página 102: WSDL - Types
+**Diagrama jerárquico** que ilustra cómo se organizan los diferentes **tipos de datos** en el estándar XML Schema (utilizado frecuentemente en WSDL para definir la estructura de servicios web). Arbol genealógico de datos que empieza con un tipo general y se va ramificando hacia tipos cada vez más específicos
+* **El origen:** En la parte superior, el punto de partida es `anyType`. De aquí salen dos grandes ramas:
+1. **all complex types:** Representa estructuras de datos más complejas que tú mismo puedes definir.
+2. **anySimpleType:** Es la base de todos los tipos de datos atómicos (valores simples).
 
-*Descripción visual: Un letrero vial oscuro con una flecha apuntando hacia la derecha y el texto "ONE WAY" (Sentido único). Hay una flecha apuntando desde el texto "El Servicio web recibe un mensaje" hacia la etiqueta <input> del código.*
+* **La rama anySimpleType:** Esta es la parte más detallada del gráfico. A partir de ella, se despliegan varias categorías principales:
+* **Tipos de fecha y tiempo:** Incluye formatos como `duration` (duración), `dateTime` (fecha y hora), `time` (hora), `date` (fecha), y otros específicos como `gYear` (año) o `gMonth` (mes).
+* **Tipos básicos:** Incluye `boolean` (verdadero/falso), `float` y `double` (números con decimales), `base64Binary` y `hexBinary` (datos binarios), además de otros como `anyURI` y `NOTATION`.
+* **Cadenas de texto (Strings):** Comienza con `string` y se vuelve más específica bajando por el árbol hacia `normalizedString`, `token`, y finalmente tipos muy especializados como `language` (idiomas) o `ID` (identificadores únicos).
+* **Tipos numéricos (Decimal):** Empieza en `decimal` y desciende hacia `integer` (enteros). Desde aquí, el árbol se divide en:
+* **Enteros negativos y no positivos.**
+* **Enteros largos y estándar (int, short, byte).**
+* **Enteros no negativos y positivos**, que incluyen variantes de tamaños como `unsignedLong`, `unsignedInt`, hasta llegar a `unsignedByte`.
 
-Título: One-way
+## Página 103: WSDL - Ejemplo
+```
+<message name="getTermRequest">
+  <part name="term" type="xs:string"/>
+</message>
+
+<message name="get TermResponse">
+  <part name="value" type="xs:string"/>
+</message>
+
+<portType name="glossary Terms">
+  <operation name="get Term">
+    <input message="get TermRequest"/ >
+    <output message="get TermResponse"/>
+  </operation>
+</portType>
+```
+donde getTerm es una función y getTermRequest/getTermResponse son los parámetros de entrada y salida. 
+
+## Página 104: WSDL – PortType [1/2]
+**Define las operaciones del servicio web y los mensajes que están involucrados.**
+Tipos de operaciones:
+* Sólo ida **(One-way)**: El punto final recibe un mensaje
+* Notificación **(Notification)**: El punto final envía un mensaje
+
+## Página 105: WSDL – PortType [2/2]
+**Define las operaciones del servicio web y los mensajes que están involucrados.**
+Tipos de operaciones
+* Solicitud-respuesta **(Request-Response)**: El punto final recibe un mensaje y envía un mensaje correlacionado.
+* Petición-respuesta **(Solicit-Response)**: El punto final envía un mensaje y recibe un mensaje correlacionado.
+
+## Página 106: One-way
 
 Código XML:
-
+```
 <message name="newTermValues">
   <part name="term" type="xs:string"/>
   <part name="value" type="xs:string"/>
@@ -1372,18 +1414,14 @@ Código XML:
     <input name="newTerm" message="newTermValues"/>
   </operation>
 </portType>
+```
+El Servicio web recibe un mensaje.
 
+*Descripción visual: Un letrero vial oscuro con una flecha apuntando hacia la derecha y el texto "ONE WAY" (Sentido único).*
 
-Anotación: El Servicio web recibe un mensaje.
-
-Página 2
-
-Descripción visual: Campana de notificación azul vibrando, junto a un círculo naranja con un signo de exclamación (!). Una flecha apunta desde el texto hacia la etiqueta <output>.
-
-Título: Notification
-
+## Página 107: Notification
 Código XML:
-
+```
 <message name="notifyNewVersion">
   <part name="version" type="xs:string"/>
 </message>
@@ -1393,18 +1431,13 @@ Código XML:
     <output name="version" message="notifyNewVersion"/>
   </operation>
 </portType>
-
-
+```
 Anotación: El Servicio web envía un mensaje.
+*Descripción visual: Campana de notificación azul vibrando, junto a un círculo naranja con un signo de exclamación (!)*
 
-Página 3
-
-Descripción visual: Una urna roja con la palabra "REQUESTS" en letras blancas 3D y sobres blancos introduciéndose en la ranura. El código tiene números (1 y 2) indicando el orden de ejecución en el <input> y <output>.
-
-Título: Request-Response
-
+## Página 108: Request-Response
 Código XML:
-
+```
 <message name="getTermRequest">
   <part name="term" type="xs:string"/>
 </message>
@@ -1419,18 +1452,13 @@ Código XML:
     <output message="getTermResponse"/> <!-- 2 -->
   </operation>
 </portType>
-
-
+```
 Anotación: El servicio web recibe un mensaje y envía un mensaje correlacionado.
+*Descripción visual: Una urna roja con la palabra "REQUESTS" en letras blancas 3D y sobres blancos introduciéndose en la ranura. El código tiene números (1 y 2) indicando el orden de ejecución en el <input> y <output>.*
 
-Página 4
-
-Descripción visual: El diseño es idéntico a las páginas anteriores, pero invierte el orden lógico (1 para output, 2 para input).
-
-Título: Solicit-Response
-
+## Página 109: Solicit-Response
 Código XML:
-
+```
 <message name="getExpirationDateResponse">
   <part name="value" type="xs:string"/>
 </message>
@@ -1445,26 +1473,20 @@ Código XML:
     <input message="getExpirationDateSolicit"/> <!-- 2 -->
   </operation>
 </portType>
-
-
+```
 Anotación: El servicio web envía un mensaje y recibe un mensaje correlacionado.
+*Descripción visual: El diseño es idéntico a las páginas anteriores, pero invierte el orden lógico (1 para output, 2 para input).*
 
-Página 5
+## Página 110: WSDL - Vinculación (Binding)
+Define el formato del **mensaje** y el **protocolo**
 
-Descripción visual: Varias figuras de madera con forma de personas en colores vivos (azul, rosa, morado, rojo, amarillo, naranja, verde) interconectadas mediante líneas, simulando una red o vinculación de usuarios.
+*Descripción visual: Varias figuras de madera con forma de personas en colores vivos interconectadas mediante líneas, simulando una red o vinculación de usuarios.*
 
-Título: WSDL - Vinculación (Binding)
 
-Define el formato del mensaje y el protocolo
 
-Página 6
-
-Descripción visual: Cuatro piezas de rompecabezas rojas que encajan formando una cruz, con una pieza amarilla en el centro. Las piezas rojas están conectadas a cables de red del mismo color.
-
-Título: Binding
-
+## Página 111: Binding
 Código XML:
-
+```
 <message name="getTermRequest"> ... </message>
 <message name="getTermResponse"> ... </message>
 
@@ -1483,127 +1505,76 @@ Código XML:
     <output><soap:body use="literal"/></output>
   </operation>
 </binding>
+```
 
+Descripción visual: Cuatro piezas de rompecabezas rojas que encajan formando una cruz, con una pieza amarilla en el centro. Las piezas rojas están conectadas a cables de red del mismo color. Resalta el código: `<portType name="glossaryTerms">` y `<binding type="glossaryTerms" name=“MyBinding">`
 
-Anotación: Binding
+## Página 112: Continuación
+Se presenta el mismo bloque de código XML de la página 111, pero ahora se resalta el código: `<binding type="glossaryTerms" name=“MyBinding">`
 
-Página 7
+## Página 113: Continuación
+Se presenta el mismo bloque, pero hay un globo de texto apuntando a la línea `<soap:binding style="document"` El atributo STYLE se refiere a como traducir el binding a un mensaje SOAP. Document: mensaje que contiene documentos. RPC: mensaje con parámetros y valores de retorno.
 
-Descripción visual: Misma imagen de las piezas de rompecabezas rojas y amarilla.
+## Página 114: Continuación
+Ahora se resalta `transport="http://schemas.xmlsoap.org/soap/http"/>`. El atributo TRANSPORT define el protocolo a utilizar.
 
-Título: Binding
-
-Código XML:
-(Se presenta el mismo bloque de código XML de la página 6 como continuación del tema).
-
-Anotación: Binding
-
-Página 8
-
-Descripción visual: Misma imagen de rompecabezas. Hay un globo de texto apuntando a la línea <soap:binding style="document"...
-
-Título: Binding
-
-Código XML:
-(Mismo bloque de código, resaltando el atributo "style").
-
-Anotación: El atributo STYLE se refiere a como traducir el binding a un mensaje SOAP.
-
-Document: mensaje que contiene documentos.
-
-RPC: mensaje con parámetros y valores de retorno.
-
-Página 9
-
-Descripción visual: Misma imagen de rompecabezas. Ahora se resalta la parte de transport="...".
-
-Título: Binding
-
-Código XML:
-(Mismo bloque de código, resaltando el atributo "transport").
-
-Anotación: El atributo TRANSPORT define el protocolo a utilizar.
-
-Página 10
-
-Descripción visual: Misma imagen de rompecabezas. Ahora la explicación se centra en el atributo use="literal".
-
-Título: Binding
-
-Código XML:
-(Mismo bloque de código, resaltando el atributo "use" dentro del body).
-
+## Página 115: Continuación
+La explicación se centra en el atributo "use" dentro del body:
+```
+<operation name="getTerm">
+  <input message="getTermRequest"/>
+  <output message="getTermResponse"/>
+</operation>
+```
+y 
+```
+<soap:operation soapAction="http://example.com/getTerm"/>
+<input><soap:body use="literal"/></input>
+<output><soap:body use="literal"/></output>
+```
 Anotación: encoded o literal.
 
-Página 11
+## Página 116: WSDL y UDDI
+* **Universal Description, Discovery and Integration** (UDDI) es un servicio de directorio en el que se pueden registrar y buscar servicios Web.
+* Directorio de interfaces WSDL
+* Comunicación a través de SOAP
+* Servicio de páginas blancas, amarillas y verdes.
 
-Descripción visual: A la izquierda, un logotipo clásico de UDDI (letras doradas brillantes, engranes, y una pluma de escribir rosa debajo con el texto "An Apache Project"). A la derecha, una lupa analizando las páginas de un directorio telefónico o libro con pestañas de colores.
+*Descripción visual: A la izquierda, un logotipo clásico de UDDI. A la derecha, una lupa analizando las páginas de un libro.*
 
-Título: WSDL y UDDI
+## Página 117: Transición a SPYNE
 
-Universal Description, Discovery and Integration (UDDI) es un servicio de directorio en el que se pueden registrar y buscar servicios Web.
+*Descripción visual: El logotipo de la librería en letras negras, grandes y gruesas que dicen "SPYNE". A su lado, la conocida pastilla de jabón rosa con las letras incrustadas "SOAP".*
 
-Directorio de interfaces WSDL
-
-Comunicación a través de SOAP
-
-Servicio de páginas blancas, amarillas y verdes.
-
-Página 12
-
-Descripción visual: El logotipo de la librería en letras negras, grandes y gruesas que dicen "SPYNE". A su lado, la conocida pastilla de jabón rosa con las letras incrustadas "SOAP".
-
-Título: Spyne (Logo)
-
-Texto: (Sin texto adicional, sólo la presentación visual de las herramientas).
-
-Página 13
-
-Descripción visual: El clásico logotipo de las serpientes entrelazadas del lenguaje Python (azul y amarillo) con la versión "3.7" escrita debajo.
-
-Título: Para Servidor y Client SOAP
-
+## Página 118: Para Servidor y Client SOAP
+```
 python -m pip install spyne
-
 python -m pip install suds
-
 python -m pip install lxml
+```
+* http://spyne.io/
+* http://localhost:8000/?wsdl
 
-http://spyne.io/
-
-http://localhost:8000/?wsdl
 
 Clases requeridas:
-
+```
 from spyne.protocol.soap import Soap11
 from spyne.server.wsgi import WsgiApplication
 from wsgiref.simple_server import make_server
 from spyne import Application, ServiceBase, rpc
 from spyne import Integer 
+```
 
-
-Página 14
-
-Descripción visual: Logotipo negro de "SPYNE" en la base.
-
-Título: Esqueleto del Servicio Web
-
-Código Python:
-
+## Página 119: Esqueleto del Servicio Web
+```
 class Servicio(ServiceBase):
     @rpc(Integer, Integer, _returns=Integer)
     def suma(ctx, a, b):
         return a+b
+```
 
-
-Página 15
-
-Descripción visual: Logotipo negro de "SPYNE" en la base.
-
-Título: Despliegue del Servicio Web
-
-Código Python:
-
+## Página 120: Despliegue del Servicio Web
+```
 application = Application([Servicio],
     "localhost",
     in_protocol=Soap11(),
@@ -1612,129 +1583,66 @@ application = Application([Servicio],
 wsgi_app = WsgiApplication(application, 8000)
 server = make_server("127.0.0.1", 8000, wsgi_app)
 server.serve_forever()
+```
 
-
-Página 16
-
-Descripción visual: Logotipo negro de "SPYNE" en la base.
-
-Título: Tipos Base
-
-Integer
-
-Float
-
-Boolean
-
-Unicode
-
-Iterable(tipo)
-
-Código Python:
-
+## Página 121: Tipos Base
+* Integer
+* Float
+* Boolean
+* Unicode
+* Iterable(tipo)
+```
 from spyne import tipo
+```
 
-
-Página 17
-
-Descripción visual: Un ícono redondo y azul brillante con la silueta de un usuario y la palabra "CLIENT" escrita en la base.
-
-Título: Cliente de Servicio Web
-
-Código Python:
-
+## Página 122: Cliente de Servicio Web
+```
 from suds.client import Client
 client = Client("http://localhost:8000/?wsdl")
 result = client.service.suma(3, 4)
 print(result)
+```
 
-
-Página 18
-
-Descripción visual: Un collage con tres imágenes ilustrativas distintas: un conjunto de coloridas hojas de otoño (amarillas, rojas, naranjas), un recipiente de vidrio (botella o matraz) que contiene agua, y unas brillantes flores de color rosa con el centro amarillo/verde.
-
+## Página 123: DJANGO
 (Página de transición sin texto ni código).
 
-Página 19
-
-Descripción visual: Logotipo oficial de "django" en verde oscuro. Un póster estilizado de la película "Django Unchained" (con Jamie Foxx, Leonardo DiCaprio y Christoph Waltz en blanco y negro con toques rojos). Un primer plano del actor Jamie Foxx caracterizado como Django con su sombrero y gafas.
-
-Título: DJango
-
+## Página 124: DJANGO
 Web framework escrito en Python
 
 Ventajas:
+* Derivadas de Python
+* Aplicaciones plug & play
+* Mapeo Objeto Relacional: Objetos / Base de Datos
+* Lenguaje para plantillas
+* Interfaz de administrador (configurable)
+* Diseño de URLs “elegante”
+* MVC
 
-Derivadas de Python
+## Página 125: Modelo Vista Controlador
+* Datos
+* Interfaz
+* Lógica de control: Intermediario entre Datos e Interfaz
 
-Aplicaciones plug & play
+*Descripción visual: Diagrama del patrón MVC (Modelo Vista Controlador). Muestra a un usuario web enviando un "HTTP Request" al "Controller". Éste envía "Execution Parameters" al "Model" e interactúa con bases de datos. El "Model" devuelve "Resulting Data Arrays" a la "View". El Controller también interactúa enviando comandos a la View. Finalmente, la "View" construye la interfaz gráfica y regresa el "HTTP Response" y el "GUI Output" al usuario web original.*
 
-Mapeo Objeto Relacional: Objetos / Base de Datos
+## Página 126: arquitectura django
+1. Nivel de Aplicación (App Layer)
+* **User Interface (HTTP Output):** Es el punto de entrada y salida; es lo que el usuario ve y con lo que interactúa a través de su navegador.
 
-Lenguaje para plantillas
+2. Patrón MVC (Model-View-Controller)
+Esta sección es el "cerebro" de la aplicación y se divide en tres partes que se comunican entre sí:
 
-Interfaz de administrador (configurable)
+* **Controller (Controlador):** Recibe las peticiones del usuario, procesa la lógica y decide qué hacer a continuación.
+* **Model (Modelo):** Se encarga de gestionar los datos y la lógica de negocio; es el puente directo con la base de datos.
+* **View (Vista):** Es el componente encargado de presentar la información visualmente al usuario.
 
-Diseño de URLs “elegante”
-
-MVC
-
-Página 20
-
-Descripción visual: Diagrama del patrón MVC (Modelo Vista Controlador). Muestra a un usuario web enviando un "HTTP Request" al "Controller". Éste envía "Execution Parameters" al "Model" e interactúa con bases de datos. El "Model" devuelve "Resulting Data Arrays" a la "View". El Controller también interactúa enviando comandos a la View. Finalmente, la "View" construye la interfaz gráfica y regresa el "HTTP Response" y el "GUI Output" al usuario web original.
-
-Título: Modelo Vista Controlador
-
-Datos
-
-Interfaz
-
-Lógica de control
-
-Intermediario entre Datos e Interfaz
-
-Página 21
-
-Descripción visual: Un dibujo de un árbol caricaturizado, muy feliz, abrazando un billete verde, con gafas de sol rosas y el texto "AFTER PAYCHECK" (Después del día de pago). Una interfaz sencilla mostrando un menú desplegable "Explorador de Estudiantes" seleccionando a "Gutierrez Jose", y los datos impresos debajo en formato lista (Identificador: 1, Nombre: Jose, Promedio: 8.9, etc.). También hay un ícono de un cursor (flecha de ratón) haciendo clic, generando destellos.
-
-## Página 1
-
-* 
-**Django** 
+3. Nivel de Base de Datos (Database Layer)
+* **MySQL / SQLite:** Es el almacenamiento persistente donde reside toda la información. El **Modelo** consulta o guarda datos aquí para que la aplicación pueda funcionar.
 
 
-* 
-**App Layer** 
+**En resumen:** Cuando el usuario interactúa con la **Interfaz**, el **Controlador** coordina la acción, el **Modelo** obtiene la información necesaria de la **Base de Datos** y la **Vista** finalmente le muestra el resultado al usuario.
 
-
-* 
-**User Interface (HTTP Output)** 
-
-
-* 
-**Controller** 
-
-
-* 
-**View** 
-
-
-* 
-**MVC** (Modelo-Vista-Controlador)  * **Model** 
-
-
-* 
-**Database Layer** 
-
-
-* 
-**MySQL: Database** 
-
-
-* 
-**SQLite** 
-
-
+¿Te gustaría que te explicara cómo interactúa el modelo con la base de datos usando algún lenguaje en particular, como SQL?
 
 ---
 
