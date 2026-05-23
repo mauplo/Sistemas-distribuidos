@@ -55,8 +55,6 @@
 * **Listas Ordenadas (Ordered List):** Utilizan la etiqueta `<ol>` y enumeran los elementos (1, 2, 3...).
 * **Listas Desordenadas (Unordered List):** Utilizan la etiqueta `<ul>` y marcan los elementos con viñetas.
 
-
-
 ```html
 <ol>
   <li>Elemento A</li>
@@ -131,8 +129,6 @@ Este es un mensaje largo
 * **Botón genérico:** `<input type="button" value="Genérico">`.
 *(Descripción visual: Tres botones con diseño redondeado en diferentes colores)*.
 
-
-
 ## Página 10: DOM (Document Object Model)
 
 * **Haciendo referencia a elementos de HTML:**.
@@ -155,11 +151,7 @@ Este es un mensaje largo
 ## Página 12: Insertando JavaScript en HTML
 
 * Introduciendo JavaScript en documentos HTML.
-
-
 * Se pueden insertar scripts en las etiquetas `<body>` o `<head>`.
-
-
 
 ```html
 <html>
@@ -182,9 +174,6 @@ Este es un mensaje largo
 ## Página 13: Parámetros URL en JavaScript
 
 * Introduciendo JavaScript en documentos HTML para capturar datos de la URL.
-
-
-
 ```javascript
 const all_parameters = window.location.search;
 document.write("Estos son los parametros:" + all_parameters);
@@ -196,117 +185,43 @@ console.log(nombre);
 document.write("Este el nombre:" + nombre);
 
 ```
-
 *Código derivado de las líneas*.
 
 ## Página 14: Estructuras de Control
 
 * Conceptos fundamentales en JavaScript:
-
-
 * Operadores.
-
-
 * Estructuras de control.
-
-
 * Condiciones.
-
-
 * Ciclos.
 *(Descripción visual: Fotografía de un conejo y un gatito juntos, posiblemente utilizada como decoración por el profesor)*.
 
-
-
-
-
 ## Página 15: Alcance (Scope) de las Variables
 
-* 
-**Scope en Javascript:**.
-
-
+* **Scope en Javascript:**.
 * Variable `global`.
-
-
-* 
-`var variable` -> Alcance de función (function scope).
-
-
-* 
-`let variable` -> Alcance de bloque (block scope).
-
-
-
-
+* `var variable` -> Alcance de función (function scope).
+* `let variable` -> Alcance de bloque (block scope).
 
 ## Página 16: Variables y Arreglos
 
-* 
-**Tipos dinámicos:** La misma variable puede almacenar diferentes tipos de datos.
-
-
-* 
-`var x;` // Ahora x no está definida.
-
-
-* 
-`x = 5;` // Ahora x es un número.
-
-
-* 
-`x = "Juan";` // Ahora x es una String.
-
-
-
-
-* 
-**Constantes y variables:**.
-
-
-* 
-`const pi = 3.14;`.
-
-
-* 
-`person = "Juan Perez";`.
-
-
-* 
-`var person = "Juan Perez";`.
-
-
-* 
-`let person = "Juan Perez";`.
-
-
-
-
-* 
-**Arrays (Arreglos):** Diferentes formas de declararlos e inicializarlos.
-
-
-* 
-`var cars = new Array(); cars[0]="Saab"; cars[1]="Volvo"; cars[2]="BMW";`.
-
-
-* 
-`var cars = new Array("Saab", "Volvo", "BMW");`.
-
-
-* 
-`var cars = ["Saab", "Volvo", "BMW"];`.
-
-
-
-
+* **Tipos dinámicos:** La misma variable puede almacenar diferentes tipos de datos.
+* `var x;` // Ahora x no está definida.
+* `x = 5;` // Ahora x es un número.
+* `x = "Juan";` // Ahora x es una String.
+* **Constantes y variables:**.
+* `const pi = 3.14;`.
+* `person = "Juan Perez";`.
+* `var person = "Juan Perez";`.
+* `let person = "Juan Perez";`.
+* **Arrays (Arreglos):** Diferentes formas de declararlos e inicializarlos.
+* `var cars = new Array(); cars[0]="Saab"; cars[1]="Volvo"; cars[2]="BMW";`.
+* `var cars = new Array("Saab", "Volvo", "BMW");`.
+* `var cars = ["Saab", "Volvo", "BMW"];`.
 
 ## Página 17: Funciones
 
 * Normalmente las funciones se agregan en el `<head>`, al final del documento `<body>`, o en un archivo `.js` separado (cuando son muchas).
-
-
-
 ```javascript
 // Ejemplo de función en un script
 function changeText(elementId) {
@@ -321,62 +236,42 @@ function myFunction() {
 }
 
 ```
-
 *Código derivado de las líneas*.
 
 * Ejemplo de llamada a la función desde un botón HTML:
 `<input type="button" value="change" onclick="changeText('one');" [cite_start]/>`.
 
-
-
 ## Página 18: Archivos Externos de JavaScript
 
 * Cómo vincular archivos `.js` externos.
 
-
-
 ```html
 <html>
 <body>
-  <script src="myjavascriptfile.js"></script>
-  
-  <script src="myjavascriptfile.js" defer></script>
-  
+  <script src="myjavascriptfile.js"></script> 
+  <script src="myjavascriptfile.js" defer></script>  
   <script src="myjavascriptfile.js" async></script>
 </body>
 </html>
 
 ```
-
 *Código derivado de las líneas*.
 
 ## Página 19: Orden de Ejecución de Scripts
 
 * **`<script>` (Carga normal):** Interrumpe la descarga y parseo de HTML. Ejecuta la descarga del script y luego la ejecución del script inmediatamente.
-
-
-* 
-**`<script async>` (Carga asíncrona):** El script se descarga en paralelo con el parseo del HTML, y el HTML se detiene solo en el momento en que el script está listo para ser ejecutado.
-
-
-* 
-**`<script defer>` (Carga diferida):** El script se descarga en paralelo, pero su ejecución se retrasa hasta que todo el HTML ha sido analizado por completo.
-
-
-
+* **`<script async>` (Carga asíncrona):** El script se descarga en paralelo con el parseo del HTML, y el HTML se detiene solo en el momento en que el script está listo para ser ejecutado.
+* **`<script defer>` (Carga diferida):** El script se descarga en paralelo, pero su ejecución se retrasa hasta que todo el HTML ha sido analizado por completo.
+  
 ## Página 20: Eventos
 
 * Reaccionando a eventos manipulando los atributos de los elementos del DOM.
-
-
 
 ```html
 <img id="myimage" onclick="changeImage()" src="IMAGES/down.jpg">
 
 ```
-
 *Código derivado de la línea*.
-
 ```javascript
 // Lógica de la función en JS
 function changeImage() {
@@ -389,25 +284,16 @@ function changeImage() {
 }
 
 ```
-
 *Código derivado de las líneas*.
 *(Descripción visual: Ilustración en pixel art de Mario Bros saltando)*.
 
+## Página 21: JSON: Objetos en JavaScript
 
-## Página 1: JSON: Objetos en JavaScript
+* **Título:** JSON: Objetos en JavaScript.
 
-* 
-**Título:** JSON: Objetos en JavaScript.
+* *(Descripción visual: Aparece la fotografía de una máscara de hockey idéntica a la del personaje Jason Voorhees, en clara referencia y juego de palabras con "JSON")*.
 
-
-* 
-*(Descripción visual: Aparece la fotografía de una máscara de hockey idéntica a la del personaje Jason Voorhees, en clara referencia y juego de palabras con "JSON")*.
-
-
-* 
-**Ejemplo de código HTML y JavaScript:** 
-
-
+* **Ejemplo de código HTML y JavaScript:** 
 
 ```html
 <p>
@@ -436,20 +322,11 @@ function changeImage() {
 
 ```
 
-## Página 2: JSON: Objetos en JavaScript (Continuación)
+## Página 22: JSON: Objetos en JavaScript (Continuación)
 
-* 
-**Título:** JSON: Objetos en JavaScript.
-
-
-* 
-*(Descripción visual: Se repite la misma imagen de la máscara de hockey)*.
-
-
-* 
-**Ejemplo de código JavaScript agregando métodos:** 
-
-
+* **Título:** JSON: Objetos en JavaScript.
+* *(Descripción visual: Se repite la misma imagen de la máscara de hockey)*.
+* **Ejemplo de código JavaScript agregando métodos:** 
 
 ```javascript
 <script>
@@ -468,21 +345,11 @@ function changeImage() {
 
 ```
 
-## Página 3: Excepciones en JavaScript
+## Página 23: Excepciones en JavaScript
 
-* 
-**Título:** Excepciones en JavaScript.
-
-
-* 
-*(Descripción visual: Un emoticón amarillo tapándose la boca con la mano en señal de error, con la palabra "OOPS" en letras verdes)*.
-
-
-* 
-**Ejemplo de validación con Try-Catch:** 
-
-
-
+* **Título:** Excepciones en JavaScript.
+* *(Descripción visual: Un emoticón amarillo tapándose la boca con la mano en señal de error, con la palabra "OOPS" en letras verdes)*.
+* **Ejemplo de validación con Try-Catch:** 
 ```html
 <script>
   function myFunction() {
@@ -506,18 +373,10 @@ function changeImage() {
 <p id="mess"></p>
 
 ```
+## Página 24: Añadiendo eventos: Ejemplo 1
 
-## Página 4: Añadiendo eventos: Ejemplo 1
-
-* 
-**Título:** Añadiendo eventos: Ejemplo I.
-
-
-* 
-**Ejemplo de código de manipulación de texto en un clic:** 
-
-
-
+* **Título:** Añadiendo eventos: Ejemplo I.
+* **Ejemplo de código de manipulación de texto en un clic:** 
 ```html
 <script>
   function increaseText(id){
@@ -529,24 +388,14 @@ function changeImage() {
 
 <h1 id="anyld1" onclick="increaseText('anyld1')">Click on this text!</h1>
 <h1 id="anyld2" onclick="increaseText('anyld2')">Click on this text!</h1>
-
 ```
 
-## Página 5: Añadiendo eventos: Ejemplo 2
+## Página 25: Añadiendo eventos: Ejemplo 2
 
-* 
-**Título:** Añadiendo eventos: Ejemplo 2.
+* **Título:** Añadiendo eventos: Ejemplo 2.
+* *(Descripción visual: Se muestran diversas secuencias de letras del abecedario en minúsculas y mayúsculas esparcidas por la diapositiva: abc ABC def DEF ghi GHI jkl JKL mno MNO pqr PQR stu STU VWX VWX yz YZ)*.
 
-
-* 
-*(Descripción visual: Se muestran diversas secuencias de letras del abecedario en minúsculas y mayúsculas esparcidas por la diapositiva: abc ABC def DEF ghi GHI jkl JKL mno MNO pqr PQR stu STU VWX VWX yz YZ)*.
-
-
-* 
-**Ejemplo de evento onchange para pasar a mayúsculas:** 
-
-
-
+* **Ejemplo de evento onchange para pasar a mayúsculas:** 
 ```html
 <script>
   function upperCase(id){
@@ -559,21 +408,11 @@ function changeImage() {
 
 ```
 
-## Página 6: Añadiendo eventos: Ejemplo 3
+## Página 26: Añadiendo eventos: Ejemplo 3
 
-* 
-**Título:** Añadiendo eventos: Ejemplo 3.
-
-
-* 
-*(Descripción visual: Un dibujo clipart de un ratón gris de computadora/animal visto desde arriba)*.
-
-
-* 
-**Ejemplo de eventos onmouseover y onmouseout:** 
-
-
-
+* **Título:** Añadiendo eventos: Ejemplo 3.
+* *(Descripción visual: Un dibujo clipart de un ratón gris de computadora/animal visto desde arriba)*.
+* **Ejemplo de eventos onmouseover y onmouseout:** 
 ```html
 <script>
   function eventMouseOver (obj) {
@@ -590,21 +429,11 @@ function changeImage() {
 
 ```
 
-## Página 7: Validación de Formularios
+## Página 27: Validación de Formularios
 
-* 
-**Título:** Validación de Formularios.
-
-
-* 
-*(Descripción visual: Dibujo de un lápiz naranja como un cohete dibujando una gráfica ascendente)*.
-
-
-* 
-**Ejemplo de validación en el evento onsubmit:** 
-
-
-
+* **Título:** Validación de Formularios.
+* *(Descripción visual: Dibujo de un lápiz naranja como un cohete dibujando una gráfica ascendente)*.
+* **Ejemplo de validación en el evento onsubmit:** 
 ```html
 <script>
   function validateForm(){
@@ -624,49 +453,18 @@ function changeImage() {
 
 ```
 
-## Página 8: Temporización
+## Página 28: Temporización
 
-* 
-**Título:** Temporización.
-
-
-* 
-**setTimeout:** 
-
-
-* 
-`setTimeout(función, tiempo)`.
-
-
+* **Título:** Temporización.
+* **setTimeout:** 
+* `setTimeout(función, tiempo)`.
 * Dispara la función una sola vez.
-
-
-* 
-`clearTimeout()` borra el evento.
-
-
-
-
+* `clearTimeout()` borra el evento.
 * JavaScript Clock.
-
-
-* 
-**setInterval:** 
-
-
-* 
-`setInterval(función, tiempo)`.
-
-
+* **setInterval:** 
+* `setInterval(función, tiempo)`.
 * Dispara la función repetidamente.
-
-
-* 
-`clearInterval()` borra el evento.
-
-
-
-
+* `clearInterval()` borra el evento.
 
 ## Página 9: Eventos de la "ventana"
 
