@@ -2301,7 +2301,7 @@ estudiante.id)
 
 ## Página 178: Borra un Estudiante
 
-* **Archivo:** `myfirstapp/urls.py`
+* **Archivo:** `myfirstapp/views.py`
 
 ```python
 def borra_estudiante(request, estudiante_id):
@@ -2310,167 +2310,161 @@ def borra_estudiante(request, estudiante_id):
   return HttpResponse("Estudiante %s borrado exitósamente" % estudiante_id)
 ```
 
----
+## Página 179: Edita un Estudiante
+* **Archivo:** `myfirstapp/views.py`
+```
+def edita_estudiante(request, estudiante_id, promedio):
+  estudiante = Estudiante.objects.get(pk=estudiante_id)
+  estudiante.promedio = float(promedio)
+  estudiante.save()
+return HttpResponse("El promedio del estudiante %s se ha actualizado
+exitósamente" % estudiante.id)
+```
 
-## Página 9: Introducción a AJAX
+## Página 180: URLs de Alta, Bajas y Ediciones
+* **Archivo:** `myfirstapp/urls.py`
+```
+urlpatterns = [
+  path("", views.index,name="index"),
+  path("<int:estudiante_id>/detalles/", views.detalles,name="detalles"),
+  path("<int:estudiante_id>/<int:tipo>/<str:nombre>/agrega_carrera/",views.agrega_carrera,name="agrega_carrera"),
+  path(<str:nombre>/<str:apellidos>/<int:edad>/<str:foraneo>/<str:promedio>/agrega_estudiante/",views.agrega_estudiante, name="agrega_estudiante"),
+  path("<int:estudiante_id>/<str:promedio>/edita_estudiante/", views.edita_estudiante,name="edita_estudiante"),
+  path("<int:estudiante_id>/borra_estudiante/", views.borra_estudiante,name="borra_estudiante"),
+  path("agrega_estudiante_forma", views.agrega_estudiante_forma,name="agrega_estudiante_forma"),
+]
+```
 
-* **AJAX (Asynchronous JavaScript and XML)**
-* Permite actualizar partes de una página sin recargarla por completo.
-* Mejora la experiencia de usuario (UX).
+## Página 181: Práctica Inventario
+**INVENTARIO**
+**MODELO**.
+* Producto: nombre, cantidad, precio.
+**URLs para:**
 
----
+Crear un producto.
 
-## Página 10: JavaScript - Fetch API
+* Ver los detalles de un producto (a partir de su id).
+* Listar productos.
+* Actualizar la cantidad de un producto (a partir de su id).
+* Borrar un producto (a partir de su id).
 
-* Moderno, reemplaza a `XMLHttpRequest`.
-* Sintaxis basada en Promesas (`async/await`).
+Crear Super Usuario.
 
----
+Registra Modelo en Admin.
 
-## Página 11: Ejemplo Fetch (GET)
+*(Descripción visual: Ilustración de un trabajador de almacén con un escáner revisando un inventario en un tablero gigante con cajas en estantes, junto a una gráfica de métricas y monedas apiladas)*.
+
+## Página 182: Incluyendo JS (asíncrono)
+* Archivo: `static/myfirstapp/myjavascript.js`.
 
 ```javascript
-fetch('/myfirstapp/algunos_datos')
-    .then(response => response.json())
-    .then(data => console.log(data));
+async function hola() {
+  let param = "name=" + document.getElementById("nombre").value;
+  let response = await fetch("/myfirstapp/asincrono?" + param);
+  if (response.ok) {
+    let text = await response.text();
+    alert(text);
+    // let data = await response.json();
+    // alert(data.attribute);
+  } else {
+    alert("HTTP-Error: " + response.status);
+  }
+}
 
 ```
 
----
+## Página 183: Incluyendo JS (asíncrono) - HTML
+* Archivo: `templates/myfirstapp/index.html`.
 
-## Página 12: Ejemplo Fetch (POST)
-
-```javascript
-fetch('/myfirstapp/guardar', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': getCookie('csrftoken')
-    },
-    body: JSON.stringify({ nombre: 'Juan' })
-});
+```html
+<input type="button" value="Prueba" onclick="hola();">
+{% load static %}
+<script src="{% static 'myfirstapp/myjavascript.js' %}"></script>
+<input type="text" name="nombre" id="nombre">
 
 ```
 
----
+## Página 184: Incluyendo JS (asíncrono) - Views
+* Archivo: `myfirstapp/views.py`.
 
-## Página 13: Manejo de cookies CSRF
+```python
+def asincrono(request):
+  name = request.GET("name")
+  return HttpResponse("Hola " + name)
 
-* Django requiere un token para peticiones POST.
-* Debes obtenerlo del DOM o de las cookies para incluirlo en el header.
-
----
-
-## Página 14: XMLHttpRequest - Estructura básica
-
-* *Nota:* Aunque es antiguo, importante para sistemas legados.
-* `let ajaxRequest = new XMLHttpRequest();`
-* `ajaxRequest.onreadystatechange = function() { ... }`
-
----
-
-## Página 15: Ciclo de vida de estado (ReadyState)
-
-* 0: sin inicializar
-* 1: conexión establecida
-* 2: solicitud recibida
-* 3: procesando
-* 4: respuesta lista
-
----
-
-## Página 16: Estados HTTP en AJAX
-
-* 200: OK
-* 404: Not Found
-* 500: Error de servidor
-
----
-
-## Página 17: Diferencias en respuestas
-
-* `responseText`: Recibe el contenido en texto plano.
-* `responseXML`: Recibe el contenido parseado como XML.
-
----
-
-## Página 18: XMLHttpRequest - Petición GET
-
-```javascript
-ajaxRequest.open("GET", "page1.jsp?name=Octavio&age=49", true);
-ajaxRequest.send();
+from django.http import JsonResponse
+JsonResponse({
+  "attribute" : name,
+})
 
 ```
 
----
+## Página 1855: Incluyendo JS (asíncrono) - URLs
+* Archivo: `myfirstapp/urls.py`.
 
-## Página 19: XMLHttpRequest - Petición POST
-
-```javascript
-ajaxRequest.open("POST", "page1.jsp", true);
-ajaxRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-ajaxRequest.send("name=Octavio&age=49");
-
-```
-
----
-
-## Página 20: Asincronía en JS
-
-* Uso de `async function`.
-* `await` permite escribir código asíncrono que parece síncrono.
-
----
-
-## Página 21: Ejemplo de implementación asíncrona [1/2]
-
-* Captura de elementos:
-
-```javascript
-let name = "name=" + document.getElementById("nombre").value;
-let age = "age=" + document.getElementById("edad").value;
+```python
+urlpatterns = [
+  path("asincrono", views.asincrono, name="asincrono"),
+]
 
 ```
 
----
+## Página 186: Práctica – Asincronía en JS 
+UNA SOLA PÁGINA.
+* URL local: `http://127.0.0.1:8000/`.
+* Template: `index.html`.
+* caja con input
+* caja con readonly (resultado conversión)
+* Drop downs para monedas y botón de convertir
 
-## Página 22: Ejemplo de implementación asíncrona [2/2]
+Aplicación: Convertidor de Monedas.
 
-* Envío:
+* Se tiene que crear dinámicamente en la vista para que permita ingresar cualquier lista de monedas.
+* El template debe estar habilitado para que se le indique la moneda origen y la moneda destino por defecto.
+* Usando código de Javascript incorporado en el template, llama asíncronamente un endpoint de Django (que realiza la conversión) y modifica el DOM para imprimir el resultado de la conversión.
 
-```javascript
-let response = await fetch("/myfirstapp/asincrono", {
-    method: "POST",
-    body: params
-});
+* Ejemplo de diccionario de tasas:
+```python
+tasas = {
+  "Peso": 1.000,
+  "Euro": 0.054,
+  "Libra": 0.045,
+  "Dolar": 0.061,
+}
 
 ```
 
----
+* Ejemplo de código HTML dinámico:
+```html
+<option value="Peso" selected> Peso </option>
 
-## Página 23: Definición de un Web Service
+```
 
-* Conjunto de protocolos y estándares que sirven para intercambiar datos entre aplicaciones.
-* Tipos: SOAP, REST.
+## Página 187: Práctica - Asincronía en JS
 
----
+**MODELO**: (Registrarlo en admin)
+Conversion:
+* Atributos: cantidad, moneda_origen, moneda_destino.
+* Código para registrar la hora: `fecha = models.DateTimeField(auto_now_add=True)`.
+* Objetivo: Guardar todas las conversiones realizadas por los usuarios.
+* URLs para: `index` y `convertir_moneda`.
 
-## Página 24: REST (Representational State Transfer)
+*(Descripción visual: Captura de pantalla del panel de administración web de Django, mostrando el historial de conversiones almacenadas en base de datos con cantidad, moneda origen, moneda destino y marca de tiempo)*.
 
-* Basado en recursos (URLs).
-* Uso de verbos HTTP (GET, POST, PUT, DELETE).
-* Formatos comunes: JSON, XML.
+## Página 188: Asincronía en JS (Fetch vs AJAX)
+Comparación de tecnologías.
+* **Fetch:** Identificado con la etiqueta "NEW!".
+* **Vs**
+* **AJAX:** Asynchronous Javascript And XML. Identificado con la etiqueta "Legacy".
 
----
+## Página 189: AJAX Asynchronous Javascript And XML (Legacy)
+* Definición: AJAX es el arte de intercambiar datos con el servidor y actualizar sólo partes de una página web, sin tener que recargar toda la página.
+* Característica principal: Orientados a datos y no a páginas.
 
-## Página 25: Integración final
+*(Descripción visual: Diagrama de arquitectura que muestra la separación entre el cliente y el servidor. Muestra cómo la capa de presentación (HTML/CSS) y la interfaz de usuario se comunican inicialmente para renderizar la vista, pero luego el comportamiento UI (Scripts) utiliza "XMLHttpRequest" como proxy para solicitar y recibir "Data" asíncronamente de los servicios web, sin recargar las páginas completas)*.
 
-* La importancia de conectar el Front-end (Templates + JS) con el Back-end (Django Views + Modelos).
-* Resumen: MVC es fundamental para escalar.
 
----
-
-### Page 1
+### Página 190: Creando un objeto XMLHttpRequest
 **Legacy** (Logotipo estilizado)
 * Enviando una solicitud al Servidor Legacy
 * Tipo de Solicitud Get | Post
