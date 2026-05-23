@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Integracion de Ventas</title>
+    <style>
+        :root {
+            --bg: #f4efe6;
+            --panel: #fffdf8;
+            --panel-strong: #f8f1e7;
+            --text: #1f1a17;
+            --muted: #6e6259;
+            --line: #d7c7b4;
+            --accent: #9a3412;
+            --accent-soft: #f3d8c7;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            background: linear-gradient(180deg, #efe7dc 0%, var(--bg) 100%);
+            color: var(--text);
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 32px 20px 48px;
+        }
+
+        .hero,
+        .section,
+        .summary,
+        .table-panel {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            box-shadow: 0 18px 40px rgba(79, 55, 33, 0.08);
+        }
+
+        .hero {
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+
+        .eyebrow {
+            margin: 0 0 10px;
+            font-size: 13px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        h1, h2, h3 {
+            margin-top: 0;
+        }
+
+        h1 {
+            margin-bottom: 12px;
+            font-size: clamp(2rem, 4vw, 3.3rem);
+            line-height: 1.05;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin-bottom: 0;
+            color: var(--muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section,
+        .summary,
+        .table-panel {
+            padding: 22px;
+        }
+
+        .instruction {
+            margin: 14px 0 0;
+            padding: 14px 16px;
+            border-radius: 14px;
+            background: var(--panel-strong);
+            border: 1px solid var(--line);
+            overflow-wrap: anywhere;
+        }
+
+        code {
+            font-family: "Courier New", monospace;
+            font-size: 0.95em;
+            color: var(--accent);
+        }
+
+        .steps {
+            margin: 14px 0 0;
+            padding-left: 18px;
+        }
+
+        .steps li + li {
+            margin-top: 8px;
+        }
+
+        .examples {
+            display: grid;
+            gap: 14px;
+        }
+
+        .example-card {
+            padding: 16px;
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            background: linear-gradient(180deg, #fffdf8 0%, #f8f2ea 100%);
+        }
+
+        .example-card p {
+            margin: 0 0 8px;
+        }
+
+        .example-card a,
+        .back-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .example-card a:hover,
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .summary-value {
+            margin: 4px 0 0;
+            font-size: 2.1rem;
+            font-weight: bold;
+        }
+
+        .summary-note {
+            margin-top: 8px;
+            color: var(--muted);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th,
+        td {
+            padding: 12px 10px;
+            border-bottom: 1px solid var(--line);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            font-size: 0.9rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .empty {
+            margin: 12px 0 0;
+            color: var(--muted);
+        }
+
+        @media (max-width: 800px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page {
+                padding: 20px 14px 36px;
+            }
+
+            .hero,
+            .section,
+            .summary,
+            .table-panel {
+                padding: 18px;
+            }
+
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                display: block;
+            }
+
+            thead {
+                display: none;
+            }
+
+            tr {
+                padding: 12px 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            td {
+                border: none;
+                padding: 4px 0;
+            }
+
+            td::before {
+                content: attr(data-label) ": ";
+                font-weight: bold;
+                color: var(--muted);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <section class="hero">
+            <p class="eyebrow">Proyecto de Integracion</p>
+            <h1>Registro de ventas con una sola URL</h1>
+            <p>La aplicacion recibe una venta, detecta la tienda y la envia al servicio correcto. Despues guarda el resultado en SQLite para que puedas consultar el historial y el total acumulado.</p>
+        </section>
+
+        <div class="grid">
+            <section class="section">
+                <h2>Como registrar una venta</h2>
+                <p>Usa una URL con este formato:</p>
+                <p class="instruction"><code>/integracion/&lt;tienda_id&gt;/&lt;monto&gt;/recibe_ventas/</code></p>
+                <ol class="steps">
+                    <li><strong>Tienda 1</strong> usa el servicio <strong>SOAP</strong>.</li>
+                    <li><strong>Tienda 2</strong> usa el servicio <strong>REST</strong>.</li>
+                    <li><strong>Monto</strong> debe ser un numero decimal mayor a cero.</li>
+                </ol>
+            </section>
+
+            <aside class="summary">
+                <h2>Total acumulado</h2>
+                <p class="summary-value">${{ total_montos }}</p>
+                <p class="summary-note">Este total considera todas las ventas persistidas en la base SQLite del proyecto.</p>
+            </aside>
+        </div>
+
+        <section class="section">
+            <h2>Ejemplos listos para usar</h2>
+            <div class="examples">
+                {% for ejemplo in ejemplos %}
+                <article class="example-card">
+                    <p><strong>{{ ejemplo.descripcion }}</strong></p>
+                    <a href="{{ ejemplo.url }}">{{ ejemplo.url }}</a>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section class="table-panel">
+            <h2>Ventas registradas</h2>
+            {% if ventas %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tienda</th>
+                        <th>Monto</th>
+                        <th>Servicio</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for venta in ventas %}
+                    <tr>
+                        <td data-label="ID">{{ venta.id }}</td>
+                        <td data-label="Tienda">{{ venta.tienda_id }}</td>
+                        <td data-label="Monto">${{ venta.monto }}</td>
+                        <td data-label="Servicio">{{ venta.servicio }}</td>
+                        <td data-label="Fecha">{{ venta.creada_en }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="empty">Aun no hay ventas registradas.</p>
+            {% endif %}
+        </section>
+    </div>
+</body>
+</html>

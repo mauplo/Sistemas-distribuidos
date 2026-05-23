@@ -1,0 +1,4 @@
+Django==3.2.25
+lxml==5.4.0
+pysqlite3-binary==0.5.2
+spyne==2.13.16
