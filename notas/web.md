@@ -1206,136 +1206,66 @@ xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://
 ```
 * Si el mensaje SOAP pasa por varios endpoints, sólo el endpoint indicado en el elemento **actor** debe de procesar el encabezado 
 
----
-
-## Página 7
-
-* **Descripción visual:** Una barra vertical abstracta en tonos azules y la ilustración del perfil anatómico de un cuerpo humano (tipo rayos X), mostrando sus órganos internos y sistema óseo.
-* 
-**Título:** SOAP 
-
-
-* 
-**Subtítulo:** Cuerpo (Body) 
-
-
+## Página 92
+* **Título:** SOAP 
+* **Subtítulo:** Cuerpo (Body) 
 * Elemento obligatorio 
-
-
-* En el elemento body se incluye: 
-
-
+En el elemento body se incluye: 
 * Mensaje 
-
-
 * Referencia al esquema XML que describe el servicio 
-
-
-* Comunicación cliente-servidor 
-
-
+Comunicación cliente-servidor 
 * El elemento body contiene una petición o una respuesta 
 
+*Descripción visual: La ilustración del perfil anatómico de un cuerpo humano (tipo rayos X), mostrando sus órganos internos y sistema óseo.*
 
-
-
-
----
-
-## Página 8
-
-* 
+## Página 93
 **Título:** SOAP 
-
-
-* 
 **Subtítulo:** Cuerpo (Body) 
-
-
-* PETICIÓN 
-
-
-* **Código XML:**
-
+* PETICIÓN
+**Código XML:**
 ```xml
-[cite_start]<?xml version="1.0"?> [cite: 76]
-[cite_start]<soap:Envelope [cite: 77]
-[cite_start]xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> [cite: 78]
-[cite_start]<soap:Body> [cite: 79]
+<?xml version="1.0"?> 
+<soap:Envelope 
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> 
+<soap:Body> 
   <m:GetPrice xmlns:m="http://www.w3schools.com/prices">
-    [cite_start]<m:Item>Apples</m:Item> [cite: 80]
-  [cite_start]</m:GetPrice> [cite: 81]
-[cite_start]</soap:Body> [cite: 82]
-[cite_start]</soap:Envelope> [cite: 83]
+    <m:Item>Apples</m:Item> 
+  </m:GetPrice> 
+</soap:Body> 
+</soap:Envelope>
 
 ```
 
-* Elemento específico de la aplicación 
+* (GetPrice): elemento específico de la aplicación 
 
-
-
----
-
-## Página 9
-
-* 
+## Página 94
 **Título:** SOAP 
-
-
-* 
 **Subtítulo:** Cuerpo (Body) 
-
-
-* RESPUESTA 
-
-
-* **Código XML:**
-
+RESPUESTA 
+**Código XML:**
 ```xml
-[cite_start]<?xml version="1.0"?> [cite: 88]
-[cite_start]<soap:Envelope [cite: 89]
-[cite_start]xmlns:soap="http://www.w3.org/2001/12/soap-envelope" [cite: 90]
-[cite_start]soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> [cite: 91]
-[cite_start]<soap:Body> [cite: 92]
-  [cite_start]<m:GetPriceResponse xmlns:m="http://www.w3schools.com/prices"> [cite: 93, 94]
-    [cite_start]<m:Price>1.90</m:Price> [cite: 95, 96, 97]
-  [cite_start]</m:GetPriceResponse> [cite: 98]
-[cite_start]</soap:Body> [cite: 99]
-[cite_start]</soap:Envelope> [cite: 100]
+<?xml version="1.0"?> 
+<soap:Envelope 
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope" 
+soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> 
+<soap:Body> 
+  <m:GetPriceResponse xmlns:m="http://www.w3schools.com/prices"> 
+    <m:Price>1.90</m:Price> 
+  </m:GetPriceResponse> 
+</soap:Body> 
+</soap:Envelope> 
 
 ```
+* (Price, GetPriceResponse): elementos específicos de la aplicación 
 
-* Elementos específicos de la aplicación 
-
-
-
----
-
-## Página 10
-
-* **Descripción visual:** Fotografía de un montón de barras de jabón de múltiples colores y formas (algunos cuadrados, otros en forma de corazón). Es una referencia visual a la palabra "SOAP" (jabón en inglés).
-* 
+## Página 95
 **Título:** SOAP & HTTP 
-
-
 * HTTP + XML = SOAP 
-
-
 * Un método SOAP es una solicitud/respuesta HTTP que cumple con las reglas de SOAP. 
 
-
-
----
-
-## Página 11
-
-* **Descripción visual:** Se muestra un bloque de código HTTP/XML de petición y una pastilla de jabón rosa con la palabra "SOAP" esculpida en relieve.
-* 
+## Página 96
 **Título:** Ejemplo de solicitud 
-
-
-* **Código de la solicitud:**
-
+**Código de la solicitud:**
 ```http
 POST /InStock HTTP/1.1
 Host: www.example.org
@@ -1357,17 +1287,9 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 
 ```
 
----
-
-## Página 12
-
-* **Descripción visual:** Continúa la ilustración de la pastilla de jabón rosa con la palabra "SOAP" junto al bloque de código de la respuesta.
-* 
+## Página 97
 **Título:** Ejemplo de respuesta 
-
-
-* **Código de la respuesta:**
-
+* Código de la respuesta:
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/soap+xml; charset=utf-8
@@ -1387,81 +1309,33 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 </soap:Envelope>
 
 ```
-
----
-
-## Página 13
-
-* **Descripción visual:** Gráfico de óvalos entrelazados en colores gris y rosa con la palabra "Interface" en el centro. Debajo, la palabra "anything" escrita en distintas fuentes y bloques de color.
-* 
+## Página 98 
 **Título:** Servicios Web 
-
-
-* 
 **Subtítulo:** Interfaz 
-
-
 * Una interfaz de servicio web consta de un conjunto de operaciones que pueden ser accedidas por un cliente en Internet 
-
-
 * El conjunto de operaciones en un servicio web pueden ser ofrecidas por programas, objetos, bases de datos, etc. 
 
+*Descripción visual:** Gráfico de óvalos entrelazados en colores gris y rosa con la palabra "Interface" en el centro. Debajo, la palabra "anything" escrita en distintas fuentes y bloques de color.*
 
-
----
-
-## Página 14
-
-* **Descripción visual:** Diagrama arquitectónico donde un Proveedor de Servicios ("Service Provider") expone un documento "WSDL" a través de una Plataforma de Servicios Web ("Web Services Platform"), para que un "Client" (cliente) consuma el servicio.
-* 
+## Página 99 
 **Título:** WSDL 
-
-
 * Web Services Description Language es un lenguaje de descripción de interfaz (IDL) para servicios Web en XML 
-
-
 * Describe al servicio web 
-
-
 * Describe como acceder al servicio web 
 
+*Descripción visual:** Diagrama arquitectónico donde un Proveedor de Servicios ("Service Provider") expone un documento "WSDL" a través de una Plataforma de Servicios Web ("Web Services Platform"), para que un "Client" (cliente) consuma el servicio.*
 
 
----
-
-## Página 15
-
-* 
+## Página 100
 **Título:** Elementos 
+* `<types>` Contenedor para definiciones de tipos de datos usados por el servicio web 
+* `<message>` Definición de los datos a ser comunicados 
+* `<portType>` Conjunto de operaciones soportadas por uno o mas puntos finales 
+* `<binding>` Define el formato del mensaje y el protocolo 
 
-
-* 
-`<types>` Contenedor para definiciones de tipos de datos usados por el servicio web 
-
-
-* 
-`<message>` Definición de los datos a ser comunicados 
-
-
-* 
-`<portType>` Conjunto de operaciones soportadas por uno o mas puntos finales 
-
-
-* 
-`<binding>` Define el formato del mensaje y el protocolo 
-
-
-
----
-
-## Página 16
-
-* 
+## Página 101
 **Título:** Estructura principal de un documento WSDL 
-
-
-* **Estructura XML:**
-
+* Estructura XML:
 ```xml
 <definitions>
   <types>
@@ -1477,15 +1351,12 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
     Protocolo y especificación del formato de datos.... 
   </binding>
 </definitions>
-[cite_start]
-http://googleusercontent.com/immersive_entry_chip/0
-http://googleusercontent.com/immersive_entry_chip/1
 
 ```
 
-Página 1
+## Página 102: WSDL - Types
 
-Descripción visual: Un letrero vial oscuro con una flecha apuntando hacia la derecha y el texto "ONE WAY" (Sentido único). Hay una flecha apuntando desde el texto "El Servicio web recibe un mensaje" hacia la etiqueta <input> del código.
+*Descripción visual: Un letrero vial oscuro con una flecha apuntando hacia la derecha y el texto "ONE WAY" (Sentido único). Hay una flecha apuntando desde el texto "El Servicio web recibe un mensaje" hacia la etiqueta <input> del código.*
 
 Título: One-way
 
