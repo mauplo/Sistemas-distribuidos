@@ -654,34 +654,13 @@ function changeImage() {
 * **OPTIONS** : Devuelve los métodos HTTP soportados por el servidor.
 
 ## Página 44: Códigos de Status HTTP
-* **Título:** Códigos de Status HTTP.
 | Categoría | Códigos |
-| --- | --- |
-| <br>**1XX INFORMATIONAL** 
-
- | 100 Continue , 101 Switching Protocols.
-
- |
-| <br>**2XX SUCCESS** 
-
- | 200 OK , 201 Created , 204 No Content.
-
- |
-| <br>**3XX REDIRECTION** 
-
- | 301 Moved Permanently , 302 Found.
-
- |
-| <br>**4XX CLIENT ERROR** 
-
- | 400 Bad Request , 401 Unauthorized , 403 Forbidden , 404 Not Found , 429 Too Many Requests.
-
- |
-| <br>**5XX SERVER ERROR** 
-
- | 500 Internal Server Error , 503 Service Unavailable , 504 Gateway Timeout.
-
- |
+| :--- | :--- |
+| **1XX**<br>INFORMATIONAL | 100 Continue<br>101 Switching Protocols |
+| **2XX**<br>SUCCESS | 200 OK<br>201 Created<br>204 No Content |
+| **3XX**<br>REDIRECTION | 301 Moved Permanently<br>302 Found |
+| **4XX**<br>CLIENT ERROR | 400 Bad Request<br>401 Unauthorized<br>403 Forbidden<br>404 Not Found<br>429 Too Many Requests |
+| **5XX**<br>SERVER ERROR | 500 Internal Server Error<br>503 Service Unavailable<br>504 Gateway Timeout |
 
 * Enlace de referencia: [https://developer.mozilla.org/es/docs/Web/HTTP/Status](https://developer.mozilla.org/es/docs/Web/HTTP/Status).
 
