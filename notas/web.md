@@ -4,17 +4,9 @@
 *  **Contacto:** octavio.gutierrez@itam.mx.
 *(Descripción visual: La página incluye logotipos representativos de tecnologías web como HTML5, JavaScript, Flask y Django, además de un diagrama de nodos conectados)*.
 
-
-
 ## Página 2: Estructura Básica HTML
-
 * Etiquetas HTML.
-
-
 * Estructura básica de "Mi primer página web":
-
-
-
 ```html
 <!DOCTYPE html>
 <html>
@@ -26,41 +18,20 @@
 ...
 </body>
 </html>
-
 ```
-
 *Código derivado de las líneas*. *(Descripción visual: Icono de un archivo con el símbolo de HTML)*.
 
 ## Página 3: Etiquetas de Texto HTML
-
 * Etiquetas HTML.
-
-
 * Párrafo: `<p> </p>`.
-
-
 * Encabezados: `<h1></h1> ... <h6></h6>`.
-
-
 * Contenedores genéricos en línea: `<span> </span>`.
-
-
 * Contenedores genéricos en bloque: `<div> </div>`.
-
-
 * Saltos de línea y líneas horizontales: `<br> <hr>`.
 
-
-
 ## Página 4: Tablas HTML
-
 * Etiquetas HTML.
-
-
 * Estructura para crear una tabla con encabezados y filas:
-
-
-
 ```html
 <table>
   <tr>
@@ -76,22 +47,13 @@
     <td>48</td>
   </tr>
 </table>
-
 ```
-
 *(Descripción visual: Se muestra una cuadrícula genérica representando una tabla con columnas y filas)*.
 
 ## Página 5: Listas HTML
-
 * Etiquetas HTML.
-
-
-* 
-**Listas Ordenadas (Ordered List):** Utilizan la etiqueta `<ol>` y enumeran los elementos (1, 2, 3...).
-
-
-* 
-**Listas Desordenadas (Unordered List):** Utilizan la etiqueta `<ul>` y marcan los elementos con viñetas.
+* **Listas Ordenadas (Ordered List):** Utilizan la etiqueta `<ol>` y enumeran los elementos (1, 2, 3...).
+* **Listas Desordenadas (Unordered List):** Utilizan la etiqueta `<ul>` y marcan los elementos con viñetas.
 
 
 
@@ -107,178 +69,88 @@
   <li>Elemento B</li>
   <li>Elemento C</li>
 </ul>
-
 ```
 
 ## Página 6: Enlaces e Imágenes
-
 * Etiquetas HTML.
-
-
-* 
-**Vínculos (Enlaces):** 
-
-
+* **Vínculos (Enlaces):** 
 * Abre en nueva pestaña: `<a href="https://www.google.com" target="_blank">Vinculo</a>`
 * Abre en la misma pestaña: `<a href="https://www.google.com" target="_self">Vinculo</a>`
-
-
-* 
-**Vínculo a correo electrónico:** `<a href="mailto:ejemplo@email.com">Correo</a>`.
-
-
-* 
-**Imágenes:** `<img src="imagenes/perfil.jpg" alt="foto" height="200">`.
+* **Vínculo a correo electrónico:** `<a href="mailto:ejemplo@email.com">Correo</a>`.
+* **Imágenes:** `<img src="imagenes/perfil.jpg" alt="foto" height="200">`.
 *(Descripción visual: Se muestra la silueta de un perfil de usuario anónimo)*.
-
-
 
 ## Página 7: Formularios HTML (Parte 1)
 
 * Etiquetas HTML.
-
-
 * Formulario básico para enviar datos mediante el método GET:
-
-
-
 ```html
 <form action="otra.html" method="get">
   </form>
 
 ```
-
 *(Descripción visual: Ejemplo de un diseño de interfaz de formulario con campos para nombre, sitio web, mensaje y correo)*.
 
 ## Página 8: Elementos de Entrada (Inputs)
-
 * Etiquetas HTML.
-
-
-* 
-**Campo de texto corto:** 
-
-
+* **Campo de texto corto:** 
 ```html
 <label for="nombre">Ingresa tu nombre:</label><br>
 <input type="text" id="nombre" name="nombre"><br>
-
 ```
-
-
-* 
-**Botones de opción (Radio):** Permiten seleccionar solo una opción.
-
-
+* **Botones de opción (Radio):** Permiten seleccionar solo una opción.
 ```html
 <input type="radio" id="tipo" name="tipo" value="tipo">
 <label for="tipo"> Tipo 1 </label>
-
 ```
-
-
-* 
-**Menú desplegable (Select):**.
-
-
+* **Menú desplegable (Select):**.
 ```html
 <label for="tipo">Selecciona un tipo</label>
 <select id="tipo" name="tipo">
   <option value="opcion 1" selected>Opcion 2</option>
 </select>
-
 ```
-
-
-* 
-**Casilla de verificación (Checkbox):**.
-
-
+* **Casilla de verificación (Checkbox):**.
 ```html
 <input type="checkbox" id="opcion" name="opcion" checked><br>
 <label for="opcion">Esta una opción </label>
-
 ```
-
-
-* 
-**Área de texto largo (Textarea):**.
-
-
+* **Área de texto largo (Textarea):**.
 ```html
 <label for="texto_largo">Escribe algo:</label>
 <textarea name="texto_largo" id="texto_largo" rows="10" cols="30">
 Este es un mensaje largo
 </textarea><br>
-
 ```
-
-
 
 ## Página 9: Botones de Formulario
 
 * Etiquetas HTML.
-
-
-* 
-**Enviar datos:** `<input type="submit" value="Enviar">`.
-
-
-* 
-**Restablecer formulario:** `<input type="reset" value="Borrar">`.
-
-
-* 
-**Botón genérico:** `<input type="button" value="Genérico">`.
+* **Enviar datos:** `<input type="submit" value="Enviar">`.
+* **Restablecer formulario:** `<input type="reset" value="Borrar">`.
+* **Botón genérico:** `<input type="button" value="Genérico">`.
 *(Descripción visual: Tres botones con diseño redondeado en diferentes colores)*.
 
 
 
 ## Página 10: DOM (Document Object Model)
 
-* 
-**Haciendo referencia a elementos de HTML:**.
-
-
-* 
-**DOM (Document Object Model):** Es un estándar oficial de la W3C para acceder a elementos HTML.
-
-
+* **Haciendo referencia a elementos de HTML:**.
+* **DOM (Document Object Model):** Es un estándar oficial de la W3C para acceder a elementos HTML.
 * Ejemplos de métodos de acceso y modificación:
-* 
-`document.write()`.
-
-
-* 
-`document.getElementById("id")`.
-
-
-* 
-`document.getElementById("id").innerHTML`.
+* `document.write()`.
+* `document.getElementById("id")`.
+* `document.getElementById("id").innerHTML`.
 *(Descripción visual: Logotipo oficial del World Wide Web Consortium - W3C)*.
-
-
-
-
 
 ## Página 11: Introducción a JavaScript
 
 * JS JavaScript.
-
-
 * Lenguaje script de la WEB, interpretado en tiempo de ejecución (en lugar de ser compilado).
-
-
 * Utilizado del lado del cliente.
-
-
 * Se puede insertar en páginas HTML.
-
-
 * Compatible con múltiples navegadores.
 *(Descripción visual: Icono de JavaScript y logotipos de varios navegadores web populares como Chrome, Firefox, Safari y Edge)*.
-
-
 
 ## Página 12: Insertando JavaScript en HTML
 
