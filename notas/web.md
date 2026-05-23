@@ -2464,297 +2464,243 @@ Comparación de tecnologías.
 *(Descripción visual: Diagrama de arquitectura que muestra la separación entre el cliente y el servidor. Muestra cómo la capa de presentación (HTML/CSS) y la interfaz de usuario se comunican inicialmente para renderizar la vista, pero luego el comportamiento UI (Scripts) utiliza "XMLHttpRequest" como proxy para solicitar y recibir "Data" asíncronamente de los servicios web, sin recargar las páginas completas)*.
 
 
-### Página 190: Creando un objeto XMLHttpRequest
-**Legacy** (Logotipo estilizado)
-* Enviando una solicitud al Servidor Legacy
-* Tipo de Solicitud Get | Post
-* URL de recurso
-* `ajaxRequest.open("GET", target, true /*async*/);`
-* `ajaxRequest.send();`
-* Envía la solicitud. En solicitudes POST, send puede llevar un parámetro String
-* Solicitud asíncrona
+## Página 190: Creando un objeto
+Browser Object Model - BOM
+```javascript
+if (window.XMLHttpRequest) {
+  // IE7+, Firefox, Chrome, Opera, Safari
+  ajaxRequest=new XMLHttpRequest () ;
+```
+*(Descripción visual: La palabra "Legacy" escrita con una tipografía cursiva grande, delineada en negro y con un relleno de colores vibrantes)*.
 
----
+## Página 191: Enviando una solicitud al Servidor
+* "GET"/"POST": Tipo de Solicitud: `Get` o `Post`.
+* target: URL de recurso.
+* true: solicitud anonima
+* La función `send()` envía la solicitud.
+* En solicitudes POST, `send` puede llevar un parámetro String.
+* Se trata de una solicitud asíncrona.
 
-### Page 2
-**Legacy** (Logotipo estilizado)
-* Async=true
-* Legacy
-* El evento se activa cuando se encuentra lista la respuesta del servidor
-* Con Callback Function
+* Código de ejemplo:
+```javascript
+ajaxRequest.open("GET", target, true /*async*/);
+ajaxRequest.send();
 
+```
+## Página 192: Eventos Async y XMLHttpRequest
+**Async=true.**
+* El evento se activa cuando se encuentra lista la respuesta del servidor.
+* Esto se maneja con una Callback Function.
+
+* Código JavaScript:
 ```javascript
 ajaxRequest.onreadystatechange = function(){
-  if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
-    document.getElementById(id).innerHTML-ajaxRequest.responseText;
-  }
+    if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
+        document.getElementById(id).innerHTML = ajaxRequest.responseText;
+    }
 }
+
 ```
+* Códigos de estado HTTP más comunes mostrados: 200 (OK) y 404 (Page not found).
+Valores del `readyState`:
+* 0: solicitud sin inicializar.
+* 1: conexión con el servidor establecida.
+* 2: respuesta a solicitud recibida.
+* 3: procesando la respuesta.
+* 4: respuesta lista.
 
-* 200: OK
-* 404: Page not found
-* 0: solicitud sin inicializar
-* 1: conexión con el servidor establecida
-* 2: respuesta a solicitud recibida
-* 3: procesando la respuesta
-* 4: respuesta lista
-* Respuesta en texto response Text
-* Respuesta en XML responseXML
+Tipos de respuestas: Respuesta en texto (`responseText`) y Respuesta en XML (`responseXML`).
 
----
-
-### Page 3
-**Legacy** (Logotipo estilizado)
-* XMLHttpRequest - Get
-* Legacy
-
+## Página 193: XMLHttpRequest - Get
+* Código para una petición GET pasando parámetros en la URL:
 ```javascript
-ajaxRequest.open( "GET", "page1.jsp?name=Octavio &age=49", true);
+ajaxRequest.open("GET", "page1.jsp?name=Octavio&age=49", true);
 ajaxRequest.send();
+
 ```
+Los parámetros van explícitos al final de la ruta web solicitada.
 
-* Parámetros
-
----
-
-### Page 4
-**Legacy** (Logotipo estilizado)
-* Añade encabezado a la solicitud
-* XMLHttpRequest - Post
-
+## Página 4: XMLHttpRequest - Post
+* Código para una petición POST:
 ```javascript
-ajaxRequest.open("POST", "page l.jsp", true);
-// Legacy[cite: 1]
+ajaxRequest.open("POST", "page1.jsp", true);
 ajaxRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 ajaxRequest.send("name=Octavio&age=49");
+
 ```
-* Nombre del encabezado
-* Parámetros
-* Valor del encabezado
-* 808
+* Se debe añadir un encabezado a la solicitud obligatoriamente.
+* Desglose del setRequestHeader: "Content-type" representa el nombre del encabezado, mientras que "application/x-www-form-urlencoded" representa su valor.
+* Los parámetros se envían dentro de la función `send`.
 
----
-
-### Page 5
-* Incluyendo JS (asíncrono) Post
-
+## Página 1955: Incluyendo JS (asíncrono) Post con Fetch
+* Ejemplo de función moderna usando Fetch, async y await:
 ```javascript
 async function asincrona() {
-  let name = "name=" + document.getElementById("nombre").value;
-  let age = "age=" + document.getElementById("edad").value;
-  let csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-  
-  let params = new URLSearchParams({
-    name: name,
-    age: age});
-    
-  let response = await fetch("/myfirstapp/asincrono", {
-    method: "POST",
-    headers : {"Content-Type": "application/x-www-form-urlencoded", "X-CSRFToken": csrfToken},
-    body: params
-  });
-  
-  if (response.ok) {
-    let text = await response.text();
-    alert(text);
-  } else {
-    alert("HTTP-Error: " + response.status);
-  }
+    let name = "name=" + document.getElementById("nombre").value;
+    let age = "age=" + document.getElementById("edad").value;
+    let csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+    let params = new URLSearchParams({
+        name: name,
+        age: age
+    });
+
+    let response = await fetch("/myfirstapp/asincrono", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+            "X-CSRFToken": csrfToken
+        },
+        body: params
+    });
+
+    if (response.ok) {
+        let text = await response.text();
+        alert(text);
+    } else {
+        alert("HTTP-Error: " + response.status);
+    }
 }
+
 ```
+## Página 196: Cascading Style Sheets - CSS
+* Las hojas de estilo en cascada definen cómo desplegar los elementos HTML en pantalla.
+* Utilizar CSS externas permite ahorrar mucho trabajo al separar la presentación de la estructura.
 
----
+*(Descripción visual: Dibujo estilo acuarela de una montaña con una cascada, pero en lugar de agua caen decenas de hojas de papel en blanco, y en la base del río se encuentra una hoja de papel grande con la etiqueta `</style>` escrita en ella)*.
 
-### Page 6
-*(Imagen descriptiva: Una cascada formada por hojas de papel en blanco fluyendo desde la cima de una montaña, terminando en un documento con la etiqueta `<style>` en la base).*
+## Página 197: Sintaxis CSS
+* Regla ejemplo: `h1 {color:blue; font-size:12px;}`.
+**Selector:** Es el elemento HTML al que se le aplicará el estilo, en este caso `h1`.
+**Declaration (Declaración):** Es el bloque de código entre llaves que contiene las propiedades.
+**Property (Propiedad):** Son los atributos que se van a modificar, como `color` y `font-size`.
+**Value (Valor):** Es la asignación específica para esa propiedad, como `blue` o `12px`.
 
-* Cascading Style Sheets - CSS
-* Define como desplegar elementos HTML
-* CSS externas ahorran mucho trabajo.
-* `</style>`
+## Página 198: Selectores en CSS
+Los principales tipos de selectores mostrados son:
+* `tag` (etiqueta).
+* `id` (identificador único).
+* `class` (clases reutilizables).
+* `*` (selector universal).
 
----
-
-### Page 7
-* Sintaxis CSS
-* Selector `h1`
-* Declaration Declaration `{color:blue; font-size:12px;}`
-* ↑ ↑
-* Property Value
-* ↑ Property Value
-
----
-
-### Page 8
-* Selectores en CSS
-* tag
-* id
-* class
-* `*`
-
----
-
-### Page 9
-* El selector tag de CSS
-* `p, h1, h2, h3, button, input, a,`
-
+## Página 1999: El selector tag de CSS
+Se aplica directamente al nombre de la etiqueta HTML, ejemplos: `p, h1, h2, h3, button, input, a`.
+* Código de ejemplo CSS modificando la etiqueta `h1`:
 ```css
 h1 {
-  font-family: Arial;
-  border-bottom: 1px solid #AFAFAF;
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0px;
-  padding: 0px;
-  color: #D20005;
+    font-family: Arial;
+    border-bottom: 1px solid #AFAFAF;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #D20005;
 }
+
 ```
-
----
-
-### Page 10
-* El selector tag y sus estados
-
+## Página 200: El selector tag y sus estados
+**Título:** El selector tag y sus estados.
+* Se muestra cómo modificar pseudo-clases o estados de una etiqueta como `a` (enlaces):
 ```css
 a:link, a:visited {
-  color: #045491;
-  font-weight: bold;
-  text-decoration: none;
+    color: #045491;
+    font-weight: bold;
+    text-decoration: none;
+}
+a:link:hover, a:visited:hover {
+    color: #045491;
+    font-weight: bold;
+    text-decoration: underline;
 }
 
-a:link:hover, a:visited:hover {
-  color: #045491;
-  font-weight: bold;
-  text-decoration: underline;
-}
 ```
 
----
-
-### Page 11
-*(Imagen descriptiva: Logotipos de diversos navegadores web, incluyendo Brave, Tor, Firefox, Safari, Edge, Vivaldi, Chrome, Opera, DuckDuckGo y UC Browser).*
-
-* El selector id de CSS
-* En CSS
-
+## Página 201: El selector id de CSS
+* El selector por `id` se llama utilizando el símbolo `#`.
+* Código en CSS:
 ```css
 #myparagraph {
-  text-align: right;
-  color: white;
-  background-color: #000000;
-  padding: 5px;
+    text-align: right;
+    color: white;
+    background-color: #000000;
+    padding: 5px;
 }
+
 ```
-
-* En página
-
+* Implementación en la página HTML:
 ```html
 <p id="myparagraph">
-  content
+    content
 </p>
+
 ```
+*(Descripción visual: Iconos de diversos navegadores web como Firefox, Safari, Edge, Chrome y DuckDuckGo, ilustrando que CSS es renderizado por ellos)*.
 
----
 
-### Page 12
-* El selector class de CSS
-* En página
-
+## Página 202: El selector class de CSS
+* Las clases permiten asignar el mismo estilo a múltiples elementos o combinar múltiples estilos en un elemento mediante clases separadas por espacios.
+* Implementación en la página HTML:
 ```html
 <p id="myparagraph" class="center content">
-  content 1
+    content 1
 </p>
-
 <p id="myparagraph" class="right_content">
-  content 2
+    content 2
 </p>
+
 ```
-
-* En CSS
-
+* Código en CSS:
 ```css
 #myparagraph {
-  color: white;
-  background-color: #000000;
-  padding: 5px;
+    color: white;
+    background-color: #000000;
+    padding: 5px;
 }
-
 .center content {
-  text-align: center;
-  position: relative;
-  background-color: #dddddd;
-  padding: 5px;
+    text-align: center;
+    position: relative;
+    background-color: #dddddd;
+    padding: 5px;
 }
+
 ```
-
----
-
-### Page 13
-* Incluyendo CSS
-* `static/myfirstapp/style.css`
-
+## Página 203: Incluyendo CSS
+* Definición de un archivo CSS externo, por ejemplo `static/myfirstapp/style.css`:
 ```css
 p {
-  color: red;
-  text-align: center;
+    color: red;
+    text-align: center;
 }
-```
 
+```
+* Forma de vincular la hoja de estilo en el `<head>` del HTML utilizando la etiqueta `<link>` y Jinja para el bloque static:
 ```html
 <head>
-  <meta charset="utf-8">
-  <title>Este es nuestro index del template</title>
-  {% load static %}
-  <link rel="stylesheet" type="text/css" href="{% static 'myfirstapp/style.css' %}">
+    <meta charset="utf-8">
+    <title>Este es nuestro index del template</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'myfirstapp/style.css' %}">
 </head>
+
 ```
----
 
-### Page 14
-*Descripción: Las páginas web son dos, una con los nombres de estudiantes y sus links para ver sus detalles..*
+## Página 204: Práctica de Laboratorio: CSS y Asincronía con Fetch
+* Ejercicio estructurado en dos páginas.
+* Menú lista de estudiantes: Alvarez Octavio Quinto, Garcia Octavio, Gutierrez Jose, Jimenez Luisa, Lopez Jeronimo.
+* Vista de Detalles del Estudiante: 1, Jose, Gutierrez, 8.9, Foraneo.
+* Licenciatura Datos, Ingenieria Computacion.
+*(Descripción visual: Un dibujo caricaturesco de un árbol seco, sin hojas, con lentes redondos y expresión de preocupación; arriba tiene la frase "BEFORE PAYCHECK")*.
 
-* Práctica de Laboratorio: CSS y Asincronía con Fetch
-* Dos páginas
-* Detalles del Estudiante:
-  * Alvarez Octavio Quinto
-  * Garcia Octavio
-  * Gutierrez Jose
-  * Jimenez Luisa
-  * Lopez Jeronimo
-  * 1
-  * Jose
-  * Gutierrez
-  * 8.9
-  * Foraneo
-  * Licenciatura Datos
-  * Ingenieria Computacion
+## Página 205: Requerimientos de la Práctica
+* Requerimientos técnicos listados: Javascript, Fetch, POST, Select creado dinámicamente, evento onchange, inclusión de csrfToken, CSS, entorno de DJANGO y retornar JsonResponse.
+* Objetivo: Lograr que la interfaz funcione como una "Single Page Application" o "Una página" para el Explorador de Estudiantes.
+* Desglose del estudiante seleccionado (Gutierrez Jose):
+* Identificador: 1.
+* Nombre: Jose.
+* Apellidos: Gutierrez.
+* Promedio: 8.9.
+* Origen: Foráneo.
+* Beca: No.
+* Carreras: Licenciatura Datos, Ingenieria Computacion.
 
----
-
-### Page 15
-*Descripción: ahora solo se ve una págian con un drop down de los estudiantes que te deja ver sus detalles.*
-
-* Práctica de Laboratorio: CSS y Asincronía con Fetch
-* Requerimientos:
-  * Javascript
-  * Fetch
-  * POST
-  * Select creado dinámicamente
-  * onchange
-  * csrfToken
-  * CSS
-  * DJANGO
-  * JsonResponse
-* Una página
-* AFTER PAYCHECK
-* Explorador de Estudiantes
-* Gutierrez Jose
-  * Identificador: 1
-  * Nombre: Jose
-  * Apellidos: Gutierrez
-  * Promedio: 8.9
-  * Origen: Foráneo
-  * Beca: No
-  * Carreras:
-    * Licenciatura Datos
-    * Ingenieria Computacion
+*(Descripción visual: Un dibujo de un árbol animado frondoso, con hojas verdes, sonrisa y abrazando felizmente un fajo de billetes. Ilustra el estado "AFTER PAYCHECK")*.
