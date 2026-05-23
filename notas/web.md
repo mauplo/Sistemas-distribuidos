@@ -1090,184 +1090,121 @@ Message information goes here
 </ soap:envelope>
 ```
 
----
-
-## Página 22
-
-* 
+## Página 84
 **Título principal:** Mensaje SOAP 
+* Estilo RPC y encoding
+```
+‹soap:envelope>
+<soap: body>
+<myMethod>
+< xsi:type="xsd: int">5</x>
+<y xsi: type="xsd: float">5.0</y>
+</myMethod>
+</ soap:body>
+</soap:envelope>
+```
 
-
-* Estilo RPC y encoding 
-
-
-
----
-
-## Página 23
-
-* 
+## Página 85
 **Título principal:** Mensaje SOAP 
-
-
+```
 * Estilo document y literal
-
-
-## Página 1
-
-* 
-**Descripción visual:** Se muestran varias imágenes: el rostro de un personaje animado sonriendo, un escáner de tarjeta de crédito conectado a un teléfono móvil, y dos botellas de cristal etiquetadas como "Botella I" y "Botella 2" que contienen pergaminos con el texto "NEED YOU..." y "SIA".
-
-
-* 
+‹soap: envelope>
+‹soap: body>
+<x>5< /x>
+<y >5.0</y>
+</ soap: body>
+</soap:envelope>
+```
+## Página 86
 **Título:** Encabezado (Header) 
-
-
 * Elemento opcional 
-
-
 * Incluye información de control 
-
-
 * Identificador de transacción para su uso con un servicio de transacciones 
-
-
 * Un identificador de mensajes para relacionar mensajes entre sí 
-
-
 * Un nombre de usuario, una clave pública, etc. 
 
+*Descripción visual: Se muestran varias imágenes: un escáner de tarjeta de crédito conectado a un teléfono móvil, y dos botellas de cristal etiquetadas como "Botella I" y "Botella 2" que contienen pergaminos con el texto "NEED YOU...".*
 
-
----
-
-## Página 2
-
-* **Descripción visual:** El rostro de un personaje de caricatura sonriendo y mostrando los dientes.
-* 
+## Página 87
 **Título:** Encabezado (Header) 
-
-
-* **Código XML:**
-
+**Código XML:**
 ```xml
-[cite_start]<?xml version="1.0"?> [cite: 14]
-[cite_start]<soap:Envelope [cite: 15]
-[cite_start]xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> [cite: 16]
-[cite_start]<soap:Header> [cite: 17]
-  [cite_start]<m:Trans xmlns:m="http://www.w3schools.com/transaction/" soap:mustUnderstand="1">234 [cite: 18]
-  [cite_start]</m:Trans> [cite: 19]
-[cite_start]</soap:Header> [cite: 20]
-[cite_start]</soap:Envelope> [cite: 21]
+<?xml version="1.0"?> 
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> 
+<soap:Header> 
+<m:Trans xmlns:m="http://www.w3schools.com/transaction/" soap:mustUnderstand="1">234 
+</m:Trans> 
+</soap:Header>
+</soap:Envelope> 
 
 ```
 
----
-
-## Página 3
-
-* **Descripción visual:** Una cabeza de alienígena de color verde sonriendo.
-* 
-**Título:** Encabezado (Header) 
-
-
+## Página 88
+* **Título:** Encabezado (Header) 
 * Etiqueta XML definida por el usuario (aplicación) 
-
-
-* **Código XML:**
-
+**Código XML:**
 ```xml
-[cite_start]<?xml version="1.0"?> [cite: 25]
-[cite_start]<soap:Envelope [cite: 26]
-[cite_start]xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> [cite: 28]
-[cite_start]<soap:Header> [cite: 29]
-  [cite_start]<m:Trans xmlns:m="http://www.w3schools.com/transaction/" soap:mustUnderstand="1">234 [cite: 30]
-  [cite_start]</m:Trans> [cite: 31]
-[cite_start]</soap:Header> [cite: 32]
-[cite_start]</soap:Envelope> [cite: 33]
+<?xml version="1.0"?> 
+<soap:Envelope 
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> 
+<soap:Header>
+<m:Trans xmlns:m="http://www.w3schools.com/transaction/" soap:mustUnderstand="1">234 
+</m:Trans> 
+</soap:Header>
+</soap:Envelope>
 
 ```
 
----
-
-## Página 4
-
-* **Descripción visual:** Un dibujo de un hombre con sombrero negro, lentes, nariz rosada redonda y bigote pequeño.
-* 
-**Título:** Encabezado (Header) 
-
-
-* **Código XML:**
-
+## Página 89
+* **Título:** Encabezado (Header) 
+**Código XML:**
 ```xml
-[cite_start]<?xml version="1.0"?> [cite: 35]
-[cite_start]<soap:Envelope [cite: 36]
-[cite_start]xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> [cite: 37]
-[cite_start]<soap:Header> [cite: 38]
-  [cite_start]<m:Trans xmlns:m="http://www.w3schools.com/transaction/" soap:mustUnderstand="1">234 [cite: 39]
-  [cite_start]</m:Trans> [cite: 40]
-[cite_start]</soap:Header> [cite: 41]
-[cite_start]</soap:Envelope> [cite: 42]
+<?xml version="1.0"?> 
+<soap:Envelope 
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> 
+<soap:Header> 
+<m:Trans xmlns:m="http://www.w3schools.com/transaction/" soap:mustUnderstand="1">234 
+</m:Trans> 
+</soap:Header> 
+</soap:Envelope> 
 
 ```
+* Si el valor es 1, el elemento header DEBE ser procesado 
 
-* Si el valor es I, el elemento header DEBE ser procesado 
+## Página 90
 
-
-
----
-
-## Página 5
-
-* **Descripción visual:** El rostro del personaje Eric Cartman de la serie animada South Park.
-* 
-**Título:** Encabezado (Header) 
-
-
-* **Código XML:**
+* **Título:** Encabezado (Header) 
+**Código XML:**
 
 ```xml
-[cite_start]<?xml version="1.0"?> [cite: 45]
-[cite_start]<soap:Envelope [cite: 46]
-[cite_start]xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> [cite: 47]
-[cite_start]<soap:Header> [cite: 48]
-  [cite_start]<m:Trans xmlns:m="http://www.w3schools.com/transaction/" soap:mustUnderstand="1">234 [cite: 49]
-  [cite_start]</m:Trans> [cite: 50]
-[cite_start]</soap:Header> [cite: 51]
-[cite_start]</soap:Envelope> [cite: 52]
+<?xml version="1.0"?> 
+<soap:Envelope 
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> 
+<soap:Header> 
+<m:Trans xmlns:m="http://www.w3schools.com/transaction/" soap:mustUnderstand="1">234 
+</m:Trans> 
+</soap:Header>
+</soap:Envelope> 
 
 ```
-
 * Valor de la etiqueta XML trans. Ejemplo: Transacción 234 
 
-
-
----
-
-## Página 6
-
-* **Descripción visual:** El mismo rostro de personaje de caricatura de la página 2.
-* 
-**Título:** Encabezado (Header) 
-
-
-* **Código XML:**
-
+## Página 91
+* **Título:** Encabezado (Header) 
+**Código XML:**
 ```xml
-[cite_start]<?xml version="1.0"?> [cite: 56]
-[cite_start]<soap:Envelope [cite: 57]
-[cite_start]xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> [cite: 58]
-[cite_start]<soap:Header> [cite: 59]
-  [cite_start]<m:Trans xmlns:m="http://www.w3schools.com/transaction/" soap:actor="http://www.w3schools.com/appml/">234 [cite: 60]
-  [cite_start]</m:Trans> [cite: 61]
-[cite_start]</soap:Header> [cite: 62]
-[cite_start]</soap:Envelope> [cite: 63]
+<?xml version="1.0"?> 
+<soap:Envelope
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope" soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding"> 
+<soap:Header> 
+<m:Trans xmlns:m="http://www.w3schools.com/transaction/" soap:actor="http://www.w3schools.com/appml/">234 
+</m:Trans> 
+</soap:Header> 
+</soap:Envelope> 
 
 ```
-
-* Si el mensaje SOAP pasa por varios endpoints, sólo el endpoint indicado en el elemento actor debe de procesar el encabezado 
-
-
+* Si el mensaje SOAP pasa por varios endpoints, sólo el endpoint indicado en el elemento **actor** debe de procesar el encabezado 
 
 ---
 
@@ -3193,3 +3130,298 @@ let response = await fetch("/myfirstapp/asincrono", {
 * Resumen: MVC es fundamental para escalar.
 
 ---
+
+### Page 1
+**Legacy** (Logotipo estilizado)
+* Enviando una solicitud al Servidor Legacy
+* Tipo de Solicitud Get | Post
+* URL de recurso
+* `ajaxRequest.open("GET", target, true /*async*/);`
+* `ajaxRequest.send();`
+* Envía la solicitud. En solicitudes POST, send puede llevar un parámetro String
+* Solicitud asíncrona
+
+---
+
+### Page 2
+**Legacy** (Logotipo estilizado)
+* Async=true
+* Legacy
+* El evento se activa cuando se encuentra lista la respuesta del servidor
+* Con Callback Function
+
+```javascript
+ajaxRequest.onreadystatechange = function(){
+  if (ajaxRequest.readyState == 4 && ajaxRequest.status == 200) {
+    document.getElementById(id).innerHTML-ajaxRequest.responseText;
+  }
+}
+```
+
+* 200: OK
+* 404: Page not found
+* 0: solicitud sin inicializar
+* 1: conexión con el servidor establecida
+* 2: respuesta a solicitud recibida
+* 3: procesando la respuesta
+* 4: respuesta lista
+* Respuesta en texto response Text
+* Respuesta en XML responseXML
+
+---
+
+### Page 3
+**Legacy** (Logotipo estilizado)
+* XMLHttpRequest - Get
+* Legacy
+
+```javascript
+ajaxRequest.open( "GET", "page1.jsp?name=Octavio &age=49", true);
+ajaxRequest.send();
+```
+
+* Parámetros
+
+---
+
+### Page 4
+**Legacy** (Logotipo estilizado)
+* Añade encabezado a la solicitud
+* XMLHttpRequest - Post
+
+```javascript
+ajaxRequest.open("POST", "page l.jsp", true);
+// Legacy[cite: 1]
+ajaxRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+ajaxRequest.send("name=Octavio&age=49");
+```
+* Nombre del encabezado
+* Parámetros
+* Valor del encabezado
+* 808
+
+---
+
+### Page 5
+* Incluyendo JS (asíncrono) Post
+
+```javascript
+async function asincrona() {
+  let name = "name=" + document.getElementById("nombre").value;
+  let age = "age=" + document.getElementById("edad").value;
+  let csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+  
+  let params = new URLSearchParams({
+    name: name,
+    age: age});
+    
+  let response = await fetch("/myfirstapp/asincrono", {
+    method: "POST",
+    headers : {"Content-Type": "application/x-www-form-urlencoded", "X-CSRFToken": csrfToken},
+    body: params
+  });
+  
+  if (response.ok) {
+    let text = await response.text();
+    alert(text);
+  } else {
+    alert("HTTP-Error: " + response.status);
+  }
+}
+```
+
+---
+
+### Page 6
+*(Imagen descriptiva: Una cascada formada por hojas de papel en blanco fluyendo desde la cima de una montaña, terminando en un documento con la etiqueta `<style>` en la base).*
+
+* Cascading Style Sheets - CSS
+* Define como desplegar elementos HTML
+* CSS externas ahorran mucho trabajo.
+* `</style>`
+
+---
+
+### Page 7
+* Sintaxis CSS
+* Selector `h1`
+* Declaration Declaration `{color:blue; font-size:12px;}`
+* ↑ ↑
+* Property Value
+* ↑ Property Value
+
+---
+
+### Page 8
+* Selectores en CSS
+* tag
+* id
+* class
+* `*`
+
+---
+
+### Page 9
+* El selector tag de CSS
+* `p, h1, h2, h3, button, input, a,`
+
+```css
+h1 {
+  font-family: Arial;
+  border-bottom: 1px solid #AFAFAF;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+  color: #D20005;
+}
+```
+
+---
+
+### Page 10
+* El selector tag y sus estados
+
+```css
+a:link, a:visited {
+  color: #045491;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:link:hover, a:visited:hover {
+  color: #045491;
+  font-weight: bold;
+  text-decoration: underline;
+}
+```
+
+---
+
+### Page 11
+*(Imagen descriptiva: Logotipos de diversos navegadores web, incluyendo Brave, Tor, Firefox, Safari, Edge, Vivaldi, Chrome, Opera, DuckDuckGo y UC Browser).*
+
+* El selector id de CSS
+* En CSS
+
+```css
+#myparagraph {
+  text-align: right;
+  color: white;
+  background-color: #000000;
+  padding: 5px;
+}
+```
+
+* En página
+
+```html
+<p id="myparagraph">
+  content
+</p>
+```
+
+---
+
+### Page 12
+* El selector class de CSS
+* En página
+
+```html
+<p id="myparagraph" class="center content">
+  content 1
+</p>
+
+<p id="myparagraph" class="right_content">
+  content 2
+</p>
+```
+
+* En CSS
+
+```css
+#myparagraph {
+  color: white;
+  background-color: #000000;
+  padding: 5px;
+}
+
+.center content {
+  text-align: center;
+  position: relative;
+  background-color: #dddddd;
+  padding: 5px;
+}
+```
+
+---
+
+### Page 13
+* Incluyendo CSS
+* `static/myfirstapp/style.css`
+
+```css
+p {
+  color: red;
+  text-align: center;
+}
+```
+
+```html
+<head>
+  <meta charset="utf-8">
+  <title>Este es nuestro index del template</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'myfirstapp/style.css' %}">
+</head>
+```
+---
+
+### Page 14
+*Descripción: Las páginas web son dos, una con los nombres de estudiantes y sus links para ver sus detalles..*
+
+* Práctica de Laboratorio: CSS y Asincronía con Fetch
+* Dos páginas
+* Detalles del Estudiante:
+  * Alvarez Octavio Quinto
+  * Garcia Octavio
+  * Gutierrez Jose
+  * Jimenez Luisa
+  * Lopez Jeronimo
+  * 1
+  * Jose
+  * Gutierrez
+  * 8.9
+  * Foraneo
+  * Licenciatura Datos
+  * Ingenieria Computacion
+
+---
+
+### Page 15
+*Descripción: ahora solo se ve una págian con un drop down de los estudiantes que te deja ver sus detalles.*
+
+* Práctica de Laboratorio: CSS y Asincronía con Fetch
+* Requerimientos:
+  * Javascript
+  * Fetch
+  * POST
+  * Select creado dinámicamente
+  * onchange
+  * csrfToken
+  * CSS
+  * DJANGO
+  * JsonResponse
+* Una página
+* AFTER PAYCHECK
+* Explorador de Estudiantes
+* Gutierrez Jose
+  * Identificador: 1
+  * Nombre: Jose
+  * Apellidos: Gutierrez
+  * Promedio: 8.9
+  * Origen: Foráneo
+  * Beca: No
+  * Carreras:
+    * Licenciatura Datos
+    * Ingenieria Computacion
