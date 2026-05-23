@@ -456,576 +456,179 @@ function changeImage() {
 ## Página 28: Temporización
 
 * **Título:** Temporización.
-* **setTimeout:** 
-* `setTimeout(función, tiempo)`.
+* **setTimeout:** `setTimeout(función, tiempo)`.
 * Dispara la función una sola vez.
 * `clearTimeout()` borra el evento.
 * JavaScript Clock.
-* **setInterval:** 
-* `setInterval(función, tiempo)`.
+* **setInterval:** `setInterval(función, tiempo)`.
 * Dispara la función repetidamente.
 * `clearInterval()` borra el evento.
 
-## Página 9: Eventos de la "ventana"
-
-* 
-**Título:** Eventos de la "ventana".
-
-
-* 
-*(Descripción visual: Una ventana de marco blanco abierta que deja ver un cielo azul con nubes)*.
-
-
+## Página 29: Eventos de la "ventana"
+* **Título:** Eventos de la "ventana".
+* *(Descripción visual: Una ventana de marco blanco abierta que deja ver un cielo azul con nubes)*.
 * **Lista de eventos:**
-* 
-`onpagehide`.
-
-
-* 
-`onafterprint`.
-
-
-* 
-`onbeforeprint`.
-
-
-* 
-`onpageshow`.
-
-
-* 
-`onbeforeunload`.
-
-
-* 
-`onerror`.
-
-
-* 
-`onhaschange`.
-
-
-* 
-`onload`.
-
-
-* 
-`onmessage`.
-
-
-* 
-`onoffline`.
-
-
-* 
-`ononline`.
-
-
-* 
-`onpopstate`.
-
-
-* 
-`onredo`.
-
-
-* 
-`onresize`.
-
-
-* 
-`onstorage`.
-
-
-* 
-`onundo`.
-
-
-* 
-`onunload`.
-
-
-
-
-
-## Página 10: Eventos de "Form"
-
-* 
-**Título:** Eventos de "Form".
-
-
-* 
-*(Descripción visual: Una ilustración de múltiples formularios y hojas de papel apiladas de varios colores)*.
-
-
+* `onpagehide`.
+* `onafterprint`.
+* `onbeforeprint`.
+* `onpageshow`.
+* `onbeforeunload`.
+* `onerror`.
+* `onhaschange`.
+* `onload`.
+* `onmessage`.
+* `onoffline`.
+* `ononline`.
+* `onpopstate`.
+* `onredo`.
+* `onresize`.
+* `onstorage`.
+* `onundo`.
+* `onunload`.
+  
+## Página 30: Eventos de "Form"
+* **Título:** Eventos de "Form".
+* *(Descripción visual: Una ilustración de múltiples formularios y hojas de papel apiladas de varios colores)*.
 * **Lista de eventos:**
-* 
-`onblur`.
+* `onblur`.
+* `onchange`.
+* `oncontextmenu`.
+* `onfocus`.
+* `onformchange`.
+* `onforminput`.
+* `oninput`.
+* `oninvalid`.
+* `onreset`.
+* `onselect`.
+* `onsubmit`.
 
-
-* 
-`onchange`.
-
-
-* 
-`oncontextmenu`.
-
-
-* 
-`onfocus`.
-
-
-* 
-`onformchange`.
-
-
-* 
-`onforminput`.
-
-
-* 
-`oninput`.
-
-
-* 
-`oninvalid`.
-
-
-* 
-`onreset`.
-
-
-* 
-`onselect`.
-
-
-* 
-`onsubmit`.
-
-
-
-
-
-## Página 11: Eventos del teclado
-
-* 
-**Título:** Eventos del teclado.
-
-
-* 
-*(Descripción visual: Fotografía lateral de un teclado plano ultramoderno donde las teclas son pantallas táctiles iluminadas. Se aprecian las letras S, E, 1234567890, QWERTYUIOPIJ, ASDFGHJKL en el diseño)*.
-
-
+## Página 31: Eventos del teclado
+* **Título:** Eventos del teclado.
+* *(Descripción visual: Fotografía lateral de un teclado plano ultramoderno donde las teclas son pantallas táctiles iluminadas. Se aprecian las letras S, E, 1234567890, QWERTYUIOPIJ, ASDFGHJKL en el diseño)*.
 * **Lista de eventos:**
-* 
-`onkeydown`.
+* `onkeydown`.
+* `onkeypress`.
+* `onkeyup`.
 
+## Página 32: Eventos del mouse
 
-* 
-`onkeypress`.
-
-
-* 
-`onkeyup`.
-
-
-
-
-
-## Página 12: Eventos del mouse
-
-* 
-**Título:** Eventos del mouse.
-
-
-* 
-*(Descripción visual: Fotografía lateral de un ratón de computadora estilo gamer, negro con detalles metálicos plateados y textura tipo panal en los costados)*.
-
-
+* **Título:** Eventos del mouse.
+* *(Descripción visual: Fotografía lateral de un ratón de computadora estilo gamer, negro con detalles metálicos plateados y textura tipo panal en los costados)*.
 * **Lista de eventos:**
-* 
-`onclick`.
+* `onclick`.
+* `ondrop`.
+* `ondblclick`.
+* `onmousedown`.
+* `ondrag`.
+* `onmousemove`.
+* `ondragend`.
+* `onmouseout`.
+* `ondragenter`.
+* `onmouseover`.
+* `ondragleave`.
+* `onmouseup`.
+* `ondragover`.
+* `ondragstart`.
+* `onmousewheel`.
+* `onscroll`.
 
-
-* 
-`ondrop`.
-
-
-* 
-`ondblclick`.
-
-
-* 
-`onmousedown`.
-
-
-* 
-`ondrag`.
-
-
-* 
-`onmousemove`.
-
-
-* 
-`ondragend`.
-
-
-* 
-`onmouseout`.
-
-
-* 
-`ondragenter`.
-
-
-* 
-`onmouseover`.
-
-
-* 
-`ondragleave`.
-
-
-* 
-`onmouseup`.
-
-
-* 
-`ondragover`.
-
-
-* 
-`ondragstart`.
-
-
-* 
-`onmousewheel`.
-
-
-* 
-`onscroll`.
-
-
-
-
-
-## Página 13: Browser Object Model - BOM
-
-* 
-**Título:** Browser Object Model - BOM.
-
-
-* 
-*(Descripción visual: Ilustración cómica de una batalla entre los íconos de los navegadores web: Google Chrome cayendo en picada, Mozilla Firefox atacando con una espada a Internet Explorer, quien se defiende con un escudo. Todo ocurre sobre el marco de una computadora)*.
-
+## Página 33: Browser Object Model - BOM
+* **Título:** Browser Object Model - BOM.
+* *(Descripción visual: Ilustración cómica de una batalla entre los íconos de los navegadores web: Google Chrome cayendo en picada, Mozilla Firefox atacando con una espada a Internet Explorer, quien se defiende con un escudo. Todo ocurre sobre el marco de una computadora)*.
 
 * Objeto `window`. Ejemplos: 
-
-
-* 
-`window.innerHeight`.
-
-
-* 
-`window.moveTo()`.
-
-
-* 
-`window.resizeTo()`.
-
-
-
-
+* `window.innerHeight`.
+* `window.moveTo()`.
+* `window.resizeTo()`.
 * Objeto `screen`. Ejemplos: 
-
-
-* 
-`screen.pixelDepth`.
-
-
-
-
+* `screen.pixelDepth`.
 * Objeto `history`. Ejemplos: 
+* `history.back()`.
+* `history.forward()`.
 
-
-* 
-`history.back()`.
-
-
-* 
-`history.forward()`.
-
-
-
-
-
-## Página 14: Browser Object Model - BOM (Continuación)
-
-* 
-**Título:** Browser Object Model - BOM.
-
-
-* 
-*(Descripción visual: Misma ilustración cómica de los navegadores web peleando)*.
-
-
+## Página 34: Browser Object Model - BOM (Continuación)
+* **Título:** Browser Object Model - BOM.
+* *(Descripción visual: Misma ilustración cómica de los navegadores web peleando)*.
 * Objeto `navigator`. Ejemplos: 
-
-
-* 
-`navigator.cookieEnabled`.
-
-
-* 
-`navigator.systemLanguage`.
-
-
-
-
+* `navigator.cookieEnabled`.
+* `navigator.systemLanguage`.
 * Mensajes. Ejemplos: 
+* `alert`.
+* `prompt`.
+* `confirm`.
 
-
-* 
-`alert`.
-
-
-* 
-`prompt`.
-
-
-* 
-`confirm`.
-
-
-
-
-
-## Página 15: Práctica de laboratorio
-
-* 
-**Título:** Práctica de laboratorio.
-
-
-* 
-**Subtítulo:** Sistema de Cotización de Seguros de Auto.
-
-
-* 
-**Sección:** Datos personales.
-
-
-* 
-*(Descripción visual: Un recuadro gris que enlista en texto "Eventos: onchange, onkeypress, onkeydown, onkeyup")*.
-
-
-* 
-**Tabla de formulario (ejemplo):** 
-
-
-* 
-**Nombre:** Jose.
-
-
-* 
-**Apellidos:** Octavio.
-
-
-* 
-**Género:** Masculino / Femenino.
-
-
-* 
-**Edad:** 55.
-
-
-* 
-**Estado:** Aguascalientes.
-
-
+## Página 35: Práctica de laboratorio
+* **Título:** Práctica de laboratorio.
+* **Subtítulo:** Sistema de Cotización de Seguros de Auto.
+* **Sección:** Datos personales.
+* *(Descripción visual: Un recuadro gris que enlista en texto "Eventos: onchange, onkeypress, onkeydown, onkeyup")*.
+* **Tabla de formulario (ejemplo):** 
+* **Nombre:** Jose.
+* **Apellidos:** Octavio.
+* **Género:** Masculino / Femenino.
+* **Edad:** 55.
+* **Estado:** Aguascalientes.
 * Botones: Limpiar, Enviar.
-
-
-
 
 * **Instrucciones adicionales:**
 * Utiliza un archivo .js.
-
-
 * Eventos: `onchange`, `onkeypress`, `onkeydown`, `onkeyup`.
-
-
 * Texto esperado en interfaz: Gracias Sr. Jose Octavio por el interés en nuestros seguros.
-
-
 * Estructura sugerida: `If () { } else { }`.
 
-
-
-
-
-## Página 16: Práctica de laboratorio: request-reply
-
-* 
-**Título:** Práctica de laboratorio: request-reply.
-
-
-* 
-*(Descripción visual: Una fotografía de una mano humana sosteniendo un modelo de automóvil a escala (un Ford Mustang plateado con franjas azules))*.
-
-
+## Página 36: Práctica de laboratorio: request-reply
+* **Título:** Práctica de laboratorio: request-reply.
+* *(Descripción visual: Una fotografía de una mano humana sosteniendo un modelo de automóvil a escala (un Ford Mustang plateado con franjas azules))*.
 * **Instrucciones:**
 * Extrae parámetros con:
-
-
 `const params= window.location.search; const urlParams = new URLSearchParams(params); const a_param = urlParams.get("aParam");`.
-
-
 * Guarda parámetros con `<input type="hidden" ...`.
-
-
-
 
 * **Ejemplo visual de la interfaz del navegador:**
 * Datos de Auto - Mozilla Firefox.
-
-
 * Localhost: `localhost:8084/Wek`.
-
-
-* 
-**Título en página:** Sistema de Cotización de Seguros de Auto.
-
-
-* 
-**Datos personales:** Estimado Sr. Octavio Gutierrez. Género: masculino. Edad: Desconocida. Estado: Jalisco.
-
-
-* 
-**Datos del auto:** 
-
-
+* **Título en página:** Sistema de Cotización de Seguros de Auto.
+* **Datos personales:** Estimado Sr. Octavio Gutierrez. Género: masculino. Edad: Desconocida. Estado: Jalisco.
+* **Datos del auto:** 
 * Marca: Chevrolet.
-
-
 * Modelo: 2008.
-
-
 * Placas: 122-HGZ.
-
-
 * Botones: Limpiar, Enviar.
 
-
-
-
-
-
-
-## Página 17: Práctica de laboratorio (Continuación)
-
-* 
-**Título:** Práctica de laboratorio.
-
-
-* 
-**Funciones útiles:** `Num.toString()`, `parseInt(texto)`, `parseFloat(texto)`.
-
-
+## Página 37: Práctica de laboratorio (Continuación)
+* **Título:** Práctica de laboratorio.
+* **Funciones útiles:** `Num.toString()`, `parseInt(texto)`, `parseFloat(texto)`.
 * **Ejemplos de las respuestas generadas en la página (Cotización):**
-* 
-**Ejemplo 1:** Cotización de seguro para Automóvil. Estimado Sr(a): Octavio Gutierrez. En función a los datos proporcionados: Género: masculino. Edad: Desconocida. Estado: Jalisco. Marca: Chevrolet. Modelo: 2008. Placas: 122-HGZ. La cotización de su seguro es: $7,800.00 pesos.
+* **Ejemplo 1:** Cotización de seguro para Automóvil. Estimado Sr(a): Octavio Gutierrez. En función a los datos proporcionados: Género: masculino. Edad: Desconocida. Estado: Jalisco. Marca: Chevrolet. Modelo: 2008. Placas: 122-HGZ. La cotización de su seguro es: $7,800.00 pesos.
+* **Ejemplo 2:** Cotización de seguro para Automóvil. Estimado Sr(a) Octavio Gutierrez. En función a los datos proporcionados: Género: masculino. Edad: Desconocida. Estado: Jalisco. Marca: Chevrolet. Modelo: 1999. Placas: 122-HGZ. La cotización de su seguro es: $4,200.00 pesos.
 
+## Página 38: Portada Transición
+* **Institución:** ITAM.
+* **Materia:** Servicios Web.
+* *(Descripción visual: Las letras "WEB" en azul brillante y en 3D, rodeadas por herramientas mecánicas, tornillos y tuercas metálicas, ilustrando la "construcción" web)*.
+* **Profesor:** Dr. J. Octavio Gutiérrez García.
+* **Contacto:** octavio.gutierrez@itam.mx.
 
-* 
-**Ejemplo 2:** Cotización de seguro para Automóvil. Estimado Sr(a) Octavio Gutierrez. En función a los datos proporcionados: Género: masculino. Edad: Desconocida. Estado: Jalisco. Marca: Chevrolet. Modelo: 1999. Placas: 122-HGZ. La cotización de su seguro es: $4,200.00 pesos.
-
-
-
-
-
-## Página 18: Portada Transición
-
-* 
-**Institución:** ITAM.
-
-
-* 
-**Materia:** Servicios Web.
-
-
-* 
-*(Descripción visual: Las letras "WEB" en azul brillante y en 3D, rodeadas por herramientas mecánicas, tornillos y tuercas metálicas, ilustrando la "construcción" web)*.
-
-
-* 
-**Profesor:** Dr. J. Octavio Gutiérrez García.
-
-
-* 
-**Contacto:** octavio.gutierrez@itam.mx.
-
-
-
-## Página 19: Problemas de aplicaciones Web
-
-* 
-**Título:** Problemas de aplicaciones Web.
-
-
-* 
-*(Descripción visual: Un dibujo hecho con una línea negra gruesa que simula un garabato o un nudo enredado)*.
-
-
+## Página 39: Problemas de aplicaciones Web
+* **Título:** Problemas de aplicaciones Web.
+* *(Descripción visual: Un dibujo hecho con una línea negra gruesa que simula un garabato o un nudo enredado)*.
 * **Conceptos:**
 * Diversas tecnologías: 
-
-
 * Applets, 
-
-
 * CGI (Common Gateway Interface), 
-
-
 * Lenguajes de Scripts, 
-
-
 * COM (Component object model), etc. 
-
-
-
-
 * Desarrollos muy ad-hoc.
 
-
-
-
-
-## Página 20: Servicios Web (Introducción)
-
-* 
-**Título:** Servicios Web.
-
-
-* 
-*(Descripción visual: Tres pequeñas ilustraciones apiladas verticalmente. 1. Un foco brillante amarillo (Idea). 2. Un globo terráqueo conectado a múltiples computadoras y usuarios (Red). 3. Un personaje 3D blanco sosteniendo una diana roja con flechas clavadas en el centro (Objetivo))*.
-
-
+## Página 40: Servicios Web (Introducción)
+* **Título:** Servicios Web.
+* *(Descripción visual: Tres pequeñas ilustraciones apiladas verticalmente. 1. Un foco brillante amarillo (Idea). 2. Un globo terráqueo conectado a múltiples computadoras y usuarios (Red). 3. Un personaje 3D blanco sosteniendo una diana roja con flechas clavadas en el centro (Objetivo))*.
 * **Puntos principales:**
-* 
-**Idea:** Adaptar el modelo de programación web (débilmente acoplado) para su uso en aplicaciones no basadas en navegador.
+* **Idea:** Adaptar el modelo de programación web (débilmente acoplado) para su uso en aplicaciones no basadas en navegador.
+* **Objetivo:** ofrecer una plataforma para construir aplicaciones distribuidas utilizando un software que enmascare la heterogeneidad.
 
-
-* 
-**Objetivo:** ofrecer una plataforma para construir aplicaciones distribuidas utilizando un software que enmascare la heterogeneidad.
-
-
-## Página 1: JSON: Objetos en JavaScript
-
-* 
-**Título:** JSON: Objetos en JavaScript.
-
-
+## Página 41: JSON: Objetos en JavaScript
+* **Título:** JSON: Objetos en JavaScript.
 * *(Descripción visual: Aparece una fotografía de una máscara de hockey similar a la del personaje Jason, en referencia al formato JSON)*.
 * 
 **Ejemplo de código HTML y JavaScript**:
