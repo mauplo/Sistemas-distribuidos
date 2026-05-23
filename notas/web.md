@@ -926,14 +926,14 @@ print(respuesta.json())
 * Botón: Volver
 
 Código HTML/jinja:
-* ```html
+```html
 {% for m in mensajes %}
 <li>
 <b>{{m.nombre}}</b>:{{m.mensaje}}
 </li>
 {% endfor %}
-
 ```
+
 * Para regresar al index.html: 
 * `<a href="/">Volver</a>` 
 
@@ -944,307 +944,103 @@ Código HTML/jinja:
 * `@app.route("/nuevo_mensaje", methods=["POST"]) def nuevo_mensaje():` 
 
 ## Página 68
-* **Lógica de Negocio para el ENDPOINT index**: 
+**Lógica de Negocio para el ENDPOINT index**: 
 * Regresa el template index.html 
-* **Lógica de Negocio para el ENDPOINT ver_mensajes**: 
+**Lógica de Negocio para el ENDPOINT ver_mensajes**: 
 * Regresa el template mensajes.html pasando como contexto una lista mensajes de objetos JSON 
 
-
-## Página 7
-
-* 
-**Título principal:** Lógica de Negocio para el ENDPOINT nuevo_mensaje: 
-
-
+## Página 69
+**Lógica de Negocio para el ENDPOINT nuevo_mensaje**: 
 * Agrega un mensaje a una lista mensajes de objetos JSON 
-
-
 * Los datos del mensaje a agregar los extrae del objeto request 
-
-
-* 
-`request.form["nombre"]` ó `request.form.get("nombre")` 
-
-
+* `request.form["nombre"]` ó `request.form.get("nombre")` 
 * El elemento de la lista se agrega en formato JSON El objeto JSON tiene dos atributos nombre y mensaje 
-
-
 * Al final, el endpoint redirecciona a "ver_mensajes" 
+* `return redirect(url_for("ver_mensajes"))` 
+* **Descripción visual:** Un globo de texto resalta la redirección indicando "Envía a página de mensajes".
 
-
-* 
-`return redirect(url_for("ver_mensajes"))` 
-
-
-* 
-**Descripción visual:** Un globo de texto resalta la redirección indicando "Envía a página de mensajes".
-
-
-
----
-
-## Página 8
-
-* 
+## Página 70
 **Título principal:** Servicios Web 
-
-
-* 
 **Subtítulo:** SOAP 
 
-
-
----
-
-## Página 9
-
+## Página 71
 * **Descripción visual:** Se muestran dos logotipos clave: una pastilla de jabón rosa con la palabra "SOAP" tallada, y el cubo geométrico del World Wide Web Consortium. También hay un gráfico conceptual mostrando dos monitores de computadora interconectados entre sí por un haz de cables azules de red.
+* **Título principal:** Servicios Web SOAP 
+* Estandarización controlada por un grupo del W3C: World Wide Web Consortium 
+* Definición de W3C: "a software system designed to support interoperable machine-to-machine interaction over a network" 
 
-
-* 
-**Título principal:** Servicios Web SOAP 
-
-
-* Estandarización controlada por un grupo del W3C 
-
-
-* W3C 
-
-
-* World Wide Web Consortium 
-
-
-* Definición de W3C 
-
-
-* "a software system designed to support interoperable machine-to-machine interaction over a network" 
-
-
-
----
-
-## Página 10
-
-* 
-**Título principal:** Servicios Web 
-
-
-* 
-**Subtítulo:** SOAP 
-
-
+## Página 72
+* **Título principal:** Servicios Web 
 * Un servicio web es una colección de protocolos y estándares abiertos que sirven para intercambiar datos entre aplicaciones 
-
-
 * Escritos en distintos lenguajes de programación 
-
-
 * Ejecutan en distintos sistemas operativos y arquitecturas 
-
-
 * Desarrollados de manera independiente 
-
-
 * Independientes de la aplicación que los usa 
-
 
 * **Descripción visual:** Además del logo de SOAP, se ilustran dos figuras en 3D pasándose flechas (representando el intercambio de datos entre aplicaciones). Además hay una nube de palabras con lenguajes de programación populares y sistemas: CL, BASH, ERLANG, JAVA, PROLOG, ALICE, C++, RPG, SCALA, FORTH, EVO.NET, FORTRAN, HASKELL, OBJECT PASCAL, JAVASCRIPT, ASSEMBLY, COBOL, LISP, LUA, ABAP, DELPHI, PASCAL, OBJECTIVE-C, RUBY, VB, C#, PYTHON, SCHEME, MATLAB, NXT-G, MAD, GROOVY e INDEPENDENT.
 
-
-
----
-
-## Página 11
-
-* 
+## Página 73
 **Título principal:** Servicios Web 
+* **Comunicación asíncrona y síncrona** 
+* *Descripción visual:Diagrama arquitectónico del flujo de llamadas de servicios. Un "Client" (cliente) envía peticiones de comunicación síncrona y asíncrona hacia un "Travel Agent Service" (agente de viajes). Éste a su vez orquesta peticiones a servicios más pequeños: "hotel booking a", "hotel booking b", "flight booking a", "flight booking b", "hire car booking a", "hire car booking b".*
 
-
-* **Descripción visual:** Diagrama arquitectónico del flujo de llamadas de servicios. Un "Client" (cliente) envía peticiones de comunicación síncrona y asíncrona hacia un "Travel Agent Service" (agente de viajes). Éste a su vez orquesta peticiones a servicios más pequeños: "hotel booking a", "hotel booking b", "flight booking a", "flight booking b", "hire car booking a", "hire car booking b".
-
-
-* Comunicación asíncrona y síncrona 
-
-
-
----
-
-## Página 12
-
-* 
+## Página 74
 **Título principal:** Servicios Web 
-
-
-* 
-**Ventajas:** Interoperabilidad entre aplicaciones. 
-
-
+**Ventajas:** 
+* Interoperabilidad entre aplicaciones. 
 * Independencia entre el servicio web y el cliente 
-
-
 * Uso de estándares 
-
-
 * Al ejecutar “comúnmente” HTTP, pueden atravesar firewalls sin necesidad de cambiar las reglas de filtrado. 
 
-
-* 
-**Desventajas:** Bajo rendimiento comparado con otros modelos de computación distribuida: RMI, RPC o gRPC. 
-
-
+**Desventajas:** 
+* Bajo rendimiento comparado con otros modelos de computación distribuida: RMI, RPC o gRPC. 
 * Pueden esquivar firewalls 
+Enlace: `http://www.zdnet.com/news/xml-web-services-need-a-firewall/298402` 
+*Descripción visual:* Dibujo de un profesor calvo de traje negro pesando figurativamente las palabras "PROS" y "CONS" en sus manos.*
 
+## Página 75
+* Descripción visual: Este esquema expone la pila tecnológica del protocolo. En la base se ubican "URIs", "XML", y "HTTP, SMTP u otros". En la capa de red principal reside "SOAP". Por encima encontramos "Web Services" y "WSDL". En la capa superior viven las "Aplicaciones", los "Servicios de directorio" y la "Seguridad". Un dibujo adicional muestra bloques 3D apilados formando la palabra "STANDARDS".*
 
-* Enlace: `http://www.zdnet.com/news/xml-web-services-need-a-firewall/298402` 
-
-
-* 
-**Descripción visual:** Dibujo de un profesor calvo de traje negro pesando figurativamente las palabras "PROS" y "CONS" en sus manos.
-
-
-
----
-
-## Página 13
-
-* **Descripción visual:** Este esquema expone la pila tecnológica del protocolo. En la base se ubican "URIs", "XML", y "HTTP, SMTP u otros". En la capa de red principal reside "SOAP". Por encima encontramos "Web Services" y "WSDL". En la capa superior viven las "Aplicaciones", los "Servicios de directorio" y la "Seguridad". Un dibujo adicional muestra bloques 3D apilados formando la palabra "STANDARDS".
-
-
-
----
-
-## Página 14
-
-* 
+## Página 76
 **Título principal:** Interoperabilidad en entornos heterogéneos 
-
-
 * Servicios basados en protocolos abiertos y mecanismos estándar 
-
-
 * HTTP 
-
-
-* Simple Object Access Protocol - SOAP: Empaqueta la información y la transmite entre el cliente y el proveedor del servicio 
-
-
-* 
-**Descripción visual:** Concepto gráfico de una tubería de red transmitiendo el bloque de SOAP como paquete de información.
-
-
-
----
-
-## Página 15
-
-* 
+* Simple Object Access Protocol - SOAP: Empaqueta la información y la transmite entre el cliente y el proveedor del servicio
+  
+## Página 77
 **Título principal:** Interoperabilidad en entornos heterogéneos 
-
-
 * Servicios basados en protocolos abiertos y mecanismos estándar 
-
-
 * Extensible Markup Language - XML: Representación externa de los datos y mensajes 
-
-
 * Universal Description, Discovery and Integration - UDDI: Lista de servicios disponibles 
-
-
 * Web Service Definition Language - WSDL: Descripción del servicio 
+*Descripción visual:* Iconografía técnica que acompaña las definiciones: Un documento genérico con las siglas XML, un logo de malla de red (para UDDI) y una burbuja de chat con la letra "D" y la palabra "description" (para WSDL).*
 
-
-* 
-**Descripción visual:** Iconografía técnica que acompaña las definiciones: Un documento genérico con las siglas XML, un logo de malla de red (para UDDI) y una burbuja de chat con la letra "D" y la palabra "description" (para WSDL).
-
-
-
----
-
-## Página 16
-
-* 
+## Página 78
 **Título principal:** SOAP 
-
-
 * Simple Object Access Protocol permite intercambiar mensajes basados en XML sobre redes de computadoras 
-
-
 * Define un esquema para: Usa XML para representar el contenido de mensajes 
-
-
 * SOAP (versión 1.2) usa: HTTP, SMTP, TCP o UDP 
-
-
 * Enlace: `http://www.w3.org/TR/soap/` 
 
 
-* **Descripción visual:** Diagrama superior donde la "Aplicación 1" interactúa con la "Aplicación 2" mediante una flecha direccional por la que transita un documento XML. Otras representaciones visuales muestran a SOAP como un bloque animado musculoso, a un cartero, un sobre de correo, una caja empaquetada y un pequeño diagrama UML con un iniciador y un participante (Initiator/Participant).
+* Descripción visual: Diagrama superior donde la "Aplicación 1" interactúa con la "Aplicación 2" mediante una flecha direccional por la que transita un documento XML. Otras representaciones visuales muestran a SOAP como un bloque animado musculoso, a un cartero, un sobre de correo, una caja empaquetada y un pequeño diagrama UML con un iniciador y un participante (Initiator/Participant).*
 
-
-
----
-
-## Página 17
-
-* 
+## Página 79
 **Título principal:** SOAP 
-
-
 * SOAP específica: 
-
-
 * Cómo representar los mensajes de texto en XML 
-
-
 * Cómo procesar los elementos de los mensajes 
-
-
 * Cómo se puede combinar un par de mensajes para reproducir un modelo petición-respuesta 
-
-
 * Cómo utilizar el protocolo de aplicación (HTTP, SMTP, …) para enviar mensajes SOAP 
 
-
-* 
-**Descripción visual:** El mismo diagrama de Aplicación 1 y 2 comunicándose con un paquete XML de por medio, y la ilustración gráfica del cartero entregando cartas en red.
-
-
-
----
-
-## Página 18
-
-* 
+## Página 80
 **Título principal:** Un mensaje SOAP es transportado en un sobre (envelope) 
-
-
 * Estructura: envelope contiene un header y un body. El header contiene header element y el body contiene body element. 
+*Descripción visual:* Diagrama de llaves que desglosa el "envelope" (1) y resalta que el bloque de "header" (2) es de carácter opcional, mientras que el "body" es imperativo.*
 
-
-* opcional 
-
-
-* 1 
-
-
-* 2 
-
-
-* 
-**Descripción visual:** Diagrama de llaves que desglosa el "envelope" (1) y resalta que el bloque de "header" (2) es de carácter opcional, mientras que el "body" es imperativo.
-
-
-
----
-
-## Página 19
-
-* 
+## Página 81
 **Título principal:** Mensaje 
-
-
 * **Estructura del Mensaje en código XML:**
-
 ```xml
 <?xml version="1.0"?>
 <soap:Envelope
@@ -1265,43 +1061,34 @@ soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
 </soap:Envelope>
 
 ```
+*Descripción visual: Diagrama de jerarquía junto a la pastilla de SOAP que divide conceptualmente un mensaje web en su "Sobre", su "Cabecera" y su "Cuerpo".*
 
-
-
-* 
-**Descripción visual:** Diagrama de jerarquía junto a la pastilla de SOAP que divide conceptualmente un mensaje web en su "Sobre", su "Cabecera" y su "Cuerpo".
-
-
-
----
-
-## Página 20
-
-* 
+## Página 82
 **Título principal:** Sobre (Envelope) 
-
-
 * Define el documento XML como un mensaje SOAP 
-
-
-* Obligatorio 
-
-
-* EncodingStyle define los tipos de datos usados en el documento. 
-
-
-
----
-
-## Página 21
-
-* 
+* Obligatorio- xmlns:soap="https...
+* EncodingStyle define los tipos de datos usados en el documento.
+```
+<?xml version="1.0"?>
+<soap: Envelope
+xmlns:soap="http://www.w3.org/2001/12/soap-envelope"
+soap:encodingStyle="http://www.w3.org/2001/12/soap-encoding">
+Message information goes here
+</soap: Envelope>
+```
+## Página 83
 **Título principal:** Mensaje SOAP 
-
-
-* Estilo RPC y literal 
-
-
+* Estilo RPC y literal
+```
+‹soap: envelope>
+‹soap: body>
+<myMethod>
+<x>5< /x>
+<y>5.0</y>
+< /myMethod>
+</ soap:body>
+</ soap:envelope>
+```
 
 ---
 
