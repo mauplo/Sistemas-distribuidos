@@ -1877,7 +1877,7 @@ class Carrera (models.Model):
 
 ```
 
-## Página 6: Shell de Django (continuación)
+## Página 151: Shell de Django (continuación)
 
 ```python
 from myfirstapp.models import Estudiante, Carrera
@@ -1896,7 +1896,7 @@ estudiante.carrera_set.all()
 
 ```
 
-## Página 7: Continuación
+## Página 152: Continuación
 ```python
 >> carrera = estudiante.carrera_set.create(tipo=1, nombre="Actuaria")
 carrera.estudiante
@@ -1966,20 +1966,14 @@ def agrega_carrera(request, estudiante_id):
 
 ```
 
-## Página 13: Convertidores
-
+## Página 158: Vinculando las vistas a URLs y convertidores
+**Convertidores**
 * `int`
 * `str`
-* `slug`: ascii con `_` `-`
-
----
-
-## Página 14: Vinculando las vistas a URLs
-
-* Archivo a modificar: `myfirstapp/urls.py`
+* `slug`: ascii con `_-`
+Archivo a modificar: `myfirstapp/urls.py`
 
 ```python
-# ...
 urlpatterns = [
     # ...
     # ejemplo: /myfirstapp/5/detalles/
@@ -1992,12 +1986,19 @@ urlpatterns = [
 
 ```
 
----
+## Página 159: Aumentando funcionalidad en las views
+```python
+from .models import Estudiante
+def index(request):
+estudiantes = Estudiante.objects.order_by("nombre")
+lista =
+""
+for e in estudiantes:
+lista += e.__str__()+", "
+return HttpResponse(lista)
+```
 
-## Página 15: El lenguaje de template de Django
-
-* Documentación: `https://docs.djangoproject.com/en/4.0/ref/templates/language/`
-
+## Página 160: El lenguaje de template de Django
 ```html
 {% if athlete_list %}
     Number of athletes: {{ athlete_list|length }}
@@ -2008,13 +2009,10 @@ urlpatterns = [
 {% endif %}
 
 ```
+Documentación: `https://docs.djangoproject.com/en/4.0/ref/templates/language/`
 
----
-
-## Página 16: Creando de las Templates
-
+## Página 161: Creando de las Templates
 * Archivo a crear: `myfirstapp/templates/myfirstapp/index.html`
-
 ```html
 <!DOCTYPE html>
 <html>
@@ -2041,10 +2039,7 @@ urlpatterns = [
 
 ```
 
----
-
-## Página 17: Revisitando la vista index 1
-
+## Página 162: Revisitando la vista index 1
 * Archivo a modificar: `myfirstapp/views.py`
 
 ```python
@@ -2062,12 +2057,8 @@ def index(request):
 
 ```
 
----
-
-## Página 18: Revisitando la vista index 2
-
+## Página 163: Revisitando la vista index 2
 * Archivo a modificar: `myfirstapp/views.py`
-
 ```python
 # ...
 from django.shortcuts import render
@@ -2082,12 +2073,8 @@ def index(request):
 
 ```
 
----
-
-## Página 19: Creando template para detalles
-
+## Página 164: Creando template para detalles
 * Archivo a crear: `templates/myfirstapp/detalles.html`
-
 ```html
 <!DOCTYPE html>
 <html>
@@ -2112,13 +2099,8 @@ def index(request):
 </html>
 
 ```
-
----
-
-## Página 20: Actualizando la vista Detalles
-
+## Página 165: Actualizando la vista Detalles
 * Archivo a modificar: `myfirstapp/views.py`
-
 ```python
 # ...
 def detalles(request, estudiante_id):
@@ -2128,12 +2110,8 @@ def detalles(request, estudiante_id):
 
 ```
 
----
-
-## Página 21: Excepciones HTTP
-
+## Página 166: Excepciones HTTP
 * Archivo a modificar: `myfirstapp/views.py`
-
 ```python
 # ...
 from django.http import Http404
@@ -2147,13 +2125,8 @@ def detalles(request, estudiante_id):
 # ...
 
 ```
-
----
-
-## Página 22: Simplificando la excepción HTTP
-
+## Página 167: Simplificando la excepción HTTP
 * Archivo a modificar: `myfirstapp/views.py`
-
 ```python
 # ...
 from django.shortcuts import get_object_or_404
@@ -2165,12 +2138,9 @@ def detalles(request, estudiante_id):
 
 ```
 
----
-
-## Página 23: Mostrando las Carreras en el Template detalles.html [1/3]
+## Página 168: Mostrando las Carreras en el Template detalles.html [1/3]
 
 * Archivo a modificar: `template/myfirstapp/detalles.html`
-
 ```html
 <!DOCTYPE html>
 <html>
@@ -2190,10 +2160,7 @@ def detalles(request, estudiante_id):
 </html>
 
 ```
-
----
-
-## Página 24: Mostrando las Carreras en el Template detalles.html [2/3]
+## Página 169: Mostrando las Carreras en el Template detalles.html [2/3]
 
 * Archivo a modificar: `myfirstapp/models.py`
 
@@ -2214,10 +2181,7 @@ class Carrera (models.Model):
 
 ```
 
----
-
-## Página 25: Mostrando las Carreras en el Template detalles.html [3/3]
-
+## Página 170: Mostrando las Carreras en el Template detalles.html [3/3]
 * Archivo a modificar: `template/detalles.html`
 
 ```html
@@ -2240,10 +2204,8 @@ class Carrera (models.Model):
 
 ```
 
-## Página 1: Agregando un Namespace a la App
-
+## Página 171: Agregando un Namespace a la App
 * **Archivo:** `myfirstapp/urls.py`
-
 ```python
 from django.urls import path
 from . import views
@@ -2255,23 +2217,15 @@ urlpatterns = [
 ]
 
 ```
-
----
-
-## Página 2: Quitando URL cableadas en Templates
-
+## Página 172: Quitando URL cableadas en Templates
 * **Archivo:** `myfirstapp/templates/myfirstapp/index.html`
 * *Antes (Cableado):*
 `<li><a href="/myfirstapp/{{estudiante.id}}/detalles"> {{estudiante.nombre}} {{estudiante.apellidos}} </a></li>`
 * *Después (Usando namespace):*
 `<li><a href="{% url 'myfirstapp:detalles' estudiante.id %}"> {{estudiante.nombre}} {{estudiante.apellidos}} </a></li>`
 
----
-
-## Página 3: Agrega un Estudiante - POST [1/2]
-
+## Página 173: Agrega un Estudiante - POST [1/2]
 * **Archivo:** `myfirstapp/templates/myfirstapp/index.html`
-
 ```html
 <form action="agrega_estudiante_forma" method="POST">
     {% csrf_token %}
@@ -2285,29 +2239,23 @@ urlpatterns = [
 
 ```
 
----
-
-## Página 4: Agrega un Estudiante - POST [2/2]
-
+## Página 174: Agrega un Estudiante - POST [2/2]
 * **Archivo:** `myfirstapp/views.py`
-
-```python
 def agrega_estudiante_forma(request):
-    nombre = request.POST["nombre"]
-    apellidos = request.POST["apellidos"]
-    edad = int(request.POST["edad"])
-    promedio = float(request.POST["promedio"])
-    foraneo = "foraneo" in request.POST
-    
-    nuevo_estudiante = Estudiante(nombre=nombre, apellidos=apellidos, 
-                                  edad=edad, promedio=promedio, foraneo=foraneo)
-    nuevo_estudiante.save()
-    
-    return HttpResponseRedirect(reverse("myfirstapp:index"))
+  nombre = request.POST.get("nombre")
+  apellidos = request.POST.get("apellidos")
+  edad = int(request.POST.get("edad"))
+  if "foraneo" in request.POST:
+    foraneo = True
+  else:
+    foraneo = False
+  promedio = float(request.POST.get("promedio"))
+  estudiante = Estudiante( nombre=nombre, apellidos=apellidos,edad=int(edad),foraneo=foraneo, promedio=float(promedio))
+  estudiante.save()
+  return HttpResponse("Estudiante %s agregado exitósamente desde la forma"
+% estudiante.id)
 
 ```
-
----
 
 ## Página 5: Redirección
 
