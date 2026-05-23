@@ -1844,7 +1844,7 @@ INSTALLED_APPS = [
 `estudiante = Estudiante ("José", "Gutiérrez", 49, 8.9, True)`
 `estudiante.id`
 
-## Página 149: Interactúa con el Shell de Django
+## Página 149: Continuación
 
 **Forma correcta:**
 `>> estudiante = Estudiante (nombre="José", apellidos="Gutiérrez", edad = 49, promedio = 8.9, foraneo=True)`
@@ -1877,7 +1877,7 @@ class Carrera (models.Model):
 
 ```
 
-## Página 6: Interactúa con el Shell de Django
+## Página 6: Shell de Django (continuación)
 
 ```python
 from myfirstapp.models import Estudiante, Carrera
@@ -1896,10 +1896,7 @@ estudiante.carrera_set.all()
 
 ```
 
----
-
-## Página 7: Interactúa con el Shell de Django
-
+## Página 7: Continuación
 ```python
 >> carrera = estudiante.carrera_set.create(tipo=1, nombre="Actuaria")
 carrera.estudiante
@@ -1910,11 +1907,9 @@ c.delete()
 
 ```
 
-* Agrega dos Carreras al estudiante 2
+* Nota: Agrega dos Carreras al estudiante 2
 
----
-
-## Página 8: Filtros
+## Página 153: Filtros
 
 ```python
 from django.db.models import Q
@@ -1933,25 +1928,16 @@ Estudiante.objects.filter(Q(nombre="Jose") & ~Q(apellidos="Gutierre"))
 
 ```
 
----
-
-## Página 9: Crea un Super usuario
-
+## Página 154: Crea un Super usuario
 * Comando: `python manage.py createsuperuser`
-* *Ejemplo de datos ingresados:*
+*Ejemplo de datos ingresados:*
 * admin
 * admin@admin.com
 * 123456
-
-
 * Acceso: `http://127.0.0.1:8000/admin`
 
----
-
-## Página 10: Añade tu App a la Interfaz Admin
-
+## Página 155: Añade tu App a la Interfaz Admin
 * Archivo a modificar: `.../myfirstapp/admin.py`
-
 ```python
 from django.contrib import admin
 from .models import Estudiante, Carrera
@@ -1961,22 +1947,14 @@ admin.site.register(Carrera)
 
 ```
 
----
-
-## Página 11: Entra al sitio de Administración
-
+## Página 156: Entra al sitio de Administración
 * Acceso: `http://127.0.0.1:8000/admin`
 * Agrega un nuevo Estudiante
 * *(Imagen referencial: Pantalla de "Site administration" de Django con las secciones de AUTHENTICATION AND AUTHORIZATION (Groups, Users) y MYFIRSTAPP (Carreras, Estudiantes))*
 
----
-
-## Página 12: Creando más vistas y paso de parámetros
-
+## Página 157: Creando más vistas y paso de parámetros
 * Archivo a modificar: `myfirstapp/views.py`
-
 ```python
-# ...
 def detalles(request, estudiante_id):
     return HttpResponse("Detalles del estudiante %s." % estudiante_id)
 
@@ -1987,8 +1965,6 @@ def agrega_carrera(request, estudiante_id):
     return HttpResponse("Agregando una carrera a %s." % estudiante_id)
 
 ```
-
----
 
 ## Página 13: Convertidores
 
