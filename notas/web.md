@@ -664,216 +664,74 @@ function changeImage() {
 
 * Enlace de referencia: [https://developer.mozilla.org/es/docs/Web/HTTP/Status](https://developer.mozilla.org/es/docs/Web/HTTP/Status).
 
-## Página 5: Servicios Web RESTful (Comparación)
+## Página 45: Servicios Web RESTful (Comparación)
 
-* 
-**Título:** Servicios Web RESTful.
-
-
+* **Título:** Servicios Web RESTful.
 * Mensajes en servicios web RESTful no requieren ser empaquetados en "sobres", como es el caso de servicios web SOAP.
-
-
 * Servicios web SOAP regresan datos en XML.
-
-
 * Servicios web RESTful regresan datos en XML, JSON, HTML y texto plano.
+* (Descripción visual: Un muñeco 3D descansando tranquilamente , un símbolo rojo de prohibido sobre cartas/sobres , e íconos que representan XML, json y TXT ).
 
-
-* 
-(Descripción visual: Un muñeco 3D descansando tranquilamente , un símbolo rojo de prohibido sobre cartas/sobres , e íconos que representan XML, json y TXT ).
-
-
-
-## Página 6: ¿Quién usa servicios web RESTful?
-
-* 
-**Título:** ¿Quién usa servicios web RESTful?.
-
-
+## Página 46: ¿Quién usa servicios web RESTful?
+* **Título:** ¿Quién usa servicios web RESTful?.
 * Plataformas como Twitter y Amazon Web Services.
-
-
 * Específicamente Amazon Simple Storage Service (S3).
+* *(Descripción visual: Un diagrama en el que carpetas suben desde servidores locales hacia una nube y luego se descargan a diferentes dispositivos de usuario)*.
 
+## Página 47: Portada Transición a Flask
+* **Institución:** ITAM.
+* **Materia:** Servicios Web RESTful.
+* **Tema Principal:** Flask.
+* **Profesor:** Dr. J. Octavio Gutiérrez García.
+* **Contacto:** octavio.gutierrez@itam.mx.
 
-* 
-*(Descripción visual: Un diagrama en el que carpetas suben desde servidores locales hacia una nube y luego se descargan a diferentes dispositivos de usuario)*.
+## Página 48: Logotipos (Python y Jinja)
+* *(Descripción visual: Aparecen los logotipos representativos de Python y Jinja)*.
 
+## Página 49: Logotipo JSON
+* *(Descripción visual: Aparece el logo de {JSON} y su significado "JavaScript Object Notation")*.
 
+## Página 50: Logotipos (Python y Pickle)
+* *(Descripción visual: Se muestran los logotipos de Python y PICKLE)*.
 
-## Página 7: Portada Transición a Flask
-
-* 
-**Institución:** ITAM.
-
-
-* 
-**Materia:** Servicios Web RESTful.
-
-
-* 
-**Tema Principal:** Flask.
-
-
-* 
-**Profesor:** Dr. J. Octavio Gutiérrez García.
-
-
-* 
-**Contacto:** octavio.gutierrez@itam.mx.
-
-
-
-## Página 8: Logotipos (Python y Jinja)
-
-* 
-*(Descripción visual: Aparecen los logotipos representativos de Python y Jinja)*.
-
-
-
-## Página 9: Logotipo JSON
-
-* 
-*(Descripción visual: Aparece el logo de {JSON} y su significado "JavaScript Object Notation")*.
-
-
-
-## Página 10: Logotipos (Python y Pickle)
-
-* 
-*(Descripción visual: Se muestran los logotipos de Python y PICKLE)*.
-
-
-
-## Página 11: Modelo de Regresión Logística
-
-* 
-**CONTEXTO:** Datos y Modelo de Regresión Logística.
-
-
+## Página 51: Modelo de Regresión Logística
+* **CONTEXTO:** Datos y Modelo de Regresión Logística.
 * Se ilustra una gráfica para la probabilidad de Taquicardia.
-
-
 * Eje Y: Probabilidad de 0.0 a 1.0.
-
-
 * Eje X: Latidos por minuto de 60 a 200.
-
-
 * Los puntos con probabilidad cercana a 0.0 se clasifican como NORMAL.
-
-
 * La fórmula mostrada es: $\frac{1}{1 + e^{-(b_{0}+b_{1}x)}}$.
+* *(Descripción visual: Gráfica de dispersión mostrando la probabilidad de taquicardia contra los latidos por minuto con una curva de regresión ajustándose a los datos)*.
 
-
-* 
-*(Descripción visual: Gráfica de dispersión mostrando la probabilidad de taquicardia contra los latidos por minuto con una curva de regresión ajustándose a los datos)*.
-
-
-
-## Página 12: Instalación
-
-* 
-**Título:** Instalación.
-
-
+## Página 52: Instalación
+* **Título:** Instalación.
 * Comandos de consola a ejecutar:
-* 
-`python -m pip install --upgrade pip` 
+* `python -m pip install --upgrade pip` 
+* `python -m pip install Flask` 
+* `python -m pip install Flask-enterprise` 
+* `python -m pip install Flask-ext` 
+* `python -m pip install Flask-mysql` 
+* `python -m pip install Flask-restful` 
+* `python -m pip install numpy` 
+* `python -m pip install scikit-learn` 
+* `python -m pip install requests` 
+* *(Descripción visual: Un dibujo de un nudo complejo hecho de una cuerda negra)*.
 
-
-* 
-`python -m pip install Flask` 
-
-
-* 
-`python -m pip install Flask-enterprise` 
-
-
-* 
-`python -m pip install Flask-ext` 
-
-
-* 
-`python -m pip install Flask-mysql` 
-
-
-* 
-`python -m pip install Flask-restful` 
-
-
-* 
-`python -m pip install numpy` 
-
-
-* 
-`python -m pip install scikit-learn` 
-
-
-* 
-`python -m pip install requests` 
-
-
-
-
-* 
-*(Descripción visual: Un dibujo de un nudo complejo hecho de una cuerda negra)*.
-
-
-
-## Página 13: Estructura del Proyecto
-
-* 
-**Título:** Estructura del Proyecto.
-
-
+## Página 53: Estructura del Proyecto
+* **Título:** Estructura del Proyecto.
 * Directorio principal: `DESPLIEGUE`.
-
-
 * Carpeta: `templates`.
-
-
 * Archivo: `index.html`.
-
-
-
-
 * Archivos Python en raíz:
-* 
-`app.py`.
+* `app.py`.
+* `creacion_modelo.py`.
+* `modelo.pkl` (Creado por `creación_modelo.py`).
+* `realiza_solicitud.py`.
 
-
-* 
-`creacion_modelo.py`.
-
-
-* 
-`modelo.pkl` (Creado por `creación_modelo.py`).
-
-
-* 
-`realiza_solicitud.py`.
-
-
-
-
-
-
-
-## Página 14: index.html
-
-* 
-**Título:** index.html.
-
-
-* 
-*(Descripción visual: Logotipo del escudo naranja de HTML5)*.
-
-
+## Página 54: index.html
+* **Título:** index.html.
+* *(Descripción visual: Logotipo del escudo naranja de HTML5)*.
 * Código de la interfaz web:
-
-
-
 ```html
 <!DOCTYPE html>
 <html >
@@ -894,16 +752,9 @@ function changeImage() {
 
 ```
 
-## Página 15: app.py [1/5] - Librerías
-
-* 
-**Título:** app.py [1/5] - Librerías.
-
-
+## Página 55: app.py [1/5] - Librerías
+* **Título:** app.py [1/5] - Librerías.
 * Código para importar bibliotecas en Python:
-
-
-
 ```python
 import numpy as np
 from flask import Flask, request, jsonify, render_template
@@ -911,36 +762,19 @@ import pickle
 
 ```
 
-## Página 16: app.py [2/5] - Instanciando App y Modelo
-
-* 
-**Título:** app.py [2/5] - Instanciando App y Modelo.
-
-
+## Página 56: app.py [2/5] - Instanciando App y Modelo
+* **Título:** app.py [2/5] - Instanciando App y Modelo.
 * Código para cargar la aplicación y el archivo Pickle:
-
-
-
 ```python
 app=Flask(__name__)
 modelo=pickle.load(open('modelo.pkl','rb'))
 
 ```
 
-## Página 17: app.py [3/5] - Cargando el índice
-
-* 
-**Título:** app.py [3/5] - Cargando el índice.
-
-
-* 
-*(Descripción visual: Aparece el dibujo de un teléfono inteligente con íconos de colores y el texto "my APP")*.
-
-
+## Página 57: app.py [3/5] - Cargando el índice
+* **Título:** app.py [3/5] - Cargando el índice.
+* *(Descripción visual: Aparece el dibujo de un teléfono inteligente con íconos de colores y el texto "my APP")*.
 * Código de ruteo para mostrar el HTML:
-
-
-
 ```python
 @app.route('/')
 def home():
@@ -951,20 +785,10 @@ if __name__ == "__main__":
 
 ```
 
-## Página 18: app.py [4/5] - Desde la Web
-
-* 
-**Título:** app.py [4/5] - Desde la Web.
-
-
-* 
-*(Descripción visual: Se aprecia una porción de una pantalla mostrando campos de formulario web con un botón)*.
-
-
+## Página 58: app.py [4/5] - Desde la Web
+* **Título:** app.py [4/5] - Desde la Web.
+* *(Descripción visual: Se aprecia una porción de una pantalla mostrando campos de formulario web con un botón)*.
 * Código que atiende la solicitud desde el HTML:
-
-
-
 ```python
 @app.route('/clasificaweb', methods=['POST'])
 def clasificaweb():
@@ -979,20 +803,10 @@ def clasificaweb():
 
 ```
 
-## Página 19: app.py [5/5] - API Json
-
-* 
-**Título:** app.py [5/5] - API Json.
-
-
-* 
-*(Descripción visual: Un dibujo delineado que muestra una máscara de hockey)*.
-
-
+## Página 59: app.py [5/5] - API Json
+* **Título:** app.py [5/5] - API Json.
+* *(Descripción visual: Un dibujo delineado que muestra una máscara de hockey)*.
 * Código que atiende la solicitud de una API devolviendo JSON:
-
-
-
 ```python
 @app.route('/clasificaapi', methods=['POST'])
 def clasificaapi():
@@ -1007,61 +821,30 @@ def clasificaapi():
 
 ```
 
-## Página 20: Cubo Tecnológico
-
-* 
-*(Descripción visual: Se muestra una ilustración en forma isométrica compuesta por pequeños cubos azules brillantes integrando un cubo más grande)*.
-
-
-
-## Página 21: creación_modelo.py [1/3] - Datos
-
-* 
-**Título:** creación_modelo.py [1/3] - Datos.
-
-
-* 
-*(Descripción visual: Frasco de cristal relleno con pepinillos enteros con la palabra "Python" en la tapa, haciendo alusión a la librería "pickle")*.
-
-
+## Página 60: creación_modelo.py [1/3] - Datos
+* **Título:** creación_modelo.py [1/3] - Datos.
+* * *(Descripción visual: Se muestra una ilustración en forma isométrica compuesta por pequeños cubos azules brillantes integrando un cubo más grande)*.
 * Código para definir el set de datos para entrenar el modelo:
-
-
-
 ```python
 import pickle
 import numpy as np
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
-
 # Números decimales
 np.set_printoptions(suppress=True)
-
 # Frecuencias cardíacas de 20 personas
 frecuencias_cardiacas = np.array([[65], [70], [80], [80], [80], [90],
                                   [95], [100], [105], [110], [105],
                                   [110], [110], [120], [120], [130],
                                   [140], [180], [185], [190]])
-
 # Clase de las personas 0: Normal 1: Taquicardía
 clase = np.array([0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1])
 
 ```
-
-## Página 22: creación_modelo.py [2/3] y [3/3] - Creación y Evaluación
-
-* 
-**Títulos:** creación_modelo.py [2/3] - Creación y [3/3] - Evaluación.
-
-
-* 
-*(Descripción visual: Una diana con los aros rojo y blanco intercalados, donde el centro fue atravesado por una flecha)*.
-
-
+## Página 61: creación_modelo.py [2/3] y [3/3] - Creación 
+* **Títulos:** creación_modelo.py [2/3] - Creación. 
+* *(Descripción visual: Frasco de cristal relleno con pepinillos enteros con la palabra "Python" en la tapa, haciendo alusión a la librería "pickle")*.
 * Código para entrenar y guardar el modelo logístico:
-
-
-
 ```python
 # Creamos conjuntos de entrenamiento y de prueba del modelo
 datos_entrena, datos_prueba, clase_entrena, clase_prueba = train_test_split(frecuencias_cardiacas, clase, test_size=0.30)
@@ -1072,11 +855,10 @@ pickle.dump(modelo, open('modelo.pkl', 'wb'))
 modelo = pickle.load(open('modelo.pkl', 'rb'))
 
 ```
-
+## Página 62: creación_modelo.py [3/3] - Evaluación
+* **Títulos:** creación_modelo.py [3/3] - Evaluación.
+* *(Descripción visual: Una diana con los aros rojo y blanco intercalados, donde el centro fue atravesado por una flecha)*.
 * Código para evaluar el modelo:
-
-
-
 ```python
 print(modelo.predict(datos_prueba))
 print(modelo.predict_proba(datos_prueba))
@@ -1084,20 +866,12 @@ print(modelo.score(datos_prueba, clase_prueba))
 print(modelo.intercept_, modelo.coef_)
 
 ```
-
 * Fórmula adjunta de la regresión logística: $\frac{1}{1+e^{-(b_{0}+b_{1}x)}}$.
 
-## Página 1
-
+## Página 63
 * **Descripción visual:** La diapositiva muestra un logotipo con la palabra "API" dentro de un hexágono azul.
-* 
-**Archivo:** `realiza_solicitud.py` 
-
-
-* 
-**Título:** API 
-
-
+* **Archivo:** `realiza_solicitud.py` 
+* **Título:** API 
 * **Código:**
 
 ```python
@@ -1107,135 +881,52 @@ respuesta=requests.post(url,json={"frecuencia":100})
 print(respuesta.json())
 
 ```
-
-
-
----
-
-## Página 2
-
-* 
-**Título:** Laboratorio: 
-
-
-* 
-**Subtítulo:** Estructura del Proyecto: 
-
-
+## Página 64
+* **Título:** Laboratorio: 
+* **Subtítulo:** Estructura del Proyecto: 
 * FLASK_LAB 
-
-
-* templates 
-
-
+* templates: 
 * index.html 
-
-
 * mensajes.html 
-
-
+* Archivos Python en raíz:
 * app.py 
 
-
-* 
 **Interfaz - index.html:** Enviar mensaje 
-
-
 * Nombre: Nombre 
-
-
 * Mensaje: 
-
-
 * Botón: Enviar 
-
-
 * Botón: Mensaje 
 
-
-* 
 **Interfaz - mensajes.html:** Mensajes 
-
-
 * Juan Perez: Hola a todos 
-
-
-* Luis Jimenez: Este es una mensaje 
-
-
+* Luis Jimenez: Este es un mensaje 
 * Botón: Volver 
 
-
-
----
-
-## Página 3
-
-* 
-**Título:** index.html 
-
-
-* 
-**Interfaz:** Enviar mensaje 
-
-
+## Página 65
+* **Título:** index.html 
+* **Interfaz:** Enviar mensaje 
 * Nombre: Nombre 
-
-
-* Mensaje: 
-
-
+* Mensaje: Mensaje
 * Botón: Enviar 
 
-
-* Botón: Mensaje 
-
-
 * **Código HTML:**
-
 ```html
 <input type="text" name="nombre" placeholder="Nombre">
 <textarea name="mensaje" placeholder="Mensaje"></textarea>
 
 ```
-
-
-
 * En el action: 
+* `{{url_for('nombre_del_metodo')}}` 
 
-
-* 
-`{{url_for('nombre_del_metodo')}}` 
-
-
-
----
-
-## Página 4
-
-* 
-**Título:** mensajes.html 
-
-
-* Código jinja: 
-
-
-* 
-**Interfaz:** Mensajes 
-
-
+## Página 66
+* **Título:** mensajes.html
+* **Interfaz:** Mensajes 
 * Juan Perez: Hola a todos 
-
-
 * Luis Jimenez: Este es una mensaje 
+* Botón: Volver
 
-
-* Botón: Volver 
-
-
-* **Código HTML/Jinja:**
-
-```html
+Código HTML/jinja:
+* ```html
 {% for m in mensajes %}
 <li>
 <b>{{m.nombre}}</b>:{{m.mensaje}}
@@ -1243,58 +934,21 @@ print(respuesta.json())
 {% endfor %}
 
 ```
-
-
-
 * Para regresar al index.html: 
+* `<a href="/">Volver</a>` 
 
+## Página 67
+* **Título:** Endpoints 
+* `@app.route("/") def index():` 
+* `@app.route("/mensajes", methods=["GET"]) def ver_mensajes():` 
+* `@app.route("/nuevo_mensaje", methods=["POST"]) def nuevo_mensaje():` 
 
-* 
-`<a href="/">Volver</a>` 
-
-
-
----
-
-## Página 5
-
-* 
-**Título:** Endpoints 
-
-
-* 
-`@app.route("/") def index():` 
-
-
-* 
-`@app.route("/mensajes", methods=["GET"]) def ver_mensajes():` 
-
-
-* 
-`@app.route("/nuevo_mensaje", methods=["POST"]) def nuevo_mensaje():` 
-
-
-
----
-
-## Página 6
-
-* 
-**Título principal:** Lógica de Negocio para el ENDPOINT index: 
-
-
+## Página 68
+* **Lógica de Negocio para el ENDPOINT index**: 
 * Regresa el template index.html 
-
-
-* 
-**Título secundario:** Lógica de Negocio para el ENDPOINT ver_mensajes: 
-
-
+* **Lógica de Negocio para el ENDPOINT ver_mensajes**: 
 * Regresa el template mensajes.html pasando como contexto una lista mensajes de objetos JSON 
 
-
-
----
 
 ## Página 7
 
