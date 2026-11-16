@@ -12,3 +12,4 @@ Proyecto que implementa las tecnologías de una forma más avanzada, muy útil p
 proyecto final de tecnologías web django.
 ## SD_Prep_Final
 codigo respresentativo de un examen final pasado.
+xd
